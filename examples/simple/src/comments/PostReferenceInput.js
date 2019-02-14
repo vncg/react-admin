@@ -16,7 +16,7 @@ import {
     ReferenceInput,
     SelectInput,
     translate,
-} from 'react-admin'; // eslint-disable-line import/no-unresolved
+} from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 
 import PostQuickCreate from './PostQuickCreate';
 import PostPreview from './PostPreview';

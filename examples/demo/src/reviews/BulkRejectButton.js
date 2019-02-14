@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ThumbDown from '@material-ui/icons/ThumbDown';
-import { Button, startUndoable, crudUpdateMany } from 'react-admin';
+import { Button, startUndoable, crudUpdateMany } from 'vn-kooch-react-admin';
 
 class BulkRejectButton extends Component {
     handleClick = () => {

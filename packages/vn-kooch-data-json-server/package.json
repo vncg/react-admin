@@ -1,0 +1,38 @@
+{
+    "name": "vn-kooch-data-json-server",
+    "version": "2.7.1",
+    "description": "JSON Server data provider for vn-kooch-react-admin",
+    "main": "lib/index.js",
+    "module": "esm/index.js",
+    "sideEffects": false,
+    "files": [
+        "*.md",
+        "lib",
+        "esm",
+        "src"
+    ],
+    "authors": [
+        "François Zaninotto"
+    ],
+    "repository": "marmelab/vn-kooch-react-admin",
+    "homepage": "https://github.com/marmelab/vn-kooch-react-admin#readme",
+    "bugs": "https://github.com/marmelab/vn-kooch-react-admin/issues",
+    "license": "MIT",
+    "scripts": {
+        "build": "yarn run build-cjs && yarn run build-esm",
+        "build-cjs": "rimraf ./lib && tsc",
+        "build-esm": "rimraf ./esm && tsc --outDir esm --module es2015",
+        "watch": "rimraf ./lib && tsc --watch"
+    },
+    "dependencies": {
+        "query-string": "~5.1.1",
+        "vn-kooch-core": "^2.7.1"
+    },
+    "devDependencies": {
+        "cross-env": "^5.2.0",
+        "rimraf": "^2.6.2"
+    },
+    "publishConfig": {
+        "registry": "http://localhost:4873"
+    }
+}

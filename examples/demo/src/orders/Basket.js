@@ -8,7 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Link, translate, crudGetMany as crudGetManyAction } from 'react-admin';
+import { Link, translate, crudGetMany as crudGetManyAction } from 'vn-kooch-react-admin';
 import compose from 'recompose/compose';
 import withStyles from '@material-ui/core/styles/withStyles';
 

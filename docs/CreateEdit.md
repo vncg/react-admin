@@ -27,8 +27,8 @@ Here is the minimal code necessary to display a form to create and edit comments
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 import { PostCreate, PostEdit } from './posts';
 
@@ -42,8 +42,8 @@ export default App;
 
 // in src/posts.js
 import React from 'react';
-import { Create, Edit, SimpleForm, DisabledInput, TextInput, DateInput, LongTextInput, ReferenceManyField, Datagrid, TextField, DateField, EditButton } from 'react-admin';
-import RichTextInput from 'ra-input-rich-text';
+import { Create, Edit, SimpleForm, DisabledInput, TextInput, DateInput, LongTextInput, ReferenceManyField, Datagrid, TextField, DateField, EditButton } from 'vn-kooch-react-admin';
+import RichTextInput from 'vn-kooch-input-rich-text';
 
 export const PostCreate = (props) => (
     <Create {...props}>
@@ -99,7 +99,7 @@ export const PostEdit = (props) => (
 );
 ```
 
-More interestingly, you can pass a component as `title`. React-admin clones this component and, in the `<EditView>`, injects the current `record`. This allows to customize the title according to the current record:
+More interestingly, you can pass a component as `title`. vn-kooch-react-admin clones this component and, in the `<EditView>`, injects the current `record`. This allows to customize the title according to the current record:
 
 ```jsx
 const PostTitle = ({ record }) => {
@@ -118,7 +118,7 @@ You can replace the list of default actions by your own element using the `actio
 
 ```jsx
 import Button from '@material-ui/core/Button';
-import { CardActions, ShowButton } from 'react-admin';
+import { CardActions, ShowButton } from 'vn-kooch-react-admin';
 
 const PostEditActions = ({ basePath, data, resource }) => (
     <CardActions>
@@ -174,7 +174,7 @@ const Aside = ({ record }) => (
 ```
 {% endraw %}
 
-**Tip**: Always test that the `record` is defined before using it, as react-admin starts rendering the UI before the API call is over.
+**Tip**: Always test that the `record` is defined before using it, as vn-kooch-react-admin starts rendering the UI before the API call is over.
 
 ## Prefilling a `<Create>` Record
 
@@ -183,7 +183,7 @@ You may need to prepopulate a record based on another one. For that use case, us
 For instance, to allow cloning all the posts from the list:
 
 ```jsx
-import { List, Datagrid, TextField, CloneButton } from 'react-admin';
+import { List, Datagrid, TextField, CloneButton } from 'vn-kooch-react-admin';
 
 const PostList = props => (
     <List {...props}>
@@ -229,7 +229,7 @@ export default PostList = props => (
 ```
 {% endraw %}
 
-**Tip**: To style the button with the main color from the material-ui theme, use the `Link` component from the `react-admin` package rather than the one from `react-router-dom`.
+**Tip**: To style the button with the main color from the material-ui theme, use the `Link` component from the `vn-kooch-react-admin` package rather than the one from `react-router-dom`.
 
 **Tip**: The `<Create>` component also watches the `location.search` (the query string in the URL) in addition to `location.state` (a cross-page message hidden in the router memory). So the `CreateRelatedCommentButton` could, in theory, be written as:
 
@@ -263,8 +263,8 @@ Instead of a custom `Edit`, you can use the `EditGuesser` to determine which inp
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource, EditGuesser } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource, EditGuesser } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 const App = () => (
     <Admin dataProvider={jsonServerProvider('http://jsonplaceholder.typicode.com')}>
@@ -277,7 +277,7 @@ Just like `Edit`, `EditGuesser` fetches the data. It then analyzes the response,
 
 ![Guessed Edit](./img/guessed-edit.png)
 
-React-admin provides guessers for the `List` view (`ListGuesser`), the `Edit` view (`EditGuesser`), and the `Show` view (`ShowGuesser`).
+vn-kooch-react-admin provides guessers for the `List` view (`ListGuesser`), the `Edit` view (`EditGuesser`), and the `Show` view (`ShowGuesser`).
 
 **Tip**: Do not use the guessers in production. They are slower than manually-defined components, because they have to infer types based on the content. Besides, the guesses are not always perfect.
 
@@ -299,8 +299,8 @@ Here are all the props accepted by the `<SimpleForm>` component:
 * [`submitOnEnter`](#submit-on-enter)
 * [`redirect`](#redirection-after-submission)
 * [`toolbar`](#toolbar)
-* `save`: The function invoked when the form is submitted. This is passed automatically by `react-admin` when the form component is used inside `Create` and `Edit` components.
-* `saving`: A boolean indicating whether a save operation is ongoing. This is passed automatically by `react-admin` when the form component is used inside `Create` and `Edit` components.
+* `save`: The function invoked when the form is submitted. This is passed automatically by `vn-kooch-react-admin` when the form component is used inside `Create` and `Edit` components.
+* `saving`: A boolean indicating whether a save operation is ongoing. This is passed automatically by `vn-kooch-react-admin` when the form component is used inside `Create` and `Edit` components.
 * `form`: The name of the [`redux-form`](https://redux-form.com/7.4.2/docs/api/reduxform.md/#-code-form-string-code-required-). It defaults to `record-form` and should only be modified when using the `SimpleForm` outside of a `Create` or `Edit` component.
 
 ```jsx
@@ -331,13 +331,13 @@ Here are all the props accepted by the `<TabbedForm>` component:
 * [`submitOnEnter`](#submit-on-enter)
 * [`redirect`](#redirection-after-submission)
 * [`toolbar`](#toolbar)
-* `save`: The function invoked when the form is submitted. This is passed automatically by `react-admin` when the form component is used inside `Create` and `Edit` components.
-* `saving`: A boolean indicating whether a save operation is ongoing. This is passed automatically by `react-admin` when the form component is used inside `Create` and `Edit` components.
+* `save`: The function invoked when the form is submitted. This is passed automatically by `vn-kooch-react-admin` when the form component is used inside `Create` and `Edit` components.
+* `saving`: A boolean indicating whether a save operation is ongoing. This is passed automatically by `vn-kooch-react-admin` when the form component is used inside `Create` and `Edit` components.
 * `form`: The name of the [`redux-form`](https://redux-form.com/7.4.2/docs/api/reduxform.md/#-code-form-string-code-required-). It defaults to `record-form` and should only be modified when using the `TabbedForm` outside of a `Create` or `Edit` component.
 
 {% raw %}
 ```jsx
-import { TabbedForm, FormTab } from 'react-admin'
+import { TabbedForm, FormTab } from 'vn-kooch-react-admin'
 
 export const PostEdit = (props) => (
     <Edit {...props}>
@@ -397,7 +397,7 @@ export const PostCreate = (props) => (
 
 ### Per Input Default Value
 
-Alternatively, you can specify a `defaultValue` prop directly in `<Input>` components. Just like for form-level default values, an input-level default value can be a scalar, or a function returning a scalar.  React-admin will merge the input default values with the form default value (input > form):
+Alternatively, you can specify a `defaultValue` prop directly in `<Input>` components. Just like for form-level default values, an input-level default value can be a scalar, or a function returning a scalar.  vn-kooch-react-admin will merge the input default values with the form default value (input > form):
 
 ```jsx
 export const PostCreate = (props) => (
@@ -414,7 +414,7 @@ export const PostCreate = (props) => (
 
 ## Validation
 
-React-admin relies on [redux-form](http://redux-form.com/) for the validation.
+vn-kooch-react-admin relies on [redux-form](http://redux-form.com/) for the validation.
 
 To validate values submitted by a form, you can add a `validate` prop to the form component, to individual inputs, or even mix both approaches.
 
@@ -485,7 +485,7 @@ export const UserCreate = (props) => (
 );
 ```
 
-React-admin will combine all the input-level functions into a single function looking just like the previous one.
+vn-kooch-react-admin will combine all the input-level functions into a single function looking just like the previous one.
 
 Input validation functions receive the current field value, and the values of all fields of the current record. This allows for complex validation scenarios (e.g. validate that two passwords are the same).
 
@@ -523,7 +523,7 @@ export const ProductEdit = ({ ...props }) => (
 
 ### Built-in Field Validators
 
-React-admin already bundles a few validator functions, that you can just require, and use as input-level validators:
+vn-kooch-react-admin already bundles a few validator functions, that you can just require, and use as input-level validators:
 
 * `required(message)` if the field is mandatory,
 * `minValue(min, message)` to specify a minimum value for integers,
@@ -548,7 +548,7 @@ import {
     regex,
     email,
     choices
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 const validateFirstName = [required(), minLength(2), maxLength(15)];
 const validateEmail = email();
@@ -572,7 +572,7 @@ export const UserCreate = (props) => (
 );
 ```
 
-**Tip**: If you pass a function as a message, react-admin calls this function with `{ args, value, values,translate, ...props }` as argument. For instance:
+**Tip**: If you pass a function as a message, vn-kooch-react-admin calls this function with `{ args, value, values,translate, ...props }` as argument. For instance:
 
 ```jsx
 const message = ({ translate }) => translate('myroot.validation.email_invalid');
@@ -643,7 +643,7 @@ The most common use case is to display two submit buttons in the `<Create>` view
 For that use case, use the `<SaveButton>` component with a custom `redirect` prop:
 
 ```jsx
-import { Create, SimpleForm, SaveButton, Toolbar } from 'react-admin';
+import { Create, SimpleForm, SaveButton, Toolbar } from 'vn-kooch-react-admin';
 
 const PostCreateToolbar = props => (
     <Toolbar {...props} >
@@ -673,7 +673,7 @@ export const PostCreate = (props) => (
 Another use case is to remove the `<DeleteButton>` from the toolbar in an edit view. In that case, create a custom toolbar containing only the `<SaveButton>` as child;
 
 ```jsx
-import { Edit, SimpleForm, SaveButton, Toolbar } from 'react-admin';
+import { Edit, SimpleForm, SaveButton, Toolbar } from 'vn-kooch-react-admin';
 
 const PostEditToolbar = props => (
     <Toolbar {...props} >
@@ -700,7 +700,7 @@ Here are the props received by the `Toolbar` component when passed as the `toolb
 * `saving`: A boolean indicating whether a save operation is ongoing.
 * `submitOnEnter`: A boolean indicating whether the form should be submitted when pressing `enter`
 
-**Tip**: Use react-admin's `<Toolbar>` component instead of material-ui's `<Toolbar>` component. The former builds up on the latter, and adds support for an alternative mobile layout (and is therefore responsive).
+**Tip**: Use vn-kooch-react-admin's `<Toolbar>` component instead of material-ui's `<Toolbar>` component. The former builds up on the latter, and adds support for an alternative mobile layout (and is therefore responsive).
 
 **Tip**: Don't forget to also set the `redirect` prop of the Form component to handle submission by the `ENTER` key.
 

@@ -9,7 +9,7 @@ export default url => ({
         submitButton: ".edit-page div[role='toolbar'] button[type='submit']",
         cloneButton: '.button-clone',
         tab: index => `.form-tab:nth-of-type(${index})`,
-        title: '#react-admin-title',
+        title: '#vn-kooch-react-admin-title',
     },
 
     navigate() {

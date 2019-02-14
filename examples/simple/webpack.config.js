@@ -35,68 +35,68 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js', '.tsx', '.json'],
         alias: {
-            'ra-core': path.join(
+            'vn-kooch-core': path.join(
                 __dirname,
                 '..',
                 '..',
                 'packages',
-                'ra-core',
+                'vn-kooch-core',
                 'src'
             ),
-            'ra-ui-materialui': path.join(
+            'vn-kooch-ui-materialui': path.join(
                 __dirname,
                 '..',
                 '..',
                 'packages',
-                'ra-ui-materialui',
+                'vn-kooch-ui-materialui',
                 'src'
             ),
-            'react-admin': path.join(
+            'vn-kooch-react-admin': path.join(
                 __dirname,
                 '..',
                 '..',
                 'packages',
-                'react-admin',
+                'vn-kooch-react-admin',
                 'src'
             ),
-            'ra-data-fakerest': path.join(
+            'vn-kooch-data-fakerest': path.join(
                 __dirname,
                 '..',
                 '..',
                 'packages',
-                'ra-data-fakerest',
+                'vn-kooch-data-fakerest',
                 'src'
             ),
-            'ra-input-rich-text': path.join(
+            'vn-kooch-input-rich-text': path.join(
                 __dirname,
                 '..',
                 '..',
                 'packages',
-                'ra-input-rich-text',
+                'vn-kooch-input-rich-text',
                 'src'
             ),
-            'ra-tree-core': path.join(
+            'vn-kooch-tree-core': path.join(
                 __dirname,
                 '..',
                 '..',
                 'packages',
-                'ra-tree-core',
+                'vn-kooch-tree-core',
                 'src'
             ),
-            'ra-tree-ui-materialui': path.join(
+            'vn-kooch-tree-ui-materialui': path.join(
                 __dirname,
                 '..',
                 '..',
                 'packages',
-                'ra-tree-ui-materialui',
+                'vn-kooch-tree-ui-materialui',
                 'src'
             ),
-            'ra-tree-language-english': path.join(
+            'vn-kooch-tree-language-english': path.join(
                 __dirname,
                 '..',
                 '..',
                 'packages',
-                'ra-tree-language-english'
+                'vn-kooch-tree-language-english'
             ),
             'ra-tree-language-french': path.join(
                 __dirname,

@@ -1,22 +1,25 @@
 {
-    "name": "ra-language-english",
-    "version": "2.7.0",
-    "description": "English messages for react-admin, the frontend framework for building admin applications on top of REST/GraphQL services",
+    "name": "ra-language-english",             
+    "version": "2.7.1",
+    "description": "English messages for vn-kooch-react-admin, the frontend framework for building admin applications on top of REST/GraphQL services",
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/marmelab/react-admin.git"
+        "url": "git+https://github.com/marmelab/vn-kooch-react-admin.git"
     },
     "keywords": [
         "react",
-        "react-admin",
-        "react-admin",
+        "vn-kooch-react-admin",
+        "vn-kooch-react-admin",
         "translation"
     ],
     "author": "François Zaninotto",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/marmelab/react-admin/issues"
+        "url": "https://github.com/marmelab/vn-kooch-react-admin/issues"
     },
-    "homepage": "https://github.com/marmelab/react-admin#readme"
+    "homepage": "https://github.com/marmelab/vn-kooch-react-admin#readme",
+    "publishConfig": {
+        "registry": "http://localhost:4873"
+    }
 }

@@ -10,8 +10,8 @@ A `<Resource>` component maps one API endpoint to a CRUD interface. For instance
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 import { PostList } from './posts';
 import { UserList } from './users';
@@ -35,8 +35,8 @@ Here is a more complete admin, with components for all the CRUD operations:
 
 ```jsx
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 import { PostList, PostCreate, PostEdit, PostShow, PostIcon } from './posts';
 import { UserList } from './posts';
@@ -59,7 +59,7 @@ const App = () => (
 * `/:id` maps to the `edit` component
 * `/:id/show` maps to the `show` component
 
-**Tip**: You must add a `<Resource>` when you declare a reference (via `<ReferenceField>`, `<ReferenceArrayField>`, `<ReferenceManyField>`, `<ReferenceInput>` or `<ReferenceArrayInput>`), because react-admin uses resources to define the data store structure. That's why there is an empty `tag` resource in the example above.
+**Tip**: You must add a `<Resource>` when you declare a reference (via `<ReferenceField>`, `<ReferenceArrayField>`, `<ReferenceManyField>`, `<ReferenceInput>` or `<ReferenceArrayInput>`), because vn-kooch-react-admin uses resources to define the data store structure. That's why there is an empty `tag` resource in the example above.
 
 `<Resource>` also accepts additional props:
 
@@ -69,13 +69,13 @@ const App = () => (
 
 ## `name`
 
-React-admin uses the `name` prop both to determine the API endpoint (passed to the `dataProvider`), and to form the URL for the resource.
+vn-kooch-react-admin uses the `name` prop both to determine the API endpoint (passed to the `dataProvider`), and to form the URL for the resource.
 
 ```jsx
 <Resource name="posts" list={PostList} create={PostCreate} edit={PostEdit} show={PostShow} />
 ```
 
-For this resource react-admin will fetch the `http://jsonplaceholder.typicode.com/posts` endpoint for data.
+For this resource vn-kooch-react-admin will fetch the `http://jsonplaceholder.typicode.com/posts` endpoint for data.
 
 The routing will map the component as follows:
 
@@ -84,19 +84,19 @@ The routing will map the component as follows:
 * `/posts/:id` maps to `PostEdit`
 * `/posts/:id/show` maps to `PostShow`
 
-**Tip**: If you want to use a special API endpoint (e.g. 'http://jsonplaceholder.typicode.com/my-custom-posts-endpoint') without altering the URL in the react-admin application (so still use `/posts`), write the mapping from the resource `name` (`posts`) to the API endpoint (`my-custom-posts-endpoint`) in your own [`dataProvider`](./Admin.md#dataprovider)
+**Tip**: If you want to use a special API endpoint (e.g. 'http://jsonplaceholder.typicode.com/my-custom-posts-endpoint') without altering the URL in the vn-kooch-react-admin application (so still use `/posts`), write the mapping from the resource `name` (`posts`) to the API endpoint (`my-custom-posts-endpoint`) in your own [`dataProvider`](./Admin.md#dataprovider)
 
 ## `icon`
 
-React-admin will render the `icon` prop component in the menu:
+vn-kooch-react-admin will render the `icon` prop component in the menu:
 
 ```jsx
 // in src/App.js
 import React from 'react';
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/People';
-import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 import { PostList } from './posts';
 

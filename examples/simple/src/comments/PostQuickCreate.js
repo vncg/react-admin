@@ -10,7 +10,7 @@ import {
     TextInput,
     Toolbar,
     required,
-} from 'react-admin'; // eslint-disable-line import/no-unresolved
+} from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 
 import CancelButton from './PostQuickCreateCancelButton';
 

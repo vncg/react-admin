@@ -9,7 +9,7 @@ import {
     TabbedForm,
     TextInput,
     required,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 import UserTitle from './UserTitle';
 import Aside from './Aside';

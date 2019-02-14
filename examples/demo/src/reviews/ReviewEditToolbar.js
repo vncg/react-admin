@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import MuiToolbar from '@material-ui/core/Toolbar';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { SaveButton, DeleteButton } from 'react-admin';
+import { SaveButton, DeleteButton } from 'vn-kooch-react-admin';
 import AcceptButton from './AcceptButton';
 import RejectButton from './RejectButton';
 

@@ -23,66 +23,66 @@ build-demo: ## compile the demo example to static js
 run-graphql-demo: ## run the demo example
 	@yarn -s run-graphql-demo
 
-build-ra-core:
-	@echo "Transpiling ra-core files...";
-	@cd ./packages/ra-core && yarn -s build
+build-vn-kooch-core:
+	@echo "Transpiling vn-kooch-core files...";
+	@cd ./packages/vn-kooch-core && yarn -s build
 
-build-ra-ui-materialui:
-	@echo "Transpiling ra-ui-materialui files...";
-	@cd ./packages/ra-ui-materialui && yarn -s build
+build-vn-kooch-ui-materialui:
+	@echo "Transpiling vn-kooch-ui-materialui files...";
+	@cd ./packages/vn-kooch-ui-materialui && yarn -s build
 
-build-react-admin:
-	@echo "Transpiling react-admin files...";
-	@rm -rf ./packages/react-admin/docs
-	@cd ./packages/react-admin && yarn -s build
-	@mkdir packages/react-admin/docs
-	@cp docs/*.md packages/react-admin/docs
+build-vn-kooch-react-admin:
+	@echo "Transpiling vn-kooch-react-admin files...";
+	@rm -rf ./packages/vn-kooch-react-admin/docs
+	@cd ./packages/vn-kooch-react-admin && yarn -s build
+	@mkdir packages/vn-kooch-react-admin/docs
+	@cp docs/*.md packages/vn-kooch-react-admin/docs
 
-build-ra-data-fakerest:
-	@echo "Transpiling ra-data-fakerest files...";
-	@cd ./packages/ra-data-fakerest && yarn -s build
+build-vn-kooch-data-fakerest:
+	@echo "Transpiling vn-kooch-data-fakerest files...";
+	@cd ./packages/vn-kooch-data-fakerest && yarn -s build
 
-build-ra-data-json-server:
-	@echo "Transpiling ra-data-json-server files...";
-	@cd ./packages/ra-data-json-server && yarn -s build
+build-vn-kooch-data-json-server:
+	@echo "Transpiling vn-kooch-data-json-server files...";
+	@cd ./packages/vn-kooch-data-json-server && yarn -s build
 
-build-ra-data-simple-rest:
-	@echo "Transpiling ra-data-simple-rest files...";
-	@cd ./packages/ra-data-simple-rest && yarn -s build
+build-vn-kooch-data-simple-rest:
+	@echo "Transpiling vn-kooch-data-simple-rest files...";
+	@cd ./packages/vn-kooch-data-simple-rest && yarn -s build
 
-build-ra-data-graphql:
-	@echo "Transpiling ra-data-graphql files...";
-	@cd ./packages/ra-data-graphql && yarn -s build
+build-vn-kooch-data-graphql:
+	@echo "Transpiling vn-kooch-data-graphql files...";
+	@cd ./packages/vn-kooch-data-graphql && yarn -s build
 
-build-ra-data-graphcool:
-	@echo "Transpiling ra-data-graphcool files...";
-	@cd ./packages/ra-data-graphcool && yarn -s build
+build-vn-kooch-data-graphcool:
+	@echo "Transpiling vn-kooch-data-graphcool files...";
+	@cd ./packages/vn-kooch-data-graphcool && yarn -s build
 
-build-ra-data-graphql-simple:
-	@echo "Transpiling ra-data-graphql-simple files...";
-	@cd ./packages/ra-data-graphql-simple && yarn -s build
+build-vn-kooch-data-graphql-simple:
+	@echo "Transpiling vn-kooch-data-graphql-simple files...";
+	@cd ./packages/vn-kooch-data-graphql-simple && yarn -s build
 
-build-ra-input-rich-text:
-	@echo "Transpiling ra-input-rich-text files...";
-	@cd ./packages/ra-input-rich-text && yarn -s build
+build-vn-kooch-input-rich-text:
+	@echo "Transpiling vn-kooch-input-rich-text files...";
+	@cd ./packages/vn-kooch-input-rich-text && yarn -s build
 
-build-ra-realtime:
-	@echo "Transpiling ra-realtime files...";
-	@cd ./packages/ra-realtime && yarn -s build
+build-vn-kooch-realtime:
+	@echo "Transpiling vn-kooch-realtime files...";
+	@cd ./packages/vn-kooch-realtime && yarn -s build
 
-build-ra-tree-core:
-	@echo "Transpiling ra-tree-core files...";
-	@cd ./packages/ra-tree-core && yarn -s build
+build-vn-kooch-tree-core:
+	@echo "Transpiling vn-kooch-tree-core files...";
+	@cd ./packages/vn-kooch-tree-core && yarn -s build
 
-build-ra-tree-ui-materialui:
-	@echo "Transpiling ra-tree-ui-materialui files...";
-	@cd ./packages/ra-tree-ui-materialui && yarn -s build
+build-vn-kooch-tree-ui-materialui:
+	@echo "Transpiling vn-kooch-tree-ui-materialui files...";
+	@cd ./packages/vn-kooch-tree-ui-materialui && yarn -s build
 
 build-data-generator:
 	@echo "Transpiling data-generator files...";
 	@cd ./examples/data-generator && yarn -s build
 
-build: build-ra-core build-ra-ui-materialui build-react-admin build-ra-data-fakerest build-ra-data-json-server build-ra-data-simple-rest build-ra-data-graphql build-ra-data-graphcool build-ra-data-graphql-simple build-ra-input-rich-text build-ra-realtime build-ra-tree-core build-ra-tree-ui-materialui build-data-generator ## compile ES6 files to JS
+build: build-vn-kooch-core build-vn-kooch-ui-materialui build-vn-kooch-react-admin build-vn-kooch-data-fakerest build-vn-kooch-data-json-server build-vn-kooch-data-simple-rest build-vn-kooch-data-graphql build-vn-kooch-data-graphcool build-vn-kooch-data-graphql-simple build-vn-kooch-input-rich-text build-vn-kooch-realtime build-vn-kooch-tree-core build-vn-kooch-tree-ui-materialui build-data-generator ## compile ES6 files to JS
 
 doc: ## compile doc as html and launch doc web server
 	@yarn -s doc

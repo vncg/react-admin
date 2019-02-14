@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import RichTextInput from 'ra-input-rich-text';
+import RichTextInput from 'vn-kooch-input-rich-text';
 import {
     ArrayInput,
     AutocompleteInput,
@@ -19,7 +19,7 @@ import {
     TextInput,
     Toolbar,
     crudCreate,
-} from 'react-admin'; // eslint-disable-line import/no-unresolved
+} from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 
 const saveWithNote = (values, basePath, redirectTo) =>
     crudCreate('posts', { ...values, average_note: 10 }, basePath, redirectTo);

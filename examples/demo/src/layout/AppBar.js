@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, UserMenu, MenuItemLink, translate } from 'react-admin';
+import { AppBar, UserMenu, MenuItemLink, translate } from 'vn-kooch-react-admin';
 import Typography from '@material-ui/core/Typography';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { withStyles } from '@material-ui/core/styles';
@@ -34,7 +34,7 @@ const CustomAppBar = ({ classes, ...props }) => (
             variant="title"
             color="inherit"
             className={classes.title}
-            id="react-admin-title"
+            id="vn-kooch-react-admin-title"
         />
         <Logo />
         <span className={classes.spacer} />

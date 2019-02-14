@@ -7,7 +7,7 @@ title: "Actions"
 
 Admin interfaces often have to offer custom actions, beyond the simple CRUD. For instance, in an administration for comments, an "Approve" button (allowing to update the `is_approved` property and to save the updated record in one click) - is a must have.
 
-How can you add such custom actions with react-admin? The answer is twofold, and learning to do it properly will give you a better understanding of how react-admin uses Redux and redux-saga.
+How can you add such custom actions with vn-kooch-react-admin? The answer is twofold, and learning to do it properly will give you a better understanding of how vn-kooch-react-admin uses Redux and redux-saga.
 
 ## The Simple Way
 
@@ -19,7 +19,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FlatButton from '@material-ui/core/FlatButton';
-import { showNotification } from 'react-admin';
+import { showNotification } from 'vn-kooch-react-admin';
 import { push } from 'react-router-redux';
 
 class ApproveButton extends Component {
@@ -113,14 +113,14 @@ The previous code uses `fetch()`, which means it has to make raw HTTP requests. 
 
 ```jsx
 // in src/dataProvider.js
-import jsonServerProvider from 'ra-data-json-server';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 export default jsonServerProvider('http://Mydomain.com/api/');
 ```
 
 ```diff
 // in src/comments/ApproveButton.js
--import { showNotification } from 'react-admin';
-+import { showNotification, UPDATE } from 'react-admin';
+-import { showNotification } from 'vn-kooch-react-admin';
++import { showNotification, UPDATE } from 'vn-kooch-react-admin';
 +import dataProvider from '../dataProvider';
 
 class ApproveButton extends Component {
@@ -177,17 +177,17 @@ As for the syntax of the various request types (`GET_LIST`, `GET_ONE`, `UPDATE`,
 
 Fetching data with `fetch` or the `dataProvider` right inside the component is easy. But it has one drawback: while the request is being processed by the server, the UI doesn't show the loading indicator.
 
-React-admin keeps track of the number of pending XHR requests in its internal state. The main spinner (on the top app bar) shows up when there is at least one pending request. You can increase or decrease the number of pending requests by hand by using the `fetchStart()` and `fetchEnd()` action creators, as follows:
+vn-kooch-react-admin keeps track of the number of pending XHR requests in its internal state. The main spinner (on the top app bar) shows up when there is at least one pending request. You can increase or decrease the number of pending requests by hand by using the `fetchStart()` and `fetchEnd()` action creators, as follows:
 
 ```diff
 // in src/comments/ApproveButton.js
--import { showNotification, UPDATE } from 'react-admin';
+-import { showNotification, UPDATE } from 'vn-kooch-react-admin';
 +import {
 +   showNotification,
 +   fetchStart,
 +   fetchEnd,
 +   UPDATE
-+} from 'react-admin';
++} from 'vn-kooch-react-admin';
 
 class ApproveButton extends Component {
     handleClick = () => {
@@ -229,17 +229,17 @@ export default connect(null, {
 })(ApproveButton);
 ```
 
-That solution is perfectly all right from a UI perspective, but also a bit verbose. Fortunately, react-admin uses and provides a shorter way to make HTTP requests in a component.
+That solution is perfectly all right from a UI perspective, but also a bit verbose. Fortunately, vn-kooch-react-admin uses and provides a shorter way to make HTTP requests in a component.
 
 ## Using a Custom Action Creator
 
-React-admin components don't call the `dataProvider` directly. Instead, they dispatch a Redux action with the `fetch` meta. React-admin watches this kind of actions, turns them into `dataProvider` calls, and handles the loading state automatically. You can use the same feature for your own actions.
+vn-kooch-react-admin components don't call the `dataProvider` directly. Instead, they dispatch a Redux action with the `fetch` meta. vn-kooch-react-admin watches this kind of actions, turns them into `dataProvider` calls, and handles the loading state automatically. You can use the same feature for your own actions.
 
 First, extract the request into a custom action creator. Use the dataProvider verb (`UPDATE`) as the `fetch` meta, pass the resource name as the `resource` meta, and pass the request parameters as the action `payload`:
 
 ```jsx
 // in src/comment/commentActions.js
-import { UPDATE } from 'react-admin';
+import { UPDATE } from 'vn-kooch-react-admin';
 
 export const COMMENT_APPROVE = 'COMMENT_APPROVE';
 export const commentApprove = (id, data, basePath) => ({
@@ -260,7 +260,7 @@ To use the new action creator in the component, `connect` it:
 -   fetchStart,
 -   fetchEnd,
 -   UPDATE
--} from 'react-admin';
+-} from 'vn-kooch-react-admin';
 +import { commentApprove } from './commentActions';
 
 class ApproveButton extends Component {
@@ -306,7 +306,7 @@ export default connect(null, {
 })(ApproveButton);
 ```
 
-That's way shorter, and easier to read. And it works fine: when a user presses the "Approve" button, the API receives the `UPDATE` call, and that approves the comment. Another added benefit of using custom actions with the `fetch` meta is that react-admin automatically handles the loading state, so you don't need to mess up with `fetchStart()` and `fetchEnd()` manually.
+That's way shorter, and easier to read. And it works fine: when a user presses the "Approve" button, the API receives the `UPDATE` call, and that approves the comment. Another added benefit of using custom actions with the `fetch` meta is that vn-kooch-react-admin automatically handles the loading state, so you don't need to mess up with `fetchStart()` and `fetchEnd()` manually.
 
 But it's not possible to call `push` or `showNotification` in `handleClick` anymore. This is because `commentApprove()` returns immediately, whether the API call succeeds or not. How can you run a function only when the action succeeds?
 
@@ -318,7 +318,7 @@ So the side effects will be declared in the action creator rather than in the co
 
 ```diff
 // in src/comment/commentActions.js
-import { UPDATE } from 'react-admin';
+import { UPDATE } from 'vn-kooch-react-admin';
 export const COMMENT_APPROVE = 'COMMENT_APPROVE';
 export const commentApprove = (id, data, basePath) => ({
     type: COMMENT_APPROVE,
@@ -336,7 +336,7 @@ export const commentApprove = (id, data, basePath) => ({
 });
 ```
 
-React-admin can handle the following side effects metas:
+vn-kooch-react-admin can handle the following side effects metas:
 
 - `notification`: Display a notification. The property value should be an object describing the notification to display. The `body` can be a translation key. `level` can be either `info` or `warning`.
 - `redirectTo`: Redirect the user to another page. The property value should be the path to redirect the user to.
@@ -347,13 +347,13 @@ React-admin can handle the following side effects metas:
 
 ## Success and Failure Side Effects
 
-React-admin triggers all side effects declared in the `meta` property of an action *simultaneously*. So in the previous example, the "notification approved" notification appears when the `COMMENT_APPROVE` action is dispatched, i.e. *before* the server is even called. That's a bit too early: what if the server returns an error?
+vn-kooch-react-admin triggers all side effects declared in the `meta` property of an action *simultaneously*. So in the previous example, the "notification approved" notification appears when the `COMMENT_APPROVE` action is dispatched, i.e. *before* the server is even called. That's a bit too early: what if the server returns an error?
 
 In practice, most side effects must be triggered only after the `fetch` side effect succeeds or fails. To support that, you can enclose side effects under the `onSuccess` and `onFailure` keys in the `meta` property of an action:
 
 ```diff
 // in src/comment/commentActions.js
-import { UPDATE } from 'react-admin';
+import { UPDATE } from 'vn-kooch-react-admin';
 export const COMMENT_APPROVE = 'COMMENT_APPROVE';
 export const commentApprove = (id, data, basePath) => ({
     type: COMMENT_APPROVE,
@@ -385,7 +385,7 @@ export const commentApprove = (id, data, basePath) => ({
 });
 ```
 
-In this case, no side effect is triggered when the `COMMENT_APPROVE` action is dispatched. However, when the `fetch` side effects returns successfully, react-admin dispatches a `COMMENT_APPROVE_SUCCESS` action, and copies the `onSuccess` side effects into the `meta` property. So it will dispatch an action looking like:
+In this case, no side effect is triggered when the `COMMENT_APPROVE` action is dispatched. However, when the `fetch` side effects returns successfully, vn-kooch-react-admin dispatches a `COMMENT_APPROVE_SUCCESS` action, and copies the `onSuccess` side effects into the `meta` property. So it will dispatch an action looking like:
 
 ```js
 {
@@ -411,7 +411,7 @@ You can use `onSuccess` and `onFailure` metas in your own actions to handle side
 
 In the previous example, after clicking on the "Approve" button, a spinner displays while the data provider is fetched. Then, users are redirected to the comments list. But in most cases, the server returns a success response, so the user waits for this response for nothing.
 
-For its own fetch actions, react-admin uses an approach called *optimistic rendering*. The idea is to handle the `fetch` actions on the client side first (i.e. updating entities in the Redux store), and re-render the screen immediately. The user sees the effect of their action with no delay. Then, react-admin applies the success side effects, and only after that, it triggers the call to the data provider. If the fetch ends with a success, react-admin does nothing more than a refresh to grab the latest data from the server. In most cases, the user sees no difference (the data in the Redux store and the data from the data provider are the same). If the fetch fails, react-admin shows an error notification, and forces a refresh, too.
+For its own fetch actions, vn-kooch-react-admin uses an approach called *optimistic rendering*. The idea is to handle the `fetch` actions on the client side first (i.e. updating entities in the Redux store), and re-render the screen immediately. The user sees the effect of their action with no delay. Then, vn-kooch-react-admin applies the success side effects, and only after that, it triggers the call to the data provider. If the fetch ends with a success, vn-kooch-react-admin does nothing more than a refresh to grab the latest data from the server. In most cases, the user sees no difference (the data in the Redux store and the data from the data provider are the same). If the fetch fails, vn-kooch-react-admin shows an error notification, and forces a refresh, too.
 
 As a bonus, while the success notification is displayed, users have the ability to cancel the action *before* the data provider is even called.
 
@@ -419,7 +419,7 @@ You can benefit from optimistic rendering in your own custom actions, too. You j
 
 ```diff
 // in src/comments/ApproveButton.js
-+import { startUndoable as startUndoableAction } from 'ra-core';
++import { startUndoable as startUndoableAction } from 'vn-kooch-core';
 -import { commentApprove as commentApproveAction } from './commentActions';
 +import { commentApprove } from './commentActions';
 
@@ -450,7 +450,7 @@ export default connect(null, {
 
 And that's all it takes to make a fetch action optimistic. Note that the `startUndoable` action creator is passed to Redux `connect` as `mapDispatchToProp`, to be decorated with `dispatch` - but `commentApprove` is not. Only the first action must be decorated with dispatch.
 
-The fact that react-admin updates the internal store if you use custom actions with the `fetch` meta should be another motivation to avoid using raw `fetch`.
+The fact that vn-kooch-react-admin updates the internal store if you use custom actions with the `fetch` meta should be another motivation to avoid using raw `fetch`.
 
 ## Altering the Form Values before Submitting
 
@@ -464,7 +464,7 @@ Knowing this, you can dispatch a custom action with a button and still benefit f
 ```jsx
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { crudCreate, SaveButton, Toolbar } from 'react-admin';
+import { crudCreate, SaveButton, Toolbar } from 'vn-kooch-react-admin';
 
 // A custom action creator which modifies the values before calling the default crudCreate action creator
 const saveWithNote = (values, basePath, redirectTo) =>
@@ -523,7 +523,7 @@ Sometimes, you may want to trigger other *side effects* - like closing a popup w
 
 ```diff
 // in src/comment/commentActions.js
-import { UPDATE } from 'react-admin';
+import { UPDATE } from 'vn-kooch-react-admin';
 export const COMMENT_APPROVE = 'COMMENT_APPROVE';
 export const commentApprove = (id, data, basePath) => ({
     type: COMMENT_APPROVE,
@@ -551,9 +551,9 @@ export const commentApprove = (id, data, basePath) => ({
 });
 ```
 
-However, react-admin promotes a programming style where side effects are decoupled from the rest of the code, which has the benefit of making them testable.
+However, vn-kooch-react-admin promotes a programming style where side effects are decoupled from the rest of the code, which has the benefit of making them testable.
 
-In react-admin, side effects are handled by Sagas. [Redux-saga](https://redux-saga.github.io/redux-saga/) is a side effect library built for Redux, where side effects are defined by generator functions. If this is new to you, take a few minutes to go through the Saga documentation.
+In vn-kooch-react-admin, side effects are handled by Sagas. [Redux-saga](https://redux-saga.github.io/redux-saga/) is a side effect library built for Redux, where side effects are defined by generator functions. If this is new to you, take a few minutes to go through the Saga documentation.
 
 Here is the generator function necessary to handle the side effects for a failed `COMMENT_APPROVE` action which would log the error with an external service such as [Sentry](https://sentry.io):
 
@@ -579,7 +579,7 @@ To use this saga, pass it in the `customSagas` props of the `<Admin>` component:
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource } from 'vn-kooch-react-admin';
 
 import { CommentList } from './comments';
 import commentSaga from './comments/commentSaga';
@@ -665,7 +665,7 @@ Now the question is: How can you put this reducer in the `<Admin>` app? Simple: 
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin } from 'react-admin';
+import { Admin } from 'vn-kooch-react-admin';
 
 import rate from './rateReducer';
 
@@ -696,4 +696,4 @@ Which style should you choose for your own action buttons?
 
 The first version (with `fetch`) is perfectly fine, and if you're not into unit testing your components, or decoupling side effects from pure functions, then you can stick with it without problem.
 
-On the other hand, if you want to promote reusability, separation of concerns, adhere to react-admin's coding standards, and if you know enough Redux and Saga, use the final version.
+On the other hand, if you want to promote reusability, separation of concerns, adhere to vn-kooch-react-admin's coding standards, and if you know enough Redux and Saga, use the final version.

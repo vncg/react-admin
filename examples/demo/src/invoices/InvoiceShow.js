@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { ShowController, ReferenceField, TextField } from 'react-admin';
+import { ShowController, ReferenceField, TextField } from 'vn-kooch-react-admin';
 
 import Basket from '../orders/Basket';
 

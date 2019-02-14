@@ -25,8 +25,8 @@ Here is the minimal code necessary to display a view to show a post:
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 import { PostCreate, PostEdit, PostShow } from './posts';
 
@@ -40,7 +40,7 @@ export default App;
 
 // in src/posts.js
 import React from 'react';
-import { Show, SimpleShowLayout, TextField, DateField, EditButton, RichTextField } from 'react-admin';
+import { Show, SimpleShowLayout, TextField, DateField, EditButton, RichTextField } from 'vn-kooch-react-admin';
 
 export const PostShow = (props) => (
     <Show {...props}>
@@ -73,7 +73,7 @@ export const PostShow = (props) => (
 );
 ```
 
-More interestingly, you can pass a component as `title`. React-admin clones this component and, in the `<ShowView>`, injects the current `record`. This allows to customize the title according to the current record:
+More interestingly, you can pass a component as `title`. vn-kooch-react-admin clones this component and, in the `<ShowView>`, injects the current `record`. This allows to customize the title according to the current record:
 
 ```jsx
 const PostTitle = ({ record }) => {
@@ -93,7 +93,7 @@ You can replace the list of default actions by your own element using the `actio
 ```jsx
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import { EditButton } from 'react-admin';
+import { EditButton } from 'vn-kooch-react-admin';
 
 const cardActionStyle = {
     zIndex: 2,
@@ -155,7 +155,7 @@ const Aside = ({ record }) => (
 ```
 {% endraw %}
 
-**Tip**: Always test that the `record` is defined before using it, as react-admin starts rendering the UI before the API call is over.
+**Tip**: Always test that the `record` is defined before using it, as vn-kooch-react-admin starts rendering the UI before the API call is over.
 
 ## The `<ShowGuesser>` component
 
@@ -164,8 +164,8 @@ Instead of a custom `Show`, you can use the `ShowGuesser` to determine which fie
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource, ShowGuesser } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource, ShowGuesser } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 const App = () => (
     <Admin dataProvider={jsonServerProvider('http://jsonplaceholder.typicode.com')}>
@@ -178,7 +178,7 @@ Just like `Show`, `ShowGuesser` fetches the data. It then analyzes the response,
 
 ![Guessed Show](./img/guessed-show.png)
 
-React-admin provides guessers for the `List` view (`ListGuesser`), the `Edit` view (`EditGuesser`), and the `Show` view (`ShowGuesser`).
+vn-kooch-react-admin provides guessers for the `List` view (`ListGuesser`), the `Edit` view (`EditGuesser`), and the `Show` view (`ShowGuesser`).
 
 **Tip**: Do not use the guessers in production. They are slower than manually-defined components, because they have to infer types based on the content. Besides, the guesses are not always perfect.
 
@@ -210,7 +210,7 @@ Just like `<SimpleShowLayout>`, `<TabbedShowLayout>` receives the `record` prop 
 
 {% raw %}
 ```jsx
-import { TabbedShowLayout, Tab } from 'react-admin'
+import { TabbedShowLayout, Tab } from 'vn-kooch-react-admin'
 
 export const PostShow = (props) => (
     <Show {...props}>
@@ -257,7 +257,7 @@ Here's an example inside a `Show` view with a `SimpleShowLayout` and a custom `a
 ```jsx
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import { EditButton, DeleteButton } from 'react-admin';
+import { EditButton, DeleteButton } from 'vn-kooch-react-admin';
 
 const cardActionStyle = {
     zIndex: 2,

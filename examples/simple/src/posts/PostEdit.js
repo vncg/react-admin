@@ -1,4 +1,4 @@
-import RichTextInput from 'ra-input-rich-text';
+import RichTextInput from 'vn-kooch-input-rich-text';
 import React from 'react';
 import {
     AutocompleteArrayInput,
@@ -29,7 +29,7 @@ import {
     minValue,
     number,
     required,
-} from 'react-admin'; // eslint-disable-line import/no-unresolved
+} from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 import PostTitle from './PostTitle';
 
 const EditActions = ({

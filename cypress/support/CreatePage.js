@@ -15,7 +15,7 @@ export default url => ({
             ".create-page form div[role='toolbar'] button[type='button']:last-child",
         descInput: '.ql-editor',
         tab: index => `.form-tab:nth-of-type(${index})`,
-        title: '#react-admin-title',
+        title: '#vn-kooch-react-admin-title',
     },
 
     navigate() {

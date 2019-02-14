@@ -7,7 +7,7 @@ esm
 es6
 docs/_site/
 docs/.jekyll-metadata
-packages/react-admin/docs
+packages/vn-kooch-react-admin/docs
 examples/**/static
 examples/**/dist
 cypress/videos

@@ -15,7 +15,7 @@ import {
     SearchInput,
     TextField,
     TextInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Divider from '@material-ui/core/Divider';
 import Tabs from '@material-ui/core/Tabs';

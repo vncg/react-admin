@@ -1,7 +1,7 @@
 /* eslint react/jsx-key: off */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Show, Tab, TabbedShowLayout, TextField } from 'react-admin'; // eslint-disable-line import/no-unresolved
+import { Show, Tab, TabbedShowLayout, TextField } from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 
 import UserTitle from './UserTitle';
 import Aside from './Aside';

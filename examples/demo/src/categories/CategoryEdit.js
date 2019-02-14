@@ -8,7 +8,7 @@ import {
     ReferenceManyField,
     SimpleForm,
     TextInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 import ThumbnailField from '../products/ThumbnailField';
 import ProductRefField from '../products/ProductRefField';

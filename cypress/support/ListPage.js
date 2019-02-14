@@ -27,7 +27,7 @@ export default url => ({
         selectedItem: '.select-item input:checked',
         selectItem: '.select-item input',
         userMenu: 'button[title="Profile"]',
-        title: '#react-admin-title',
+        title: '#vn-kooch-react-admin-title',
         headroomUnfixed: '.headroom--unfixed',
         headroomUnpinned: '.headroom--unpinned',
     },

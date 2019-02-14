@@ -7,7 +7,7 @@ import {
     ReferenceInput,
     SearchInput,
     SelectInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 import Chip from '@material-ui/core/Chip';
 import withStyles from '@material-ui/core/styles/withStyles';
 import GridList from './GridList';

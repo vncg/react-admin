@@ -2,16 +2,16 @@
 layout: default
 title: "Documentation"
 ---
-# react-admin
+# vn-kooch-react-admin
 
 A frontend Framework for building admin applications running in the browser on top of REST/GraphQL APIs, using ES6, [React](https://facebook.github.io/react/) and [Material Design](https://material.io/). Previously named [admin-on-rest](https://github.com/marmelab/admin-on-rest). Open sourced and maintained by [marmelab](https://marmelab.com/).
 
 <div style="text-align: center" markdown="1">
-<i class="octicon octicon-device-desktop"></i> [Demo](https://marmelab.com/react-admin-demo/) -
-<i class="octicon octicon-mark-github"></i> [Source](https://github.com/marmelab/react-admin) -
-<i class="octicon octicon-megaphone"></i> [News](https://marmelab.com/en/blog/#react-admin) -
-<i class="octicon octicon-clock"></i> [Releases](https://github.com/marmelab/react-admin/releases) -
-<i class="octicon octicon-comment-discussion"></i> [Support](http://stackoverflow.com/questions/tagged/react-admin)
+<i class="octicon octicon-device-desktop"></i> [Demo](https://marmelab.com/vn-kooch-react-admin-demo/) -
+<i class="octicon octicon-mark-github"></i> [Source](https://github.com/marmelab/vn-kooch-react-admin) -
+<i class="octicon octicon-megaphone"></i> [News](https://marmelab.com/en/blog/#vn-kooch-react-admin) -
+<i class="octicon octicon-clock"></i> [Releases](https://github.com/marmelab/vn-kooch-react-admin/releases) -
+<i class="octicon octicon-comment-discussion"></i> [Support](http://stackoverflow.com/questions/tagged/vn-kooch-react-admin)
 </div>
 
 <iframe src="https://player.vimeo.com/video/268958716?byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="display:block;margin:0 auto"></iframe>
@@ -44,16 +44,16 @@ A frontend Framework for building admin applications running in the browser on t
 
 ## Installation
 
-React-admin is available from npm. You can install it (and its required dependencies)
+vn-kooch-react-admin is available from npm. You can install it (and its required dependencies)
 using:
 
 ```sh
-npm install react-admin
+npm install vn-kooch-react-admin
 ```
 
 ## Usage
 
-Read the [Tutorial](./Tutorial.md) for a 15 minutes introduction. After that, head to the [Documentation](./index.md), or checkout the [source code of the demo](https://github.com/marmelab/react-admin/tree/master/examples/demo) for an example usage.
+Read the [Tutorial](./Tutorial.md) for a 15 minutes introduction. After that, head to the [Documentation](./index.md), or checkout the [source code of the demo](https://github.com/marmelab/vn-kooch-react-admin/tree/master/examples/demo) for an example usage.
 
 ## At a Glance
 
@@ -61,8 +61,8 @@ Read the [Tutorial](./Tutorial.md) for a 15 minutes introduction. After that, he
 // in app.js
 import React from 'react';
 import { render } from 'react-dom';
-import { Admin, Resource } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import simpleRestProvider from 'vn-kooch-data-simple-rest';
 
 import { PostList, PostEdit, PostCreate, PostIcon } from './posts';
 
@@ -74,13 +74,13 @@ render(
 );
 ```
 
-The `<Resource>` component is a configuration component that allows to define sub components for each of the admin view: `list`, `edit`, and `create`. These components use Material UI and custom components from react-admin:
+The `<Resource>` component is a configuration component that allows to define sub components for each of the admin view: `list`, `edit`, and `create`. These components use Material UI and custom components from vn-kooch-react-admin:
 
 {% raw %}
 ```jsx
 // in posts.js
 import React from 'react';
-import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, DisabledInput, TextInput, LongTextInput, DateInput } from 'react-admin';
+import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, DisabledInput, TextInput, LongTextInput, DateInput } from 'vn-kooch-react-admin';
 import BookIcon from '@material-ui/icons/Book';
 export const PostIcon = BookIcon;
 
@@ -133,7 +133,7 @@ export const PostCreate = (props) => (
 
 Yes.
 
-React-admin uses an adapter approach, with a concept called *Data Providers*. Existing providers can be used as a blueprint to design your API, or you can write your own Data Provider to query an existing API. Writing a custom Data Provider is a matter of hours.
+vn-kooch-react-admin uses an adapter approach, with a concept called *Data Providers*. Existing providers can be used as a blueprint to design your API, or you can write your own Data Provider to query an existing API. Writing a custom Data Provider is a matter of hours.
 
 ![Data Provider architecture](./img/data-provider.png)
 
@@ -141,11 +141,11 @@ See the [Data Providers documentation](./DataProviders.md) for details.
 
 ## Batteries Included But Removable
 
-React-admin is designed as a library of loosely coupled React components built on top of [material-ui](http://www.material-ui.com/#/), in addition to controller functions implemented the Redux way. It is very easy to replace one part of react-admin with your own, e.g. to use a custom datagrid, GraphQL instead of REST, or bootstrap instead of Material Design.
+vn-kooch-react-admin is designed as a library of loosely coupled React components built on top of [material-ui](http://www.material-ui.com/#/), in addition to controller functions implemented the Redux way. It is very easy to replace one part of vn-kooch-react-admin with your own, e.g. to use a custom datagrid, GraphQL instead of REST, or bootstrap instead of Material Design.
 
 ## Contributing
 
-Pull requests are welcome on the [GitHub repository](https://github.com/marmelab/react-admin). Try to follow the coding style of the existing files, and include unit tests and documentation. Be prepared for a thorough code review, and be patient for the merge - this is an open-source initiative.
+Pull requests are welcome on the [GitHub repository](https://github.com/marmelab/vn-kooch-react-admin). Try to follow the coding style of the existing files, and include unit tests and documentation. Be prepared for a thorough code review, and be patient for the merge - this is an open-source initiative.
 
 You can run the example app by calling:
 
@@ -169,18 +169,18 @@ You can run the unit tests by calling
 make test
 ```
 
-If you are using react-admin as a dependency, and if you want to try and hack it, here is the advised process:
+If you are using vn-kooch-react-admin as a dependency, and if you want to try and hack it, here is the advised process:
 
 ```sh
 # in myapp
-# install react-admin from GitHub in another directory
+# install vn-kooch-react-admin from GitHub in another directory
 $ cd ..
-$ git clone git@github.com:marmelab/react-admin.git && cd react-admin && make install
-# replace your node_modules/react-admin by a symbolic link to the github checkout
+$ git clone git@github.com:marmelab/vn-kooch-react-admin.git && cd vn-kooch-react-admin && make install
+# replace your node_modules/vn-kooch-react-admin by a symbolic link to the github checkout
 $ cd ../myapp
-$ npm link ../react-admin
+$ npm link ../vn-kooch-react-admin
 # go back to the checkout, and replace the version of react by the one in your app
-$ cd ../react-admin
+$ cd ../vn-kooch-react-admin
 $ npm link ../myapp/node_modules/react
 $ make watch
 # in another terminal, go back to your app, and start it as usual
@@ -190,7 +190,7 @@ $ npm run
 
 ## License
 
-React-admin is licensed under the [MIT Licence](https://github.com/marmelab/react-admin/blob/master/LICENSE.md), sponsored and supported by [marmelab](http://marmelab.com).
+vn-kooch-react-admin is licensed under the [MIT Licence](https://github.com/marmelab/vn-kooch-react-admin/blob/master/LICENSE.md), sponsored and supported by [marmelab](http://marmelab.com).
 
 ## Donate
 

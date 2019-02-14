@@ -5,9 +5,9 @@ title: "Unit Testing"
 
 # Unit Testing
 
-By default, react-admin acts as a declarative admin configuration: list some resources, define their controllers and, plug some built-in components or your own to define their fields or inputs.
+By default, vn-kooch-react-admin acts as a declarative admin configuration: list some resources, define their controllers and, plug some built-in components or your own to define their fields or inputs.
 
-Thus, unit testing isn't really needed nor recommended at first, because the internal API of the framework is already tested by its maintainers and each custom component can be tested by its own by mocking react-admin. ([see how to do so with Jest](https://jestjs.io/docs/en/manual-mocks#mocking-node-modules))
+Thus, unit testing isn't really needed nor recommended at first, because the internal API of the framework is already tested by its maintainers and each custom component can be tested by its own by mocking vn-kooch-react-admin. ([see how to do so with Jest](https://jestjs.io/docs/en/manual-mocks#mocking-node-modules))
 
 On the contrary, it is recommended to write end-to-end tests to secure your most common scenario at least.
 
@@ -15,13 +15,13 @@ That being said, there are still some cases, listed below, where a unit test can
 
 ## Testing Custom Views
 
-One issue you may run into when attempting to render custom `Create` or `Edit` views is that you need to provide the component with the expected props contained within the react-admin redux store.
+One issue you may run into when attempting to render custom `Create` or `Edit` views is that you need to provide the component with the expected props contained within the vn-kooch-react-admin redux store.
 
-Luckily, react-admin provides access to a `TestContext` wrapper component that can be used to initialise your component with many of the expected react-admin props:
+Luckily, vn-kooch-react-admin provides access to a `TestContext` wrapper component that can be used to initialise your component with many of the expected vn-kooch-react-admin props:
 
 ```jsx
 import React from 'react';
-import { TestContext } from 'react-admin';
+import { TestContext } from 'vn-kooch-react-admin';
 import { mount } from 'enzyme';
 import MyCustomEditView from './my-custom-edit-view';
 
@@ -95,13 +95,13 @@ As explained on the [Authorization page](./Authorization.md), it's possible to m
 
 In order to avoid regressions and make the design explicit to your co-workers, it's better to unit test which fields is supposed to be displayed or hidden for each permission.
 
-Here is an example with Jest and Enzyme, which is testing the [User `show` page of the simple example](https://github.com/marmelab/react-admin/blob/master/examples/simple/src/users/UserShow.js).
+Here is an example with Jest and Enzyme, which is testing the [User `show` page of the simple example](https://github.com/marmelab/vn-kooch-react-admin/blob/master/examples/simple/src/users/UserShow.js).
 
 ```jsx
 // UserShow.spec.js
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Tab, TextField } from 'react-admin';
+import { Tab, TextField } from 'vn-kooch-react-admin';
 
 import UserShow from './UserShow';
 

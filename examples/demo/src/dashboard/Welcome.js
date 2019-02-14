@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import HomeIcon from '@material-ui/icons/Home';
 import CodeIcon from '@material-ui/icons/Code';
 import { withStyles } from '@material-ui/core/styles';
-import { translate } from 'react-admin';
+import { translate } from 'vn-kooch-react-admin';
 
 const styles = {
     media: {
@@ -34,11 +34,11 @@ const Welcome = ({ classes, translate }) => (
             </Typography>
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>
-            <Button href="https://marmelab.com/react-admin">
+            <Button href="https://marmelab.com/vn-kooch-react-admin">
                 <HomeIcon style={{ paddingRight: '0.5em' }} />
                 {translate('pos.dashboard.welcome.aor_button')}
             </Button>
-            <Button href="https://github.com/marmelab/react-admin/tree/master/examples/demo">
+            <Button href="https://github.com/marmelab/vn-kooch-react-admin/tree/master/examples/demo">
                 <CodeIcon style={{ paddingRight: '0.5em' }} />
                 {translate('pos.dashboard.welcome.demo_button')}
             </Button>

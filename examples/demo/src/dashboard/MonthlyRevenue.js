@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import DollarIcon from '@material-ui/icons/AttachMoney';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { translate } from 'react-admin';
+import { translate } from 'vn-kooch-react-admin';
 
 import CardIcon from './CardIcon';
 

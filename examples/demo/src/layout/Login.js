@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
 
-import { Notification, translate, userLogin } from 'react-admin';
+import { Notification, translate, userLogin } from 'vn-kooch-react-admin';
 
 import { lightTheme } from './themes';
 

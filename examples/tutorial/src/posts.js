@@ -19,7 +19,7 @@ import {
     SimpleForm,
     TextInput,
     Filter,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 const PostFilter = props => (
     <Filter {...props}>

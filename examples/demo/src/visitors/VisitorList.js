@@ -11,7 +11,7 @@ import {
     NumberField,
     Responsive,
     SearchInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import SegmentsField from './SegmentsField';

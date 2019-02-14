@@ -1,4 +1,4 @@
-import simpleRestProvider from 'ra-data-simple-rest';
+import simpleRestProvider from 'vn-kooch-data-simple-rest';
 
 const restProvider = simpleRestProvider('http://localhost:4000');
 export default (type, resource, params) =>

@@ -10,7 +10,7 @@ A `Field` component displays a given property of a REST resource. Such component
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, Datagrid, TextField } from 'react-admin';
+import { List, Datagrid, TextField } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -142,7 +142,7 @@ TagsField.defaultProps = { addLabel: true };
 Displays a boolean value as a check.
 
 ```jsx
-import { BooleanField } from 'react-admin';
+import { BooleanField } from 'vn-kooch-react-admin';
 
 <BooleanField source="commentable" />
 ```
@@ -166,7 +166,7 @@ If you need to override it, you can use the `valueLabelTrue` and `valueLabelFals
 Displays a value inside a ["Chip"](http://www.material-ui.com/#/components/chip), which is Material UI's term for a label.
 
 ```jsx
-import { ChipField } from 'react-admin';
+import { ChipField } from 'vn-kooch-react-admin';
 
 <ChipField source="category" />
 ```
@@ -176,7 +176,7 @@ import { ChipField } from 'react-admin';
 This field type is especially useful for one to many relationships, e.g. to display a list of books for a given author:
 
 ```jsx
-import { ChipField, SingleFieldList, ReferenceManyField } from 'react-admin';
+import { ChipField, SingleFieldList, ReferenceManyField } from 'vn-kooch-react-admin';
 
 <ReferenceManyField reference="books" target="author_id">
     <SingleFieldList>
@@ -190,7 +190,7 @@ import { ChipField, SingleFieldList, ReferenceManyField } from 'react-admin';
 Displays a date or datetime using the browser locale (thanks to `Date.toLocaleDateString()` and `Date.toLocaleString()`).
 
 ```jsx
-import { DateField } from 'react-admin';
+import { DateField } from 'vn-kooch-react-admin';
 
 <DateField source="publication_date" />
 ```
@@ -230,7 +230,7 @@ See [Intl.DateTimeformat documentation](https://developer.mozilla.org/fr/docs/We
 `<EmailField>` displays an email as a `<a href="mailto:" />` link.
 
 ```jsx
-import { EmailField } from 'react-admin';
+import { EmailField } from 'vn-kooch-react-admin';
 
 <EmailField source="personal_email" />
 ```
@@ -240,7 +240,7 @@ import { EmailField } from 'react-admin';
 If you need a special function to render a field, `<FunctionField>` is the perfect match. It passes the `record` to a `render` function supplied by the developer. For instance, to display the full name of a `user` record based on `first_name` and `last_name` properties:
 
 ```jsx
-import { FunctionField } from 'react-admin'
+import { FunctionField } from 'vn-kooch-react-admin'
 
 <FunctionField label="Name" render={record => `${record.first_name} ${record.last_name}`} />
 ```
@@ -252,7 +252,7 @@ import { FunctionField } from 'react-admin'
 If you need to display an image provided by your API, you can use the `<ImageField />` component:
 
 ```jsx
-import { ImageField } from 'react-admin';
+import { ImageField } from 'vn-kooch-react-admin';
 
 <ImageField source="url" title="title" />
 ```
@@ -293,7 +293,7 @@ If the record actually contains an array of images in its property defined by th
 If you need to display a file provided by your API, you can use the `<FileField />` component:
 
 ```jsx
-import { FileField } from 'react-admin';
+import { FileField } from 'vn-kooch-react-admin';
 
 <FileField source="url" title="title" />
 ```
@@ -345,7 +345,7 @@ If Intl is not available, it outputs number as is (and ignores the `locales` and
 
 {% raw %}
 ```jsx
-import { NumberField }  from 'react-admin';
+import { NumberField }  from 'vn-kooch-react-admin';
 
 <NumberField source="score" />
 // renders the record { id: 1234, score: 567 } as
@@ -381,7 +381,7 @@ See [Intl.Numberformat documentation](https://developer.mozilla.org/en-US/docs/W
 
 {% raw %}
 ```jsx
-import { NumberField }  from 'react-admin';
+import { NumberField }  from 'vn-kooch-react-admin';
 
 <NumberField source="score" style={{}} />
 ```
@@ -394,7 +394,7 @@ When you need to display an enumerated field, `<SelectField>` maps the value to 
 For instance, if the `gender` field can take values "M" and "F", here is how to display it as "Male" or "Female":
 
 ```jsx
-import { SelectField } from 'react-admin';
+import { SelectField } from 'vn-kooch-react-admin';
 
 <SelectField source="gender" choices={[
    { id: 'M', name: 'Male' },
@@ -466,7 +466,7 @@ For instance, here is how to fetch the `post` related to `comment` records, and 
 
 ```jsx
 import React from 'react';
-import { List, Datagrid, ReferenceField, TextField } from 'react-admin';
+import { List, Datagrid, ReferenceField, TextField } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -486,7 +486,7 @@ With this configuration, `<ReferenceField>` wraps the user's name in a link to t
 
 `<ReferenceField>` accepts a `reference` attribute, which specifies the resource to fetch for the related record. Also, you can use any `Field` component as child.
 
-**Note**: You **must** add a `<Resource>` for the reference resource - react-admin needs it to fetch the reference data. You *can* omit the `list` prop in this reference if you want to hide it in the sidebar menu.
+**Note**: You **must** add a `<Resource>` for the reference resource - vn-kooch-react-admin needs it to fetch the reference data. You *can* omit the `list` prop in this reference if you want to hide it in the sidebar menu.
 
 ```jsx
 <Admin dataProvider={myDataProvider}>
@@ -520,7 +520,7 @@ You can also prevent `<ReferenceField>` from adding link to children by setting 
 </ReferenceField>
 ```
 
-**Tip**: React-admin uses `CRUD_GET_ONE_REFERENCE` action to accumulate and deduplicate the ids of the referenced records to make *one* `GET_MANY` call for the entire list, instead of n `GET_ONE` calls. So for instance, if the API returns the following list of comments:
+**Tip**: vn-kooch-react-admin uses `CRUD_GET_ONE_REFERENCE` action to accumulate and deduplicate the ids of the referenced records to make *one* `GET_MANY` call for the entire list, instead of n `GET_ONE` calls. So for instance, if the API returns the following list of comments:
 
 ```jsx
 [
@@ -542,7 +542,7 @@ You can also prevent `<ReferenceField>` from adding link to children by setting 
 ]
 ```
 
-Then react-admin renders the `<CommentList>` with a loader for the `<ReferenceField>`, fetches the API for the related posts in one call (`GET http://path.to.my.api/posts?ids=[789,735]`), and re-renders the list once the data arrives. This accelerates the rendering, and minimizes network load.
+Then vn-kooch-react-admin renders the `<CommentList>` with a loader for the `<ReferenceField>`, fetches the API for the related posts in one call (`GET http://path.to.my.api/posts?ids=[789,735]`), and re-renders the list once the data arrives. This accelerates the rendering, and minimizes network load.
 
 ## `<ReferenceManyField>`
 
@@ -552,7 +552,7 @@ For instance, here is how to fetch the `comments` related to a `post` record by 
 
 ```jsx
 import React from 'react';
-import { List, Datagrid, ChipField, ReferenceManyField, SingleFieldList, TextField } from 'react-admin';
+import { List, Datagrid, ChipField, ReferenceManyField, SingleFieldList, TextField } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -574,13 +574,13 @@ export const PostList = (props) => (
 
 `<ReferenceManyField>` accepts a `reference` attribute, which specifies the resource to fetch for the related record. It also accepts a `source` attribute which define the field containing the value to look for in the `target` field of the referenced resource. By default this is the `id` of the resource (`post.id` in the previous example).
 
-**Note**: You **must** add a `<Resource>` for the reference resource - react-admin needs it to fetch the reference data. You *can* omit the `list` prop in this reference if you want to hide it in the sidebar menu.
+**Note**: You **must** add a `<Resource>` for the reference resource - vn-kooch-react-admin needs it to fetch the reference data. You *can* omit the `list` prop in this reference if you want to hide it in the sidebar menu.
 
 You can use a `<Datagrid>` instead of a `<SingleFieldList>` - but not inside another `<Datagrid>`! This is useful if you want to display a read-only list of related records. For instance, if you want to show the `comments` related to a `post` in the post's `<Edit>` view:
 
 ```jsx
 import React from 'react';
-import { Edit, Datagrid, SimpleForm, DisabledInput, DateField, EditButton, ReferenceManyField, TextField, TextInput } from 'react-admin';
+import { Edit, Datagrid, SimpleForm, DisabledInput, DateField, EditButton, ReferenceManyField, TextField, TextInput } from 'vn-kooch-react-admin';
 
 export const PostEdit = (props) => (
     <Edit {...props}>
@@ -606,7 +606,7 @@ export const PostEdit = (props) => (
 
 ![ReferenceManyFieldDatagrid](./img/reference-many-field-datagrid.png)
 
-By default, react-admin restricts the possible values to 25 and displays no pagination control. You can change the limit by setting the `perPage` prop:
+By default, vn-kooch-react-admin restricts the possible values to 25 and displays no pagination control. You can change the limit by setting the `perPage` prop:
 
 ```jsx
 <ReferenceManyField perPage={10} reference="comments" target="post_id">
@@ -617,7 +617,7 @@ By default, react-admin restricts the possible values to 25 and displays no pagi
 And if you want to allow users to paginate the list, pass a `<Pagination>` component as the `pagination` prop:
 
 ```jsx
-import { Pagination } from 'react-admin';
+import { Pagination } from 'vn-kooch-react-admin';
 
 <ReferenceManyField pagination={<Pagination />} reference="comments" target="post_id">
    ...
@@ -674,7 +674,7 @@ Here is how to fetch the list of tags for each post in a `PostList`, and display
 
 ```jsx
 import React from 'react';
-import { List, Datagrid, ChipField, ReferenceArrayField, SingleFieldList, TextField } from 'react-admin';
+import { List, Datagrid, ChipField, ReferenceArrayField, SingleFieldList, TextField } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -692,7 +692,7 @@ export const PostList = (props) => (
 );
 ```
 
-**Note**: You **must** add a `<Resource>` component for the reference resource to your `<Admin>` component, because react-admin needs it to fetch the reference data. You can omit the `list` prop in this Resource if you don't want to show an entry for it in the sidebar menu.
+**Note**: You **must** add a `<Resource>` component for the reference resource to your `<Admin>` component, because vn-kooch-react-admin needs it to fetch the reference data. You can omit the `list` prop in this Resource if you don't want to show an entry for it in the sidebar menu.
 
 ```jsx
 export const App = () => (
@@ -707,7 +707,7 @@ In an Edit of Show view, you can combine `<ReferenceArrayField>` with `<Datagrid
 
 ```jsx
 import React from 'react';
-import { Show, SimpleShowLayout, TextField, ReferenceArrayField, Datagrid, ShowButton } from 'react-admin';
+import { Show, SimpleShowLayout, TextField, ReferenceArrayField, Datagrid, ShowButton } from 'vn-kooch-react-admin';
 
 export const PostShow = (props) => (
     <Show {...props}>
@@ -732,7 +732,7 @@ export const PostShow = (props) => (
 This component displays some HTML content. The content is "rich" (i.e. unescaped) by default.
 
 ```jsx
-import { RichTextField } from 'react-admin';
+import { RichTextField } from 'vn-kooch-react-admin';
 
 <RichTextField source="body" />
 ```
@@ -742,7 +742,7 @@ import { RichTextField } from 'react-admin';
 The `stripTags` attribute (`false` by default) allows you to remove any HTML markup, preventing some display glitches (which is especially useful in list views).
 
 ```jsx
-import { RichTextField } from 'react-admin';
+import { RichTextField } from 'vn-kooch-react-admin';
 
 <RichTextField source="body" stripTags />
 ```
@@ -752,7 +752,7 @@ import { RichTextField } from 'react-admin';
 The most simple as all fields, `<TextField>` simply displays the record property as plain text.
 
 ```jsx
-import { TextField } from 'react-admin';
+import { TextField } from 'vn-kooch-react-admin';
 
 <TextField label="Author Name" source="name" />
 ```
@@ -762,7 +762,7 @@ import { TextField } from 'react-admin';
 `<UrlField>` displays an url in an `< a href="">` tag.
 
 ```jsx
-import { UrlField } from 'react-admin';
+import { UrlField } from 'vn-kooch-react-admin';
 
 <UrlField source="site_url" />
 ```
@@ -796,7 +796,7 @@ export const ProductList = (props) => (
 ```
 {% endraw %}
 
-React-admin usually delegates the rendering of fields components to material-ui components. Refer to the material-ui documentation to see the default styles for elements.
+vn-kooch-react-admin usually delegates the rendering of fields components to material-ui components. Refer to the material-ui documentation to see the default styles for elements.
 
 You may want to customize the cell style inside a `DataGrid`. You can use the `cellClassName` for that:
 
@@ -867,9 +867,9 @@ PriceField.defaultProps = {
 
 ## Writing Your Own Field Component
 
-If you don't find what you need in the list above, you can write your own Field component. It must be a regular React component, accepting not only a `source` attribute, but also a `record` attribute. React-admin will inject the `record` based on the API response data at render time. The field component only needs to find the `source` in the `record` and display it.
+If you don't find what you need in the list above, you can write your own Field component. It must be a regular React component, accepting not only a `source` attribute, but also a `record` attribute. vn-kooch-react-admin will inject the `record` based on the API response data at render time. The field component only needs to find the `source` in the `record` and display it.
 
-For instance, here is an equivalent of react-admin's `<TextField>` component:
+For instance, here is an equivalent of vn-kooch-react-admin's `<TextField>` component:
 
 ```jsx
 import React from 'react';
@@ -886,7 +886,7 @@ TextField.propTypes = {
 export default TextField;
 ```
 
-**Tip**: The `label` attribute isn't used in the `render()` method, but react-admin uses it to display the table header.
+**Tip**: The `label` attribute isn't used in the `render()` method, but vn-kooch-react-admin uses it to display the table header.
 
 **Tip**: If you want to support deep field sources (e.g. source values like `author.name`), use [`lodash/get`](https://www.npmjs.com/package/lodash.get) to replace the simple object lookup:
 
@@ -909,7 +909,7 @@ The component will be:
 
 ```jsx
 import React from 'react';
-import { List, Datagrid, TextField } from 'react-admin';
+import { List, Datagrid, TextField } from 'vn-kooch-react-admin';
 
 const FullNameField = ({ record = {} }) => <span>{record.firstName} {record.lastName}</span>;
 FullNameField.defaultProps = { label: 'Name' };
@@ -923,13 +923,13 @@ export const UserList = (props) => (
 );
 ```
 
-**Tip**: In such custom fields, the `source` is optional. React-admin uses it to determine which column to use for sorting when the column header is clicked. In case you use the `source` property for additional purposes, the sorting can be overridden by the `sortBy` property on any `Field` component.
+**Tip**: In such custom fields, the `source` is optional. vn-kooch-react-admin uses it to determine which column to use for sorting when the column header is clicked. In case you use the `source` property for additional purposes, the sorting can be overridden by the `sortBy` property on any `Field` component.
 
 ## Adding Label To Custom Field Components In The Show View
 
-React-admin lets you use the same Field components in the List view and in the Show view. But if you use the `<FullNameField>` custom field component defined earlier in a Show view, something is missing: the Field label. Why do other fields have a label and not this custom Field? And how can you create a Field component that has a label in the Show view, but not in the List view?
+vn-kooch-react-admin lets you use the same Field components in the List view and in the Show view. But if you use the `<FullNameField>` custom field component defined earlier in a Show view, something is missing: the Field label. Why do other fields have a label and not this custom Field? And how can you create a Field component that has a label in the Show view, but not in the List view?
 
-React-admin uses a trick: the Show view layouts (`<SimpleShowLayout>` and `<TabbedShowLayout>`) inspect their Field children, and whenever one has the `addLabel` prop set to `true`, the layout adds a label.
+vn-kooch-react-admin uses a trick: the Show view layouts (`<SimpleShowLayout>` and `<TabbedShowLayout>`) inspect their Field children, and whenever one has the `addLabel` prop set to `true`, the layout adds a label.
 
 That means that the only thing you need to add to a custom component to make it usable in a Show view is a `addLabel: true` default prop.
 
@@ -947,7 +947,7 @@ For such cases, you can use the custom field approach: use the injected `record`
 
 ```jsx
 import React from 'react';
-import { EmailField } from 'react-admin';
+import { EmailField } from 'vn-kooch-react-admin';
 
 const ConditionalEmailField = ({ record, ...rest }) =>
     record && record.hasEmail
@@ -957,7 +957,7 @@ const ConditionalEmailField = ({ record, ...rest }) =>
 export default ConditionalEmailField;
 ```
 
-**Tip**: Always check that the `record` is defined before inspecting its properties, as react-admin displays the Show view *before* fetching the record from the data provider. So the first time it renders the show view for a resource, the `record` is undefined.
+**Tip**: Always check that the `record` is defined before inspecting its properties, as vn-kooch-react-admin displays the Show view *before* fetching the record from the data provider. So the first time it renders the show view for a resource, the `record` is undefined.
 
 This `ConditionalEmailField` is properly hidden when `hasEmail` is false. But when `hasEmail` is true, the Show layout renders it... without label. And if you add a `addLabel` default prop, the Show layout will render the label regardless of the `hasEmail` value...
 
@@ -965,7 +965,7 @@ One solution is to add the label manually in the custom component:
 
 ```jsx
 import React from 'react';
-import { Labeled, EmailField } from 'react-admin';
+import { Labeled, EmailField } from 'vn-kooch-react-admin';
 
 const ConditionalEmailField = ({ record, ...rest }) =>
     record && record.hasEmail
@@ -984,7 +984,7 @@ This comes with a drawback, though: the `<ConditionalEmailField>` cannot be used
 An alternative solution is to split the `<Show>` component. Under the hood, the `<Show>` component is composed of two sub components: the `<ShowController>` component, which fetches the record, and the `<ShowView>`, which is responsible for rendering the view title, actions, and children. `<ShowController>` uses the *render props* pattern:
 
 ```jsx
-// inside react-admin
+// inside vn-kooch-react-admin
 const Show = props => (
     <ShowController {...props}>
         {controllerProps => <ShowView {...props} {...controllerProps} />}
@@ -995,7 +995,7 @@ const Show = props => (
 The `<ShowController>` fetches the `record` from the data provider, and passes it to its child function when received (among the `controllerProps`). That means the following code:
 
 ```jsx
-import { Show, SimpleShowLayout, TextField } from 'react-admin';
+import { Show, SimpleShowLayout, TextField } from 'vn-kooch-react-admin';
 
 const UserShow = props => (
     <Show {...props}>
@@ -1010,7 +1010,7 @@ const UserShow = props => (
 Is equivalent to:
 
 ```jsx
-import { ShowController, ShowView, SimpleShowLayout, TextField } from 'react-admin';
+import { ShowController, ShowView, SimpleShowLayout, TextField } from 'vn-kooch-react-admin';
 
 const UserShow = props => (
     <ShowController {...props}>
@@ -1029,7 +1029,7 @@ const UserShow = props => (
 If you want one field to be displayed based on the `record`, for instance to display the email field only if the `hasEmail` field is `true`, you just need to test the value from `controllerProps.record`, as follows:
 
 ```jsx
-import { ShowController, ShowView, SimpleShowLayout, TextField } from 'react-admin';
+import { ShowController, ShowView, SimpleShowLayout, TextField } from 'vn-kooch-react-admin';
 
 const UserShow = props => (
     <ShowController {...props}>

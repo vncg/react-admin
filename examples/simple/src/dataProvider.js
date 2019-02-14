@@ -1,4 +1,4 @@
-import jsonRestProvider from 'ra-data-fakerest';
+import jsonRestProvider from 'vn-kooch-data-fakerest';
 
 import data from './data';
 import addUploadFeature from './addUploadFeature';

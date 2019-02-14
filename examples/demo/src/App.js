@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource } from 'vn-kooch-react-admin';
 
 import './App.css';
 

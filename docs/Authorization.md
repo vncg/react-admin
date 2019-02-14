@@ -5,9 +5,9 @@ title: "Authorization"
 
 # Authorization
 
-Some applications may require to determine what level of access a particular authenticated user should have to secured resources. Since there are many different possible strategies (single role, multiple roles or rights, etc.), react-admin simply provides hooks to execute your own authorization code.
+Some applications may require to determine what level of access a particular authenticated user should have to secured resources. Since there are many different possible strategies (single role, multiple roles or rights, etc.), vn-kooch-react-admin simply provides hooks to execute your own authorization code.
 
-By default, a react-admin app doesn't require authorization. However, if needed, it will rely on the `authProvider` introduced in the [Authentication](./Authentication.md) section.
+By default, a vn-kooch-react-admin app doesn't require authorization. However, if needed, it will rely on the `authProvider` introduced in the [Authentication](./Authentication.md) section.
 
 ## Configuring the Auth Provider
 
@@ -18,7 +18,7 @@ Following is an example where the `authProvider` stores the user's role upon aut
 {% raw %}
 ```jsx
 // in src/authProvider.js
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_GET_PERMISSIONS } from 'react-admin';
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_GET_PERMISSIONS } from 'vn-kooch-react-admin';
 import decodeJwt from 'jwt-decode';
 
 export default (type, params) => {
@@ -210,7 +210,7 @@ The component provided as a [`dashboard`]('./Admin.md#dashboard) will receive th
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { Title } from 'react-admin';
+import { Title } from 'vn-kooch-react-admin';
 
 export default ({ permissions }) => (
     <Card>
@@ -235,7 +235,7 @@ You might want to check user permissions inside a [custom pages](./Admin.md#cust
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { Title, WithPermissions } from 'react-admin';
+import { Title, WithPermissions } from 'vn-kooch-react-admin';
 import { withRouter } from 'react-router-dom';
 
 const MyPage = ({ permissions }) => (
@@ -285,7 +285,7 @@ What if you want to check the permissions inside a [custom menu](./Admin.md#menu
 // in src/myMenu.js
 import React from 'react';
 import { connect } from 'react-redux';
-import { MenuItemLink, WithPermissions } from 'react-admin';
+import { MenuItemLink, WithPermissions } from 'vn-kooch-react-admin';
 
 const Menu = ({ onMenuClick, logout, permissions }) => (
     <div>

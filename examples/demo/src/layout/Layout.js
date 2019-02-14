@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Layout, Sidebar } from 'react-admin';
+import { Layout, Sidebar } from 'vn-kooch-react-admin';
 import AppBar from './AppBar';
 import { darkTheme, lightTheme } from './themes';
 

@@ -6,7 +6,7 @@ import {
     LongTextInput,
     TabbedForm,
     TextInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 export const styles = {

@@ -3,19 +3,19 @@ layout: default
 title: "My First Project Tutorial"
 ---
 
-# React-Admin Tutorial
+# vn-kooch-react-admin Tutorial
 
 This 20 minutes tutorial will expose how to create a new admin app based on an existing REST API.
 
 ## Setting Up
 
-React-admin uses React. We'll use Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app) to create an empty React app, and install the `react-admin` package:
+vn-kooch-react-admin uses React. We'll use Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app) to create an empty React app, and install the `vn-kooch-react-admin` package:
 
 ```sh
 npm install -g create-react-app
 create-react-app test-admin
 cd test-admin/
-yarn add react-admin ra-data-json-server prop-types
+yarn add vn-kooch-react-admin vn-kooch-data-json-server prop-types
 yarn start
 ```
 
@@ -23,7 +23,7 @@ You should be up and running with an empty React application on port 3000.
 
 ## Using an API As Data Source
 
-React-admin runs in the browser, and uses APIs for fetching and storing data.
+vn-kooch-react-admin runs in the browser, and uses APIs for fetching and storing data.
 
 We'll be using [JSONPlaceholder](http://jsonplaceholder.typicode.com/), a fake REST API designed for testing and prototyping, as the datasource for the admin. Here is what it looks like:
 
@@ -66,8 +66,8 @@ Bootstrap the admin app by replacing the `src/App.js` by the following code:
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 const App = () => <Admin dataProvider={dataProvider} />;
@@ -75,11 +75,11 @@ const App = () => <Admin dataProvider={dataProvider} />;
 export default App;
 ```
 
-That's enough for react-admin to render an empty app and confirm that the setup is done: 
+That's enough for vn-kooch-react-admin to render an empty app and confirm that the setup is done: 
 
 ![Empty Admin](./img/tutorial_empty.png)
 
-The `App` component renders an `<Admin>` component, which is the root component of a react-admin application. This component expects a `dataProvider` prop - a function capable of fetching data from an API. Since there is no standard for data exchanges between computers, you will probably have to write a custom provider to connect react-admin to your own APIs - but we'll dive into Data Providers later. For now, let's take advantage of the `ra-data-json-server` data provider, which speaks the same REST dialect as JSONPlaceholder.
+The `App` component renders an `<Admin>` component, which is the root component of a vn-kooch-react-admin application. This component expects a `dataProvider` prop - a function capable of fetching data from an API. Since there is no standard for data exchanges between computers, you will probably have to write a custom provider to connect vn-kooch-react-admin to your own APIs - but we'll dive into Data Providers later. For now, let's take advantage of the `vn-kooch-data-json-server` data provider, which speaks the same REST dialect as JSONPlaceholder.
 
 Now it's time to add features!
 
@@ -89,7 +89,7 @@ The `<Admin>` component expects one or more `<Resource>` child components. Each 
 
 ```jsx
 // in src/App.js
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource, ListGuesser } from 'vn-kooch-react-admin';
 
 const App = () => (
     <Admin dataProvider={dataProvider}>
@@ -98,15 +98,15 @@ const App = () => (
 );
 ```
 
-The line `<Resource name="users" />` informs react-admin to fetch the "users" records from the [http://jsonplaceholder.typicode.com/users](http://jsonplaceholder.typicode.com/users) URL. `<Resource>` also defines the React components to use for each CRUD operation (`list`, `create`, `edit`, and `show`).
+The line `<Resource name="users" />` informs vn-kooch-react-admin to fetch the "users" records from the [http://jsonplaceholder.typicode.com/users](http://jsonplaceholder.typicode.com/users) URL. `<Resource>` also defines the React components to use for each CRUD operation (`list`, `create`, `edit`, and `show`).
 
-The `list={ListGuesser}` prop means that react-admin should use the `<ListGuesser>` component to display the list of posts. This component *guesses* the format to use for the columns of the list based on the data fetched from the API:
+The `list={ListGuesser}` prop means that vn-kooch-react-admin should use the `<ListGuesser>` component to display the list of posts. This component *guesses* the format to use for the columns of the list based on the data fetched from the API:
 
 ![Users List](./img/tutorial_users_list.png)
 
-If you look at the network tab in the browser developer tools, you'll notice that the application fetched the `http://jsonplaceholder.typicode.com/users` URL, then used the results to build the datagrid. That's basically how react-admin works.
+If you look at the network tab in the browser developer tools, you'll notice that the application fetched the `http://jsonplaceholder.typicode.com/users` URL, then used the results to build the datagrid. That's basically how vn-kooch-react-admin works.
 
-The list is already functional: you can reorder it by clicking on column headers, or change pages by using the bottom pagination controls. The `ra-data-json-server` data provider translates these actions to a query string that JSONPlaceholder understands.
+The list is already functional: you can reorder it by clicking on column headers, or change pages by using the bottom pagination controls. The `vn-kooch-data-json-server` data provider translates these actions to a query string that JSONPlaceholder understands.
 
 ## Selecting Columns
 
@@ -119,7 +119,7 @@ Let's copy this code, and create a new `UserList` component, in a new file named
 ```jsx
 // in src/users.js
 import React from 'react';
-import { List, Datagrid, TextField, EmailField } from 'react-admin';
+import { List, Datagrid, TextField, EmailField } from 'vn-kooch-react-admin';
 
 export const UserList = props => (
     <List {...props}>
@@ -141,8 +141,8 @@ Then, edit the `App.js` file to use this new component instead of `ListGuesser`:
 
 ```diff
 // in src/App.js
--import { Admin, Resource, ListGuesser } from 'react-admin';
-+import { Admin, Resource } from 'react-admin';
+-import { Admin, Resource, ListGuesser } from 'vn-kooch-react-admin';
++import { Admin, Resource } from 'vn-kooch-react-admin';
 +import { UserList } from './users';
 
 const App = () => (
@@ -164,7 +164,7 @@ The `ListGuesser` created one column for every field in the response. That's a b
 ```diff
 // in src/users.js
 import React from 'react';
-import { List, Datagrid, TextField, EmailField } from 'react-admin';
+import { List, Datagrid, TextField, EmailField } from 'vn-kooch-react-admin';
 
 export const UserList = props => (
     <List {...props}>
@@ -184,19 +184,19 @@ export const UserList = props => (
 
 ![Users List](./img/tutorial_users_list_selected_columns.png)
 
-What you've just done reflects the early stages of development with react-admin: let the guesser do the job, select only the fields you want, and start customizing types.
+What you've just done reflects the early stages of development with vn-kooch-react-admin: let the guesser do the job, select only the fields you want, and start customizing types.
 
 ## Using Field Types
 
-You've just met the `<TextField>` and the `<EmailField>` components. React-admin provides more Field components, mapping various data types: number, date, image, HTML, array, reference, etc.
+You've just met the `<TextField>` and the `<EmailField>` components. vn-kooch-react-admin provides more Field components, mapping various data types: number, date, image, HTML, array, reference, etc.
 
 For instance, the `website` field looks like an URL. Instead of displaying it as text, why not display it using a clickable link? That's exactly what the `<UrlField>` does:
 
 ```diff
 // in src/users.js
 import React from 'react';
--import { List, Datagrid, TextField, EmailField } from 'react-admin';
-+import { List, Datagrid, TextField, EmailField, UrlField } from 'react-admin';
+-import { List, Datagrid, TextField, EmailField } from 'vn-kooch-react-admin';
++import { List, Datagrid, TextField, EmailField, UrlField } from 'vn-kooch-react-admin';
 
 export const UserList = props => (
     <List {...props}>
@@ -215,7 +215,7 @@ export const UserList = props => (
 
 ![Url Field](./img/tutorial_url_field.png)
 
-In react-admin, fields are simple React components. At runtime, they receive the `record` fetched from the API (e.g. `{ "id": 2, "name": "Ervin Howell", "website": "anastasia.net", ... }`), and the `source` field they should display (e.g. `website`).
+In vn-kooch-react-admin, fields are simple React components. At runtime, they receive the `record` fetched from the API (e.g. `{ "id": 2, "name": "Ervin Howell", "website": "anastasia.net", ... }`), and the `source` field they should display (e.g. `website`).
 
 That means that writing a custom Field component is really straightforward. For instance, here is a simplified version of the `UrlField`:
 
@@ -231,13 +231,13 @@ const MyUrlField = ({ record = {}, source }) =>
 export default MyUrlField;
 ```
 
-You can use this component in `<UserList>`, instead of react-admin's `<UrlField>` component, and it will work just the same.
+You can use this component in `<UserList>`, instead of vn-kooch-react-admin's `<UrlField>` component, and it will work just the same.
 
 ```diff
 // in src/users.js
 import React from 'react';
--import { List, Datagrid, TextField, EmailField, UrlField } from 'react-admin';
-+import { List, Datagrid, TextField, EmailField } from 'react-admin';
+-import { List, Datagrid, TextField, EmailField, UrlField } from 'vn-kooch-react-admin';
++import { List, Datagrid, TextField, EmailField } from 'vn-kooch-react-admin';
 +import MyUrlField from './MyUrlField';
 
 export const UserList = props => (
@@ -255,11 +255,11 @@ export const UserList = props => (
 );
 ```
 
-Yes, you can replace any of react-admin's components with your own! That means react-admin never blocks you: if one react-admin component doesn't perfectly suit your needs, you can easily swap it with your own version.
+Yes, you can replace any of vn-kooch-react-admin's components with your own! That means vn-kooch-react-admin never blocks you: if one vn-kooch-react-admin component doesn't perfectly suit your needs, you can easily swap it with your own version.
 
 ## Customizing Styles
 
-The `MyUrlField` component is a perfect opportunity to illustrate how to customize styles. React-admin relies on [material-ui](https://material-ui.com/), a set of React component modeled after Google's [Material Design UI Guidelines](https://material.io/). Material-ui uses [JSS](https://github.com/cssinjs/jss), a CSS-in-JS solution, for styling components. Let's take advantage of the capabilities of JSS to remove the underline from the link and add an icon:
+The `MyUrlField` component is a perfect opportunity to illustrate how to customize styles. vn-kooch-react-admin relies on [material-ui](https://material-ui.com/), a set of React component modeled after Google's [Material Design UI Guidelines](https://material.io/). Material-ui uses [JSS](https://github.com/cssinjs/jss), a CSS-in-JS solution, for styling components. Let's take advantage of the capabilities of JSS to remove the underline from the link and add an icon:
 
 ```jsx
 // in src/MyUrlField.js
@@ -306,12 +306,12 @@ In JSONPlaceholder, each `post` record includes a `userId` field, which points t
 }
 ```
 
-React-admin knows how to take advantage of these foreign keys to fetch references. Let's see how the `ListGuesser` manages them by creating a new `<Resource>` for the `/posts` API endpoint:
+vn-kooch-react-admin knows how to take advantage of these foreign keys to fetch references. Let's see how the `ListGuesser` manages them by creating a new `<Resource>` for the `/posts` API endpoint:
 
 ```diff
 // in src/App.js
--import { Admin, Resource } from 'react-admin';
-+import { Admin, Resource, ListGuesser } from 'react-admin';
+-import { Admin, Resource } from 'vn-kooch-react-admin';
++import { Admin, Resource, ListGuesser } from 'vn-kooch-react-admin';
 import { UserList } from './users';
 
 const App = () => (
@@ -329,7 +329,7 @@ The `ListGuesser` suggests using a `<ReferenceField>` for the `userId` field. Le
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField } from 'react-admin';
+import { List, Datagrid, TextField, ReferenceField } from 'vn-kooch-react-admin';
 
 export const PostList = props => (
     <List {...props}>
@@ -347,8 +347,8 @@ export const PostList = props => (
 
 ```diff
 // in src/App.js
--import { Admin, Resource, ListGuesser } from 'react-admin';
-+import { Admin, Resource } from 'react-admin';
+-import { Admin, Resource, ListGuesser } from 'vn-kooch-react-admin';
++import { Admin, Resource } from 'vn-kooch-react-admin';
 +import { PostList } from './posts';
 import { UserList } from './users';
 
@@ -386,15 +386,15 @@ The post list now displays the user names on each line.
 
 **Tip**: The `<ReferenceField>` component alone doesn't display anything. It just fetches the reference data, and passes it as a `record` to its child component (a `<TextField>` in our case). Just like the `<List>` component, all `<Reference>` components are only responsible for fetching and preparing data, and delegate rendering to their children.
 
-**Tip**: Look at the network tab of your browser again: react-admin deduplicates requests for users, and aggregates them in order to make only *one* HTTP request to the `/users` endpoint for the whole datagrid. That's one of many optimizations that keep the UI fast and responsive.
+**Tip**: Look at the network tab of your browser again: vn-kooch-react-admin deduplicates requests for users, and aggregates them in order to make only *one* HTTP request to the `/users` endpoint for the whole datagrid. That's one of many optimizations that keep the UI fast and responsive.
 
 To finish the post list, place the post `id` field as first column, and remove the `body` field. From a UX point of view, fields containing large chunks of text should not appear in a datagrid, only in detail views. Also, to make the Edit action stand out, let's replace the `rowClick` action by an explicit action button:
 
 ```diff
 // in src/posts.js
 import React from 'react';
--import { List, Datagrid, TextField, ReferenceField } from 'react-admin';
-+import { List, Datagrid, TextField, ReferenceField, EditButton } from 'react-admin';
+-import { List, Datagrid, TextField, ReferenceField } from 'vn-kooch-react-admin';
++import { List, Datagrid, TextField, ReferenceField, EditButton } from 'vn-kooch-react-admin';
 
 export const PostList = props => (
     <List {...props}>
@@ -417,12 +417,12 @@ export const PostList = props => (
 
 ## Adding Creation and Editing Capabilities
 
-An admin interface isn't just about displaying remote data, it should also allow editing records. React-admin provides an `<Edit>` components for that purpose ; let's use the `<EditGuesser>` to help bootstrap it.
+An admin interface isn't just about displaying remote data, it should also allow editing records. vn-kooch-react-admin provides an `<Edit>` components for that purpose ; let's use the `<EditGuesser>` to help bootstrap it.
 
 ```diff
 // in src/App.js
--import { Admin, Resource } from 'react-admin';
-+import { Admin, Resource, EditGuesser } from 'react-admin';
+-import { Admin, Resource } from 'vn-kooch-react-admin';
++import { Admin, Resource, EditGuesser } from 'vn-kooch-react-admin';
 import { PostList } from './posts';
 import { UserList } from './users';
 
@@ -439,7 +439,7 @@ const App = () => (
 
 Users can display the edit page just by clicking on a row in the post datagrid. The form rendered is already functional ; it issues `PUT` requests to the REST API upon submission.
 
-Copy the `PostEdit` code dumped by the guesser in the console to the `posts.js` file so that you can customize the view. Don't forget to `import` the new components from react-admin.
+Copy the `PostEdit` code dumped by the guesser in the console to the `posts.js` file so that you can customize the view. Don't forget to `import` the new components from vn-kooch-react-admin.
 
 You can now adjust the `PostEdit` component to disable the edition of the primary key (`id`), place it first, use the user `name` instead of the user `id` in the reference, and use a longer text input for the `body` field, as follows:
 
@@ -489,8 +489,8 @@ To use the new `<PostEdit>` and `<PostCreate>` components in the posts resource,
 
 ```diff
 // in src/App.js
--import { Admin, Resource, EditGuesser } from 'react-admin';
-+import { Admin, Resource } from 'react-admin';
+-import { Admin, Resource, EditGuesser } from 'vn-kooch-react-admin';
++import { Admin, Resource } from 'vn-kooch-react-admin';
 -import { PostList } from './posts';
 +import { PostList, PostEdit, PostCreate } from './posts';
 import { UserList } from './users';
@@ -506,7 +506,7 @@ const App = () => (
 
 ![Post Creation](./img/tutorial_post_create.gif)
 
-React-admin automatically adds a "create" button on top of the posts list to give access to the `<PostCreate>` component. And the creation form works ; it issues a `POST` request to the REST API upon submission.
+vn-kooch-react-admin automatically adds a "create" button on top of the posts list to give access to the `<PostCreate>` component. And the creation form works ; it issues a `POST` request to the REST API upon submission.
 
 ## Optimistic Rendering And Undo
 
@@ -514,15 +514,15 @@ Unfortunately, JSONPlaceholder is a read-only API; although it seems to accept `
 
 But then, how come the newly created post appears in the list just after creation in the screencast above?
 
-That's because react-admin uses *optimistic rendering*. When a user edits a record and hits the "Save" button, the UI shows a confirmation and displays the updated data *before sending the update query to server*. The main benefit is that UI changes are immediate - no need to wait for the server response. It's a great comfort for users.
+That's because vn-kooch-react-admin uses *optimistic rendering*. When a user edits a record and hits the "Save" button, the UI shows a confirmation and displays the updated data *before sending the update query to server*. The main benefit is that UI changes are immediate - no need to wait for the server response. It's a great comfort for users.
 
 But there is an additional benefit: it also allows the "Undo" feature. Undo is already functional in the admin at that point. Try editing a record, then hit the "Undo" link in the black confirmation box before it slides out. You'll see that the app does not send the `UPDATE` query to the API, and displays the non-modified data.
 
 ![Undo Post Editing](./img/tutorial_post_edit_undo.gif)
 
-Even though updates appear immediately due to Optimistic Rendering, React-admin only sends them to the server after a short delay (about 5 seconds). During this delay, the user can undo the action, and react-admin will never send the update. 
+Even though updates appear immediately due to Optimistic Rendering, vn-kooch-react-admin only sends them to the server after a short delay (about 5 seconds). During this delay, the user can undo the action, and vn-kooch-react-admin will never send the update. 
 
-Optimistic Rendering and Undo require no specific code on the API side - react-admin handles them purely on the client-side. That means that you'll get them for free with your own API!
+Optimistic Rendering and Undo require no specific code on the API side - vn-kooch-react-admin handles them purely on the client-side. That means that you'll get them for free with your own API!
 
 **Note**: When you add the ability to edit an item, you also add the ability to delete it. The "Delete" button in the edit view is fully working out of the box - and it is also "Undo"-able .
 
@@ -548,11 +548,11 @@ export const PostEdit = props => (
 
 Let's get back to the post list for a minute. It offers sorting and pagination, but one feature is missing: the ability to search content.
 
-React-admin can use Input components to create a multi-criteria search engine in the list view. First, create a `<Filter>` component just like you would write a `<SimpleForm>` component, using input components as children. Then, add it to the list using the `filters` prop:
+vn-kooch-react-admin can use Input components to create a multi-criteria search engine in the list view. First, create a `<Filter>` component just like you would write a `<SimpleForm>` component, using input components as children. Then, add it to the list using the `filters` prop:
 
 ```jsx
 // in src/posts.js
-import { Filter, ReferenceInput, SelectInput, TextInput } from 'react-admin';
+import { Filter, ReferenceInput, SelectInput, TextInput } from 'vn-kooch-react-admin';
 
 const PostFilter = (props) => (
     <Filter {...props}>
@@ -599,7 +599,7 @@ const App = () => (
 
 ## Using a Custom Home Page
 
-By default, react-admin displays the list page of the first resource as home page. If you want to display a custom component instead, pass it in the `dashboard` prop of the `<Admin>` component.
+By default, vn-kooch-react-admin displays the list page of the first resource as home page. If you want to display a custom component instead, pass it in the `dashboard` prop of the `<Admin>` component.
 
 ```jsx
 // in src/Dashboard.js
@@ -631,9 +631,9 @@ const App = () => (
 
 ## Adding a Login Page
 
-Most admin apps require authentication. React-admin can check user credentials before displaying a page, and redirect to a login form when the REST API returns a 403 error code.
+Most admin apps require authentication. vn-kooch-react-admin can check user credentials before displaying a page, and redirect to a login form when the REST API returns a 403 error code.
 
-*What* those credentials are, and *how* to get them, are questions that you, as a developer, must answer. React-admin makes no assumption about your authentication strategy (basic auth, OAuth, custom route, etc), but gives you the hooks to plug your logic at the right place - by calling an `authProvider` function.
+*What* those credentials are, and *how* to get them, are questions that you, as a developer, must answer. vn-kooch-react-admin makes no assumption about your authentication strategy (basic auth, OAuth, custom route, etc), but gives you the hooks to plug your logic at the right place - by calling an `authProvider` function.
 
 For this tutorial, since there is no public authentication API we can use, let's use a fake authentication provider that accepts every login request, and stores the `username` in `localStorage`. Each page change will require that `localStorage` contains a `username` item.
 
@@ -641,7 +641,7 @@ The `authProvider` is a simple function, which must return a `Promise`:
 
 ```jsx
 // in src/authProvider.js
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'vn-kooch-react-admin';
 
 export default (type, params) => {
     // called when the user attempts to log in
@@ -697,7 +697,7 @@ Once the app reloads, it's now behind a login form that accepts everyone:
 
 ## Supporting Mobile Devices
 
-The react-admin layout is already responsive. Try to resize your browser to see how the sidebar switches to a drawer on smaller screens.
+The vn-kooch-react-admin layout is already responsive. Try to resize your browser to see how the sidebar switches to a drawer on smaller screens.
 
 But a responsive layout is not enough to make a responsive app. Datagrid components work well on desktop, but are absolutely not adapted to mobile devices. If your admin must be used on mobile devices, you'll have to provide an alternative component for small screens.
 
@@ -706,7 +706,7 @@ First, you should know that you don't have to use the `<Datagrid>` component as 
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, SimpleList } from 'react-admin';
+import { List, SimpleList } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -730,7 +730,7 @@ That works fine on mobile, but now the desktop user experience is worse. The bes
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, Responsive, SimpleList, Datagrid, TextField, ReferenceField, EditButton } from 'react-admin';
+import { List, Responsive, SimpleList, Datagrid, TextField, ReferenceField, EditButton } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -758,15 +758,15 @@ export const PostList = (props) => (
 );
 ```
 
-This works exactly the way you expect. The lesson here is that react-admin takes care of responsive web design for the layout, but it's your job to use `<Responsive>` in pages.
+This works exactly the way you expect. The lesson here is that vn-kooch-react-admin takes care of responsive web design for the layout, but it's your job to use `<Responsive>` in pages.
 
 ![Responsive List](./img/responsive-list.gif)
 
 ## Connecting To A Real API
 
-Here is the elephant in the room of this tutorial. In real world projects, the dialect of your API (REST? GraphQL? Something else?) won't match the JSONPLaceholder dialect. Writing a Data Provider is probably the first thing you'll have to do to make react-admin work. Depending on your API, this can require a few hours of additional work.
+Here is the elephant in the room of this tutorial. In real world projects, the dialect of your API (REST? GraphQL? Something else?) won't match the JSONPLaceholder dialect. Writing a Data Provider is probably the first thing you'll have to do to make vn-kooch-react-admin work. Depending on your API, this can require a few hours of additional work.
 
-React-admin delegates every data query to a Data Provider function. This function must simply return a promise for the result. This gives extreme freedom to map any API dialect, add authentication headers, use endpoints from several domains, etc.
+vn-kooch-react-admin delegates every data query to a Data Provider function. This function must simply return a promise for the result. This gives extreme freedom to map any API dialect, add authentication headers, use endpoints from several domains, etc.
 
 For instance, let's imagine you have to use the `my.api.url` REST API, which expects the following parameters:
 
@@ -779,7 +779,7 @@ For instance, let's imagine you have to use the `my.api.url` REST API, which exp
 | Create a record     | `POST http://my.api.url/posts/123` |
 | Delete a record     | `DELETE http://my.api.url/posts/123` |
 
-React-admin defines custom verbs for each of the actions of this list. Just like HTTP verbs (`GET`, `POST`, etc.), react-admin verbs qualify a request to a data provider. React-admin verbs are called `GET_LIST`, `GET_ONE`, `GET_MANY`, `CREATE`, `UPDATE`, and `DELETE`. The Data Provider will have to map each of these verbs to one (or many) HTTP request(s).
+vn-kooch-react-admin defines custom verbs for each of the actions of this list. Just like HTTP verbs (`GET`, `POST`, etc.), vn-kooch-react-admin verbs qualify a request to a data provider. vn-kooch-react-admin verbs are called `GET_LIST`, `GET_ONE`, `GET_MANY`, `CREATE`, `UPDATE`, and `DELETE`. The Data Provider will have to map each of these verbs to one (or many) HTTP request(s).
 
 The code for a Data Provider for the `my.api.url` API is as follows:
 
@@ -794,7 +794,7 @@ import {
     UPDATE,
     DELETE,
     fetchUtils,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 import { stringify } from 'query-string';
 
 const API_URL = 'my.api.url';
@@ -908,6 +908,6 @@ const App = () => (
 
 ## Conclusion
 
-React-admin was built with customization in mind. You can replace any react-admin component with a component of your own, for instance to display a custom list layout, or a different edit form for a given resource.
+vn-kooch-react-admin was built with customization in mind. You can replace any vn-kooch-react-admin component with a component of your own, for instance to display a custom list layout, or a different edit form for a given resource.
 
-Now that you've completed the tutorial, continue reading the [react-admin documentation](http://marmelab.com/react-admin/), and read the [Material UI components documentation](http://www.material-ui.com/#/).
+Now that you've completed the tutorial, continue reading the [vn-kooch-react-admin documentation](http://marmelab.com/vn-kooch-react-admin/), and read the [Material UI components documentation](http://www.material-ui.com/#/).

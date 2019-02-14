@@ -7,7 +7,7 @@ import {
     ShowButton,
     TextField,
     TextInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 import {
     DragPreview,
     IgnoreFormProps,
@@ -15,7 +15,7 @@ import {
     NodeForm,
     Tree,
     NodeActions,
-} from 'ra-tree-ui-materialui';
+} from 'vn-kooch-tree-ui-materialui';
 
 const TagDragPreview = props => (
     <DragPreview {...props}>{({ node }) => node.record.name}</DragPreview>

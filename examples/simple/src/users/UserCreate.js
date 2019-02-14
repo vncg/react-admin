@@ -9,7 +9,7 @@ import {
     TextInput,
     Toolbar,
     required,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 import Aside from './Aside';
 

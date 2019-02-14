@@ -13,9 +13,9 @@ import {
     TabbedForm,
     TextField,
     TextInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
-import RichTextInput from 'ra-input-rich-text';
+import RichTextInput from 'vn-kooch-input-rich-text';
 
 import CustomerReferenceField from '../visitors/CustomerReferenceField';
 import StarRatingField from '../reviews/StarRatingField';

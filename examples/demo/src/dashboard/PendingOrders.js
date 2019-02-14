@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import { translate } from 'react-admin';
+import { translate } from 'vn-kooch-react-admin';
 
 const style = theme => ({
     root: {

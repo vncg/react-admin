@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GET_LIST, GET_MANY, Responsive } from 'react-admin';
+import { GET_LIST, GET_MANY, Responsive } from 'vn-kooch-react-admin';
 
 import Welcome from './Welcome';
 import MonthlyRevenue from './MonthlyRevenue';

@@ -4,7 +4,7 @@ about: Something isn't working as expected. Please tell us!
 
 ---
 
-<!-- Please do not submit support requests or "How to" questions here. For that, go to [StackOverflow](http://stackoverflow.com/questions/tagged/react-admin). -->
+<!-- Please do not submit support requests or "How to" questions here. For that, go to [StackOverflow](http://stackoverflow.com/questions/tagged/vn-kooch-react-admin). -->
 
 **What you were expecting:**
 <!-- Describe what the behavior would be without the bug. -->
@@ -31,7 +31,7 @@ insert short code snippets here
 
 **Environment**
 
-* React-admin version:
+* vn-kooch-react-admin version:
 * Last version that did not exhibit the issue (if applicable):
 * React version:
 * Browser:

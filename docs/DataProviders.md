@@ -5,7 +5,7 @@ title: "Data Providers"
 
 # Data Providers
 
-React-admin can communicate with any API, whether it uses REST, GraphQL, or even SOAP, regardless of the dialect it uses. For REST servers, it can be [JSON API](http://jsonapi.org/), [HAL](http://stateless.co/hal_specification.html), [OData](http://www.odata.org/) or a custom dialect. The only thing react-admin needs is a Data Provider function. This is the place to translate data queries to HTTP requests, and HTTP responses to data responses.
+vn-kooch-react-admin can communicate with any API, whether it uses REST, GraphQL, or even SOAP, regardless of the dialect it uses. For REST servers, it can be [JSON API](http://jsonapi.org/), [HAL](http://stateless.co/hal_specification.html), [OData](http://www.odata.org/) or a custom dialect. The only thing vn-kooch-react-admin needs is a Data Provider function. This is the place to translate data queries to HTTP requests, and HTTP responses to data responses.
 
 ![Data Provider architecture](./img/data-provider.png)
 
@@ -27,18 +27,18 @@ The `dataProvider` parameter of the `<Admin>` component must be a function with 
 const dataProvider = (type, resource, params) => new Promise();
 ```
 
-You can find a Data Provider example implementation in [`packages/ra-data-simple-rest/src/index.js`](https://github.com/marmelab/react-admin/blob/master/packages/ra-data-simple-rest/src/index.js);
+You can find a Data Provider example implementation in [`packages/vn-kooch-data-simple-rest/src/index.js`](https://github.com/marmelab/vn-kooch-react-admin/blob/master/packages/vn-kooch-data-simple-rest/src/index.js);
 
 The `dataProvider` is also the ideal place to add custom HTTP headers, authentication, etc.
 
 ## Available Providers
 
-The react-admin project includes 4 Data Providers:
+The vn-kooch-react-admin project includes 4 Data Providers:
 
-* Simple REST: [marmelab/ra-data-simple-rest](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-simple-rest) ([read more below](#simple-rest)). It serves mostly as an example. Incidentally, it is compatible with the [FakeRest](https://github.com/marmelab/FakeRest) API.
-* **[JSON server](https://github.com/typicode/json-server)**: [marmelab/ra-data-json-server](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-json-server). Great for prototyping an admin over a yet-to-be-developed REST API.
-* [Graphcool](https://www.graph.cool/): [marmelab/ra-data-graphcool](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphcool). A provider for GraphQL servers following the Graphcool convention. Incidentally, this package builds up on [marmelab/ra-data-graphql](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphql), which lets you develop providers for other GraphQL conventions.
-* Local JSON: [marmelab/ra-data-fakerest](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-fakerest). Based on a local object, it doesn't even use HTTP. Use it for testing purposes.
+* Simple REST: [marmelab/vn-kooch-data-simple-rest](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/vn-kooch-data-simple-rest) ([read more below](#simple-rest)). It serves mostly as an example. Incidentally, it is compatible with the [FakeRest](https://github.com/marmelab/FakeRest) API.
+* **[JSON server](https://github.com/typicode/json-server)**: [marmelab/vn-kooch-data-json-server](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/vn-kooch-data-json-server). Great for prototyping an admin over a yet-to-be-developed REST API.
+* [Graphcool](https://www.graph.cool/): [marmelab/vn-kooch-data-graphcool](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/vn-kooch-data-graphcool). A provider for GraphQL servers following the Graphcool convention. Incidentally, this package builds up on [marmelab/vn-kooch-data-graphql](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/vn-kooch-data-graphql), which lets you develop providers for other GraphQL conventions.
+* Local JSON: [marmelab/vn-kooch-data-fakerest](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/vn-kooch-data-fakerest). Based on a local object, it doesn't even use HTTP. Use it for testing purposes.
 
 You can find Data Providers for various backends in third-party repositories:
 
@@ -50,7 +50,7 @@ You can find Data Providers for various backends in third-party repositories:
 * **[Firebase](https://firebase.google.com/docs/database):** [aymendhaya/ra-data-firebase-client](https://github.com/aymendhaya/ra-data-firebase-client).
 * **[Firestore](https://firebase.google.com/docs/firestore):** [rafalzawadzki/ra-data-firestore-client](https://github.com/rafalzawadzki/ra-data-firestore-client).
 * **[JSON API](http://jsonapi.org/)**: [henvo/ra-jsonapi-client](https://github.com/henvo/ra-jsonapi-client)
-* **[Loopback](http://loopback.io/)**: [darthwesker/react-admin-loopback](https://github.com/darthwesker/react-admin-loopback)
+* **[Loopback](http://loopback.io/)**: [darthwesker/vn-kooch-react-admin-loopback](https://github.com/darthwesker/vn-kooch-react-admin-loopback)
 * **[Hasura](https://github.com/hasura/graphql-engine)**: [hasura/ra-data-hasura](https://github.com/hasura/graphql-engine/tree/master/community/tools/ra-data-hasura)
 * **[Strapi](https://strapi.io/)**: [nazirov91/ra-strapi-rest](https://github.com/nazirov91/ra-strapi-rest)
 
@@ -58,24 +58,24 @@ If you've written a Data Provider for another backend, and open-sourced it, plea
 
 ### Legacy Data Providers
 
-Before the version 2, react-admin was called [admin-on-rest](/admin-on-rest) (AOR), the community was as active as it is now, and several Data Providers were published then.
+Before the version 2, vn-kooch-react-admin was called [admin-on-rest](/admin-on-rest) (AOR), the community was as active as it is now, and several Data Providers were published then.
 
-Due to the breaking changes, the following providers are no longer working with the current react-admin implementation:
+Due to the breaking changes, the following providers are no longer working with the current vn-kooch-react-admin implementation:
 
 * **[DynamoDb](https://github.com/abiglobalhealth/aor-dynamodb-client)**: [abiglobalhealth/aor-dynamodb-client](https://github.com/abiglobalhealth/aor-dynamodb-client)
 * **[Epilogue](https://github.com/dchester/epilogue)**: [dunghuynh/aor-epilogue-client](https://github.com/dunghuynh/aor-epilogue-client)
 * **[Parse Server](https://github.com/ParsePlatform/parse-server)**: [leperone/aor-parseserver-client](https://github.com/leperone/aor-parseserver-client)
 
-Fortunately, Data Providers aren't complex pieces of code and supporting the new version of react-admin should not be too harsh. If you are a maintainer of one of these projects we would warmly welcome an upgrade.
+Fortunately, Data Providers aren't complex pieces of code and supporting the new version of vn-kooch-react-admin should not be too harsh. If you are a maintainer of one of these projects we would warmly welcome an upgrade.
 
 ## Usage
 
 As an example, let's focus on the Simple REST data provider. It fits REST APIs using simple GET parameters for filters and sorting.
 
-Install the `ra-data-simple-rest` package to use this provider.
+Install the `vn-kooch-data-simple-rest` package to use this provider.
 
 ```sh
-npm install ra-data-simple-rest
+npm install vn-kooch-data-simple-rest
 ```
 
 Then, initialize the provider with the RESt backend URL, and pass the result to the `dataProvider` prop of the `<Admin>` component:
@@ -83,8 +83,8 @@ Then, initialize the provider with the RESt backend URL, and pass the result to 
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import simpleRestProvider from 'vn-kooch-data-simple-rest';
 
 import { PostList } from './posts';
 
@@ -111,7 +111,7 @@ Here is how this provider maps request types to API calls:
 | `GET_MANY`           | `GET http://my.api.url/posts?filter={ids:[123,456,789]}`
 | `GET_MANY_REFERENCE` | `GET http://my.api.url/posts?filter={author_id:345}`
 
-**Note**: The simple REST client expects the API to include a `Content-Range` header in the response to `GET_LIST` calls. The value must be the total number of resources in the collection. This allows react-admin to know how many pages of resources there are in total, and build the pagination controls.
+**Note**: The simple REST client expects the API to include a `Content-Range` header in the response to `GET_LIST` calls. The value must be the total number of resources in the collection. This allows vn-kooch-react-admin to know how many pages of resources there are in total, and build the pagination controls.
 
 ```
 Content-Range: posts 0-24/319
@@ -125,13 +125,13 @@ Access-Control-Expose-Headers: Content-Range
 
 ## Adding Custom Headers
 
-The `simpleRestProvider` function accepts an HTTP client function as second argument. By default, it uses react-admin's `fetchUtils.fetchJson()` as HTTP client. It's similar to HTML5 `fetch()`, except it handles JSON decoding and HTTP error codes automatically.
+The `simpleRestProvider` function accepts an HTTP client function as second argument. By default, it uses vn-kooch-react-admin's `fetchUtils.fetchJson()` as HTTP client. It's similar to HTML5 `fetch()`, except it handles JSON decoding and HTTP error codes automatically.
 
 That means that if you need to add custom headers to your requests, you can just *wrap* the `fetchJson()` call inside your own function:
 
 ```jsx
-import { fetchUtils, Admin, Resource } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
+import { fetchUtils, Admin, Resource } from 'vn-kooch-react-admin';
+import simpleRestProvider from 'vn-kooch-data-simple-rest';
 
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -225,7 +225,7 @@ export default addUploadFeature;
 To enhance a provider with the upload feature, compose `addUploadFeature` function with the data provider function:
 
 ```jsx
-import simpleRestProvider from 'ra-data-simple-rest';
+import simpleRestProvider from 'vn-kooch-data-simple-rest';
 import addUploadFeature from './addUploadFeature';
 
 const dataProvider = simpleRestProvider('http://path.to.my.api/');
@@ -282,7 +282,7 @@ Type                 | Usage                                           | Params 
 `GET_MANY`           | Read a list of resource, by ids                 | `{ ids: {mixed[]} }`
 `GET_MANY_REFERENCE` | Read a list of resources related to another one | `{ target: {string}, id: {mixed}, pagination: { page: {int} , perPage: {int} }, sort: { field: {string}, order: {string} }, filter: {Object} }`
 
-Here are several examples of how react-admin can call the Data Provider with these types:
+Here are several examples of how vn-kooch-react-admin can call the Data Provider with these types:
 
 ```jsx
 dataProvider(GET_LIST, 'posts', {
@@ -341,12 +341,12 @@ import {
     DELETE,
     GET_MANY,
     GET_MANY_REFERENCE,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 const apiUrl = 'http://path.to.my.api/';
 
 /**
- * Maps react-admin queries to my REST API
+ * Maps vn-kooch-react-admin queries to my REST API
  *
  * @param {string} type Request type, e.g GET_LIST
  * @param {string} resource Resource name, e.g. "posts"
@@ -446,7 +446,7 @@ export default (type, resource, params) => {
 
 ### Response Format
 
-React-admin expects responses from Data Providers to be objects with a `data` property. The data format depends on the request type.
+vn-kooch-react-admin expects responses from Data Providers to be objects with a `data` property. The data format depends on the request type.
 
 Request Type         | Response format
 -------------------- | ----------------
@@ -462,7 +462,7 @@ Request Type         | Response format
 
 A `{Record}` is an object literal with at least an `id` property, e.g. `{ id: 123, title: "hello, world" }`.
 
-Building up on the previous example, here are example responses matching the format expected by react-admin:
+Building up on the previous example, here are example responses matching the format expected by vn-kooch-react-admin:
 
 ```jsx
 dataProvider(GET_LIST, 'posts', {
@@ -616,12 +616,12 @@ import {
     DELETE_MANY,
     GET_MANY,
     GET_MANY_REFERENCE,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 const apiUrl = 'http://path.to.my.api/';
 
 /**
- * Maps react-admin queries to my REST API
+ * Maps vn-kooch-react-admin queries to my REST API
  *
  * @param {string} type Request type, e.g GET_LIST
  * @param {string} resource Resource name, e.g. "posts"
@@ -675,8 +675,8 @@ export default (type, resource, params) => {
 
 ### Error Format
 
-When the API backend returns an error, the Data Provider should `throw` an `Error` object. This object should contain a `status` property with the HTTP response code (404, 500, etc.). React-admin inspects this error code, and uses it for [authentication](./Authentication.md) (in case of 401 or 403 errors). Besides, react-admin displays the error `message` on screen in a temporary notification.
+When the API backend returns an error, the Data Provider should `throw` an `Error` object. This object should contain a `status` property with the HTTP response code (404, 500, etc.). vn-kooch-react-admin inspects this error code, and uses it for [authentication](./Authentication.md) (in case of 401 or 403 errors). Besides, vn-kooch-react-admin displays the error `message` on screen in a temporary notification.
 
 ### Example implementation
 
-Check the code from the [simple REST client](https://github.com/marmelab/react-admin/blob/master/packages/ra-data-simple-rest/src/index.js): it's a good starting point for a custom Data Provider implementation.
+Check the code from the [simple REST client](https://github.com/marmelab/vn-kooch-react-admin/blob/master/packages/vn-kooch-data-simple-rest/src/index.js): it's a good starting point for a custom Data Provider implementation.

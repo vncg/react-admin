@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Tab, TextField } from 'react-admin';
+import { Tab, TextField } from 'vn-kooch-react-admin';
 
 import UserShow from './UserShow';
 
 // Mock React Admin so we don't have to resolve it
 // Do not take this into account for the example
-// The tests are valid if react-admin package is installed
-jest.mock('react-admin', () => ({
+// The tests are valid if vn-kooch-react-admin package is installed
+jest.mock('vn-kooch-react-admin', () => ({
     Show: ({ children }) => <div />,
     Tab: ({ children }) => <div />,
     TabbedShowLayout: ({ children }) => <div />,

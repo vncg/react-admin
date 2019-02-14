@@ -9,13 +9,13 @@ Whether you need to adjust a CSS rule for a single component, or change the colo
 
 ## Overriding A Component Style
 
-Every react-admin component provides a `className` property, which is always applied to the root element.
+Every vn-kooch-react-admin component provides a `className` property, which is always applied to the root element.
 
 Here is an example customizing an `EditButton` component inside a `Datagrid`, using its `className` property and the `withStyles` Higher Order Component from Material-UI:
 
 {% raw %}
 ```jsx
-import { NumberField, List, Datagrid, EditButton } from 'react-admin';
+import { NumberField, List, Datagrid, EditButton } from 'vn-kooch-react-admin';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -63,7 +63,7 @@ import {
     NullableBooleanInput,
     NumberField,
     TextInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 import Icon from '@material-ui/icons/Person';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -141,7 +141,7 @@ Sometimes you want the format to depend on the value. The following example show
 
 {% raw %}
 ```jsx
-import { NumberField, List, Datagrid, EditButton } from 'react-admin';
+import { NumberField, List, Datagrid, EditButton } from 'vn-kooch-react-admin';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
 
@@ -181,7 +181,7 @@ Furthermore, you may extract this highlighting strategy into an Higher Order Com
 
 {% raw %}
 ```jsx
-import { NumberField, List, Datagrid, EditButton } from 'react-admin';
+import { NumberField, List, Datagrid, EditButton } from 'vn-kooch-react-admin';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
 
@@ -230,7 +230,7 @@ It expects element props named `small`, `medium`, and `large`. It displays the e
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, Responsive, SimpleList, Datagrid, TextField, ReferenceField, EditButton } from 'react-admin';
+import { List, Responsive, SimpleList, Datagrid, TextField, ReferenceField, EditButton } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -266,7 +266,7 @@ export const PostList = (props) => (
 
 ## Using a Predefined Theme
 
-Material UI also supports [complete theming](http://www.material-ui.com/#/customization/themes) out of the box. Material UI ships two base themes: light and dark. React-admin uses the light one by default. To use the dark one, pass it to the `<Admin>` component, in the `theme` prop (along with `createMuiTheme()`).
+Material UI also supports [complete theming](http://www.material-ui.com/#/customization/themes) out of the box. Material UI ships two base themes: light and dark. vn-kooch-react-admin uses the light one by default. To use the dark one, pass it to the `<Admin>` component, in the `theme` prop (along with `createMuiTheme()`).
 
 ```jsx
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -369,7 +369,7 @@ Your custom layout can extend the default `<Layout>` component if you only want 
 
 ```jsx
 // in src/MyLayout.js
-import { Layout } from 'react-admin';
+import { Layout } from 'vn-kooch-react-admin';
 import MyAppBar from './MyAppBar';
 import MySidebar from './MySidebar';
 import MyMenu from './MyMenu';
@@ -391,7 +391,7 @@ export default MyLayout;
 You can replace the default user menu by your own by setting the `userMenu` prop of the `<AppBar>` component. For instance, to add custom menu items, just decorate the default `<UserMenu>` by adding children to it:
 
 ```jsx
-import { AppBar, UserMenu, MenuItemLink } from 'react-admin';
+import { AppBar, UserMenu, MenuItemLink } from 'vn-kooch-react-admin';
 import SettingsIcon from '@material-ui/icons/Settings';
 
 const MyUserMenu = props => (
@@ -413,7 +413,7 @@ You can also customize the default icon by setting the `icon` prop to the `<User
 
 {% raw %}
 ``` jsx
-import { AppBar, UserMenu } from 'react-admin';
+import { AppBar, UserMenu } from 'vn-kooch-react-admin';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
@@ -444,7 +444,7 @@ const MyAppBar = props => <AppBar {...props} userMenu={<MyUserMenu />} />;
 You can specify the `Sidebar` size by setting the `size` property:
 
 ```jsx
-import { Sidebar } from 'react-admin';
+import { Sidebar } from 'vn-kooch-react-admin';
 
 const MySidebar = props => <Sidebar {...props} size={200} />;
 const MyLayout = props => <Layout
@@ -456,7 +456,7 @@ const MyLayout = props => <Layout
 
 ### Layout From Scratch
 
-For more custom layouts, write a component from scratch. It must contain a `{children}` placeholder, where react-admin will render the resources. Use the [default layout](https://github.com/marmelab/react-admin/blob/master/packages/ra-ui-materialui/src/layout/Layout.js) as a starting point. Here is a simplified version (with no responsive support):
+For more custom layouts, write a component from scratch. It must contain a `{children}` placeholder, where vn-kooch-react-admin will render the resources. Use the [default layout](https://github.com/marmelab/vn-kooch-react-admin/blob/master/packages/vn-kooch-ui-materialui/src/layout/Layout.js) as a starting point. Here is a simplified version (with no responsive support):
 
 ```jsx
 // in src/MyLayout.js
@@ -470,7 +470,7 @@ import {
     Notification,
     Sidebar,
     setSidebarVisibility,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 const styles = theme => ({
     root: {
@@ -552,14 +552,14 @@ export default connect(mapStateToProps, { setSidebarVisibility })(withStyles(sty
 
 ## Customizing the AppBar Content
 
-By default, the react-admin `<AppBar>` component displays the page title. You can override this default by passing children to `<AppBar>` - they will replace the default title. And if you still want to include the page title, make sure you include an element with id `react-admin-title` in the top bar (this uses [React Portals](https://reactjs.org/docs/portals.html)). 
+By default, the vn-kooch-react-admin `<AppBar>` component displays the page title. You can override this default by passing children to `<AppBar>` - they will replace the default title. And if you still want to include the page title, make sure you include an element with id `vn-kooch-react-admin-title` in the top bar (this uses [React Portals](https://reactjs.org/docs/portals.html)). 
 
 Here is an example customization for `<AppBar>` to include a company logo in the center of the page header:
 
 ```jsx
 // in src/MyAppBar.js
 import React from 'react';
-import { AppBar } from 'react-admin';
+import { AppBar } from 'vn-kooch-react-admin';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -583,7 +583,7 @@ const MyAppBar = withStyles(styles)(({ classes, ...props }) => (
             variant="title"
             color="inherit"
             className={classes.title}
-            id="react-admin-title"
+            id="vn-kooch-react-admin-title"
         />
         <Logo />
         <span className={classes.spacer} />
@@ -597,7 +597,7 @@ To use this custom `MyAppBar` component, pass it as prop to a custom `Layout`, a
 
 ```jsx
 // in src/MyLayout.js
-import { Layout } from 'react-admin';
+import { Layout } from 'vn-kooch-react-admin';
 import MyAppBar from './MyAppBar';
 
 const MyLayout = (props) => <Layout {...props} appBar={MyAppBar} />;
@@ -622,9 +622,9 @@ const App = () => (
 
 ## Replacing The AppBar
 
-For more drastic changes of the top component, you will probably want to create an `<AppBar>` from scratch instead of just passing children to react-admin's `<AppBar>`. 
+For more drastic changes of the top component, you will probably want to create an `<AppBar>` from scratch instead of just passing children to vn-kooch-react-admin's `<AppBar>`. 
 
-By default, React-admin uses [Material-ui's `<AppBar>` component](https://material-ui.com/api/app-bar/) together with [react-headroom](https://github.com/KyleAMathews/react-headroom) to hide the `AppBar` on scroll. Here is an example top bar rebuilt from scratch to remove the "headroom" effect:
+By default, vn-kooch-react-admin uses [Material-ui's `<AppBar>` component](https://material-ui.com/api/app-bar/) together with [react-headroom](https://github.com/KyleAMathews/react-headroom) to hide the `AppBar` on scroll. Here is an example top bar rebuilt from scratch to remove the "headroom" effect:
 
 ```jsx
 // in src/MyAppBar.js
@@ -635,7 +635,7 @@ import Typography from '@material-ui/core/Typography';
 const MyAppBar = props => (
     <AppBar {...props}>
         <Toolbar>
-            <Typography variant="title" id="react-admin-title" />
+            <Typography variant="title" id="vn-kooch-react-admin-title" />
         </Toolbar>
     </AppBar>
 );
@@ -643,11 +643,11 @@ const MyAppBar = props => (
 export default MyAppBar;
 ```
 
-Take note that this uses *material-ui's `<AppBar>`* instead of *react-admin's `<AppBar>`*. To use this custom `AppBar` component, pass it as prop to a custom `Layout`, as explained in the previous section.
+Take note that this uses *material-ui's `<AppBar>`* instead of *vn-kooch-react-admin's `<AppBar>`*. To use this custom `AppBar` component, pass it as prop to a custom `Layout`, as explained in the previous section.
 
 ## Using a Custom Menu
 
-By default, React-admin uses the list of `<Resource>` components passed as children of `<Admin>` to build a menu to each resource with a `list` component.
+By default, vn-kooch-react-admin uses the list of `<Resource>` components passed as children of `<Admin>` to build a menu to each resource with a `list` component.
 
 If you want to add or remove menu items, for instance to link to non-resources pages, you can create your own menu component:
 
@@ -655,7 +655,7 @@ If you want to add or remove menu items, for instance to link to non-resources p
 // in src/MyMenu.js
 import React from 'react';
 import { connect } from 'react-redux';
-import { MenuItemLink, getResources } from 'react-admin';
+import { MenuItemLink, getResources } from 'vn-kooch-react-admin';
 import { withRouter } from 'react-router-dom';
 import Responsive from '../layout/Responsive';
 
@@ -690,7 +690,7 @@ To use this custom menu component, pass it to a custom Layout, as explained abov
 
 ```jsx
 // in src/MyLayout.js
-import { Layout } from 'react-admin';
+import { Layout } from 'vn-kooch-react-admin';
 import MyMenu from './MyMenu';
 
 const MyLayout = (props) => <Layout {...props} menu={MyMenu} />;
@@ -721,7 +721,7 @@ If the default active style does not suit your tastes, you can override it by pa
 // in src/MyMenu.js
 import React from 'react';
 import { connect } from 'react-redux';
-import { MenuItemLink, getResources } from 'react-admin';
+import { MenuItemLink, getResources } from 'vn-kooch-react-admin';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 
@@ -758,7 +758,7 @@ export default withRouter(connect(mapStateToProps)(withStyles(styles)(Menu)));
 By default, the login page displays a random background image changing every day. If you want to change that background image, you can use the default Login page component and pass an image URL as the `backgroundImage` prop.
 
 ```jsx
-import { Admin, Login } from 'react-admin';
+import { Admin, Login } from 'vn-kooch-react-admin';
 
 const MyLoginPage = () => <Login backgroundImage="/background.jpg" />;
 
@@ -775,7 +775,7 @@ You can override the notification component, for instance to change the notifica
 
 ```jsx
 // in src/MyNotification.js
-import { Notification } from 'react-admin';
+import { Notification } from 'vn-kooch-react-admin';
 
 const MyNotification = props => <Notification {...props}autoHideDuration={5000} />;
 
@@ -788,7 +788,7 @@ To use this custom notification component, pass it to a custom Layout, as explai
 
 ```jsx
 // in src/MyLayout.js
-import { Layout } from 'react-admin';
+import { Layout } from 'vn-kooch-react-admin';
 import MyNotification from './MyNotification';
 
 const MyLayout = (props) => <Layout {...props} notification={MyNotification} />;
@@ -811,7 +811,7 @@ const App = () => (
 
 ## Customizing The Error Page
 
-Whenever a client-side error happens in react-admin, the user sees a default error message. If you want to customize this page, or log the error to a third-party service, create your own `<Error>` component. The following snippet is a simplified version of the react-admin Error component, that you can use as a base for your own:
+Whenever a client-side error happens in vn-kooch-react-admin, the user sees a default error message. If you want to customize this page, or log the error to a third-party service, create your own `<Error>` component. The following snippet is a simplified version of the vn-kooch-react-admin Error component, that you can use as a base for your own:
 
 ```jsx
 // in src/MyError.js
@@ -819,7 +819,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import ErrorIcon from '@material-ui/icons/Report';
 import History from '@material-ui/icons/History';
-import { Title } from 'react-admin';
+import { Title } from 'vn-kooch-react-admin';
 
 const MyError = ({
     error,
@@ -855,7 +855,7 @@ To use this custom error component, pass it to a custom Layout, as explained abo
 
 ```jsx
 // in src/MyLayout.js
-import { Layout } from 'react-admin';
+import { Layout } from 'vn-kooch-react-admin';
 import MyError from './MyError';
 
 const MyLayout = (props) => <Layout {...props} error={MyError} />;
@@ -878,7 +878,7 @@ const App = () => (
 
 ## Loading
 
-Display a circular progress component with optional messages. Display the same loading component as `react-admin` on custom pages for consistency.
+Display a circular progress component with optional messages. Display the same loading component as `vn-kooch-react-admin` on custom pages for consistency.
 
 Supported props:
 
@@ -895,7 +895,7 @@ Usage:
 
 ## LinearProgress
 
-Display a linear progress component. Display the same loading component as `react-admin` on custom inputs for consistency.
+Display a linear progress component. Display the same loading component as `vn-kooch-react-admin` on custom inputs for consistency.
 
 Usage:
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Datagrid, EditButton, List, TextField } from 'react-admin';
+import { Datagrid, EditButton, List, TextField } from 'vn-kooch-react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import LinkToRelatedProducts from './LinkToRelatedProducts';

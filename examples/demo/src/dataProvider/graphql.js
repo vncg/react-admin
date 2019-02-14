@@ -1,4 +1,4 @@
-import buildApolloClient from 'ra-data-graphql-simple';
+import buildApolloClient from 'vn-kooch-data-graphql-simple';
 
 export default () => {
     const getGqlResource = resource => {

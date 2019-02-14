@@ -1,8 +1,8 @@
 import React from 'react';
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
-import { Admin, Resource, ListGuesser } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource, ListGuesser } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 import { PostList, PostEdit, PostCreate, PostShow } from './posts';
 import { UserList } from './users';

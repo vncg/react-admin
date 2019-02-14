@@ -7,9 +7,9 @@ title: "Authentication"
 
 ![Logout button](./img/login.gif)
 
-React-admin lets you secure your admin app with the authentication strategy of your choice. Since there are many different possible strategies (Basic Auth, JWT, OAuth, etc.), react-admin simply provides hooks to execute your own authentication code.
+vn-kooch-react-admin lets you secure your admin app with the authentication strategy of your choice. Since there are many different possible strategies (Basic Auth, JWT, OAuth, etc.), vn-kooch-react-admin simply provides hooks to execute your own authentication code.
 
-By default, an react-admin app doesn't require authentication. But if the REST API ever returns a 401 (Unauthorized) or a 403 (Forbidden) response, then the user is redirected to the `/login` route. You have nothing to do - it's already built in.
+By default, an vn-kooch-react-admin app doesn't require authentication. But if the REST API ever returns a 401 (Unauthorized) or a 403 (Forbidden) response, then the user is redirected to the `/login` route. You have nothing to do - it's already built in.
 
 ## Configuring the Auth Provider
 
@@ -23,7 +23,7 @@ For instance, to query an authentication route via HTTPS and store the credentia
 
 ```jsx
 // in src/authProvider.js
-import { AUTH_LOGIN } from 'react-admin';
+import { AUTH_LOGIN } from 'vn-kooch-react-admin';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -72,8 +72,8 @@ To use the credentials when calling a data provider, you have to tweak, this tim
 For instance, to pass the token obtained during login as an `Authorization` header, configure the Data Provider as follows:
 
 ```jsx
-import { fetchUtils, Admin, Resource } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
+import { fetchUtils, Admin, Resource } from 'vn-kooch-react-admin';
+import simpleRestProvider from 'vn-kooch-data-simple-rest';
 
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -96,13 +96,13 @@ If you have a custom REST client, don't forget to add credentials yourself.
 
 ## Adding a Logout Button
 
-If you provide an `authProvider` prop to `<Admin>`, react-admin displays a logout button in the top bar (or in the menu on mobile). When the user clicks on the logout button, this calls the `authProvider` with the `AUTH_LOGOUT` type and removes potentially sensitive data from the redux store. When resolved, the user gets redirected to the login page.
+If you provide an `authProvider` prop to `<Admin>`, vn-kooch-react-admin displays a logout button in the top bar (or in the menu on mobile). When the user clicks on the logout button, this calls the `authProvider` with the `AUTH_LOGOUT` type and removes potentially sensitive data from the redux store. When resolved, the user gets redirected to the login page.
 
 For instance, to remove the token from local storage upon logout:
 
 ```jsx
 // in src/authProvider.js
-import { AUTH_LOGIN, AUTH_LOGOUT } from 'react-admin';
+import { AUTH_LOGIN, AUTH_LOGOUT } from 'vn-kooch-react-admin';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -130,7 +130,7 @@ For instance, to redirect the user to the login page for both 401 and 403 codes:
 
 ```jsx
 // in src/authProvider.js
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR } from 'react-admin';
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR } from 'vn-kooch-react-admin';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -153,15 +153,15 @@ export default (type, params) => {
 
 ## Checking Credentials During Navigation
 
-Redirecting to the login page whenever a REST response uses a 401 status code is usually not enough, because react-admin keeps data on the client side, and could display stale data while contacting the server - even after the credentials are no longer valid.
+Redirecting to the login page whenever a REST response uses a 401 status code is usually not enough, because vn-kooch-react-admin keeps data on the client side, and could display stale data while contacting the server - even after the credentials are no longer valid.
 
-Fortunately, each time the user navigates, react-admin calls the `authProvider` with the `AUTH_CHECK` type, so it's the ideal place to check for credentials.
+Fortunately, each time the user navigates, vn-kooch-react-admin calls the `authProvider` with the `AUTH_CHECK` type, so it's the ideal place to check for credentials.
 
 For instance, to check for the existence of the token in local storage:
 
 ```jsx
 // in src/authProvider.js
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'vn-kooch-react-admin';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -180,11 +180,11 @@ export default (type, params) => {
 };
 ```
 
-If the promise is rejected, react-admin redirects by default to the `/login` page. You can override where to redirect the user by passing an argument with a `redirectTo` property to the rejected promise:
+If the promise is rejected, vn-kooch-react-admin redirects by default to the `/login` page. You can override where to redirect the user by passing an argument with a `redirectTo` property to the rejected promise:
 
 ```jsx
 // in src/authProvider.js
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'vn-kooch-react-admin';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -207,7 +207,7 @@ export default (type, params) => {
 
 ```jsx
 // in src/authProvider.js
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'vn-kooch-react-admin';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -248,7 +248,7 @@ For all these cases, it's up to you to implement your own `LoginPage` component,
 // in src/MyLoginPage.js
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { userLogin } from 'react-admin';
+import { userLogin } from 'vn-kooch-react-admin';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
 class MyLoginPage extends Component {
@@ -277,7 +277,7 @@ export default connect(undefined, { userLogin })(MyLoginPage);
 // in src/MyLogoutButton.js
 import React from 'react';
 import { connect } from 'react-redux';
-import { Responsive, userLogout } from 'react-admin';
+import { Responsive, userLogout } from 'vn-kooch-react-admin';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import ExitIcon from '@material-ui/icons/PowerSettingsNew';
@@ -324,7 +324,7 @@ If you add [custom pages](./Actions.md), of if you [create an admin app from scr
 ```jsx
 // in src/MyPage.js
 import { withRouter } from 'react-router-dom';
-import { Authenticated } from 'react-admin';
+import { Authenticated } from 'vn-kooch-react-admin';
 
 const MyPage = ({ location }) => (
     <Authenticated authParams={{ foo: 'bar' }} location={location}>
@@ -343,7 +343,7 @@ The `<Authenticated>` component calls the `authProvider` function with `AUTH_CHE
 
 ## Redirect After Logout
 
-By default, react-admin redirects the user to '/login' after they log out. This can be changed by passing the url to redirect to as parameter to the `userLogout()` action creator when you `connect` the `MyLogoutButton` component:
+By default, vn-kooch-react-admin redirects the user to '/login' after they log out. This can be changed by passing the url to redirect to as parameter to the `userLogout()` action creator when you `connect` the `MyLogoutButton` component:
 
 ```diff
 // in src/MyLogoutButton.js

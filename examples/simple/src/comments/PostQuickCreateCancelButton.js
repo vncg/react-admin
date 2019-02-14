@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import IconCancel from '@material-ui/icons/Cancel';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { translate } from 'react-admin'; // eslint-disable-line import/no-unresolved
+import { translate } from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 
 const styles = {
     button: {

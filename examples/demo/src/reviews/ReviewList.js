@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import { BulkDeleteButton, List, Responsive } from 'react-admin';
+import { BulkDeleteButton, List, Responsive } from 'vn-kooch-react-admin';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { Route } from 'react-router';

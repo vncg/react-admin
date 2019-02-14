@@ -6,7 +6,7 @@ import {
     Datagrid,
     EmailField,
     TextField,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 export const UserList = props => (
     <List title="All users" {...props}>

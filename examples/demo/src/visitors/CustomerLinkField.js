@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-admin';
+import { Link } from 'vn-kooch-react-admin';
 
 import FullNameField from './FullNameField';
 

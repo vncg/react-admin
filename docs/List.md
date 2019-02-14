@@ -34,8 +34,8 @@ Here is the minimal code necessary to display a list of posts:
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 import { PostList } from './posts';
 
@@ -49,7 +49,7 @@ export default App;
 
 // in src/posts.js
 import React from 'react';
-import { List, Datagrid, TextField } from 'react-admin';
+import { List, Datagrid, TextField } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -87,7 +87,7 @@ You can replace the list of default actions by your own element using the `actio
 
 ```jsx
 import Button from '@material-ui/core/Button';
-import { CardActions, CreateButton, ExportButton, RefreshButton } from 'react-admin';
+import { CardActions, CreateButton, ExportButton, RefreshButton } from 'vn-kooch-react-admin';
 
 const PostActions = ({
     bulkActions,
@@ -151,7 +151,7 @@ export const PostList = ({ permissions, ...props }) => (
 
 ### Exporter
 
-Among the default list actions, react-admin includes an `<ExportButton>`. This button is disabled when there is no record in the current `<List>`.
+Among the default list actions, vn-kooch-react-admin includes an `<ExportButton>`. This button is disabled when there is no record in the current `<List>`.
 
 By default, clicking this button will:
 
@@ -161,7 +161,7 @@ By default, clicking this button will:
 
 The columns of the CSV file match all the fields of the records in the `dataProvider` response. That means that the export doesn't take into account the selection and ordering of fields in your `<List>` via `Field` components. If you want to customize the result, pass a custom `exporter` function to the `<List>`. This function will receive the data from the `dataProvider` (after step 1), and replace steps 2-3 (i.e. it's in charge of transforming, converting, and downloading the file).
 
-**Tip**: For CSV conversion, you can import [Papaparse](https://www.papaparse.com/), a CSV parser and stringifier which is already a react-admin dependency. And for CSV download, take advantage of react-admin's `downloadCSV` function.
+**Tip**: For CSV conversion, you can import [Papaparse](https://www.papaparse.com/), a CSV parser and stringifier which is already a vn-kooch-react-admin dependency. And for CSV download, take advantage of vn-kooch-react-admin's `downloadCSV` function.
 
 **Tip**: You may also remove the `<ExportButton>` by passing `false` to the `exporter` prop: `exporter={false}`
 
@@ -169,7 +169,7 @@ Here is an example for a Posts exporter, omitting, adding, and reordering fields
 
 ```jsx
 // in PostList.js
-import { List, downloadCSV } from 'react-admin';
+import { List, downloadCSV } from 'vn-kooch-react-admin';
 import { unparse as convertToCSV } from 'papaparse/papaparse.min';
 
 const exporter = posts => {
@@ -198,7 +198,7 @@ Here is an example for a Comments exporter, fetching related Posts:
 
 ```jsx
 // in CommentList.js
-import { List, downloadCSV } from 'react-admin';
+import { List, downloadCSV } from 'vn-kooch-react-admin';
 import { unparse as convertToCSV } from 'papaparse/papaparse.min';
 
 const exporter = (records, fetchRelatedRecords) => {
@@ -222,7 +222,7 @@ const CommentList = props => (
 )
 ```
 
-Under the hood, `fetchRelatedRecords()` uses react-admin's sagas, which trigger the loading spinner while loading. As a bonus, all the records fetched during an export are kepts in the main Redux store, so further browsing the admin will be accelerated.
+Under the hood, `fetchRelatedRecords()` uses vn-kooch-react-admin's sagas, which trigger the loading spinner while loading. As a bonus, all the records fetched during an export are kepts in the main Redux store, so further browsing the admin will be accelerated.
 
 **Tip**: If you need to call another `dataProvider` verb in the exporter, take advantage of the third parameter passed to the function: `dispatch()`. It allows you to call any Redux action. Combine it with [the `callback` side effect](./Actions.md#custom-sagas) to grab the result in a callback.
 
@@ -237,7 +237,7 @@ Bulk action buttons are buttons that affect several records at once, like mass d
 ```jsx
 import React, { Fragment } from 'react';
 import Button from '@material-ui/core/Button';
-import { BulkDeleteButton } from 'react-admin';
+import { BulkDeleteButton } from 'vn-kooch-react-admin';
 import ResetViewsButton from './ResetViewsButton';
 
 const PostBulkActionButtons = props => (
@@ -272,7 +272,7 @@ Here is an example leveraging the `UPDATE_MANY` crud action, which will set the 
 // in ./ResetViewsButton.js
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, crudUpdateMany } from 'react-admin';
+import { Button, crudUpdateMany } from 'vn-kooch-react-admin';
 
 class ResetViewsButton extends Component {
     handleClick = () => {
@@ -296,7 +296,7 @@ But most of the time, bulk actions are mini-applications with a standalone user 
 // in ./ResetViewsButton.js
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Confirm, crudUpdateMany } from 'react-admin';
+import { Button, Confirm, crudUpdateMany } from 'vn-kooch-react-admin';
 
 class ResetViewsButton extends Component {
     state = {
@@ -342,13 +342,13 @@ export default connect(undefined, { crudUpdateMany })(ResetViewsButton);
 
 **Tip**: You can customize the text of the two `<Confirm>` component buttons using the `cancel` and `confirm` prop which accepts translation keys too.
 
-**Tip**: React-admin doesn't use the `<Confirm>` component internally, because deletes and updates are applied locally immediately, then dispatched to the server after a few seconds, unless the user chooses to undo the modification. That's what we call optimistic rendering. You can do the same for the `ResetViewsButton` by wrapping the `crudUpdateMany()` action creator inside a `startUndoable()` action creator, as follows:
+**Tip**: vn-kooch-react-admin doesn't use the `<Confirm>` component internally, because deletes and updates are applied locally immediately, then dispatched to the server after a few seconds, unless the user chooses to undo the modification. That's what we call optimistic rendering. You can do the same for the `ResetViewsButton` by wrapping the `crudUpdateMany()` action creator inside a `startUndoable()` action creator, as follows:
 
 ```jsx
 // in ./ResetViewsButton.js
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, crudUpdateMany, startUndoable } from 'react-admin';
+import { Button, crudUpdateMany, startUndoable } from 'vn-kooch-react-admin';
 
 class ResetViewsButton extends Component {
     handleClick = () => {
@@ -400,14 +400,14 @@ It does so by inspecting its `context` prop.
 
 **Tip**: Don't mix up this `filters` prop, expecting a React element, with the `filter` props, which expects an object to define permanent filters (see below).
 
-The `Filter` component accepts the usual `className` prop but you can override many class names injected to the inner components by React-admin thanks to the `classes` property (as most Material UI components, see their [documentation about it](https://material-ui.com/customization/overrides/#overriding-with-classes)). This property accepts the following keys:
+The `Filter` component accepts the usual `className` prop but you can override many class names injected to the inner components by vn-kooch-react-admin thanks to the `classes` property (as most Material UI components, see their [documentation about it](https://material-ui.com/customization/overrides/#overriding-with-classes)). This property accepts the following keys:
 
 * `form`: applied to the root element when rendering as a form.
 * `button`: applied to the root element when rendering as a button.
 
 Children of the `<Filter>` form are regular inputs. `<Filter>` hides them all by default, except those that have the `alwaysOn` prop.
 
-**Tip**: For technical reasons, react-admin does not accept children of `<Filter>` having both a `defaultValue` and `alwaysOn`. To set default values for always on filters, use the `filterDefaultValues` prop of the `<List>` component instead (see below).
+**Tip**: For technical reasons, vn-kooch-react-admin does not accept children of `<Filter>` having both a `defaultValue` and `alwaysOn`. To set default values for always on filters, use the `filterDefaultValues` prop of the `<List>` component instead (see below).
 
 ### Records Per Page
 
@@ -447,7 +447,7 @@ It is possible to disable sorting for a specific field by passing a `sortable` p
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, Datagrid, TextField } from 'react-admin';
+import { List, Datagrid, TextField } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -469,7 +469,7 @@ By default, a column is sorted by the `source` property. To define another attri
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, Datagrid, TextField } from 'react-admin';
+import { List, Datagrid, TextField } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -545,7 +545,7 @@ For instance, you can modify the default pagination by adjusting the "rows per p
 
 ```jsx
 // in src/MyPagination.js
-import { Pagination } from 'react-admin';
+import { Pagination } from 'vn-kooch-react-admin';
 
 const PostPagination = props => <Pagination rowsPerPageOptions={[10, 25, 50, 100]} {...props} />
 
@@ -646,7 +646,7 @@ const Aside = ({ data, ids }) => (
 
 ### CSS API
 
-The `List` component accepts the usual `className` prop but you can override many class names injected to the inner components by React-admin thanks to the `classes` property (as most Material UI components, see their [documentation about it](https://material-ui.com/customization/overrides/#overriding-with-classes)). This property accepts the following keys:
+The `List` component accepts the usual `className` prop but you can override many class names injected to the inner components by vn-kooch-react-admin thanks to the `classes` property (as most Material UI components, see their [documentation about it](https://material-ui.com/customization/overrides/#overriding-with-classes)). This property accepts the following keys:
 
 * `root`: alternative to using `className`. Applied to the root element.
 * `header`: applied to the page header
@@ -684,8 +684,8 @@ Instead of a custom `List`, you can use the `ListGuesser` to determine which fie
 ```jsx
 // in src/App.js
 import React from 'react';
-import { Admin, Resource, ListGuesser } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource, ListGuesser } from 'vn-kooch-react-admin';
+import jsonServerProvider from 'vn-kooch-data-json-server';
 
 const App = () => (
     <Admin dataProvider={jsonServerProvider('http://jsonplaceholder.typicode.com')}>
@@ -698,7 +698,7 @@ Just like `List`, `ListGuesser` fetches the data. It then analyzes the response,
 
 ![Guessed List](./img/guessed-list.png)
 
-React-admin provides guessers for the `List` view (`ListGuesser`), the `Edit` view (`EditGuesser`), and the `Show` view (`ShowGuesser`).
+vn-kooch-react-admin provides guessers for the `List` view (`ListGuesser`), the `Edit` view (`EditGuesser`), and the `Show` view (`ShowGuesser`).
 
 **Tip**: Do not use the guessers in production. They are slower than manually-defined components, because they have to infer types based on the content. Besides, the guesses are not always perfect.
 
@@ -718,7 +718,7 @@ It renders as many columns as it receives `<Field>` children.
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, Datagrid, TextField, EditButton } from 'react-admin';
+import { List, Datagrid, TextField, EditButton } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -736,13 +736,13 @@ The datagrid is an *iterator* component: it receives an array of ids, and a data
 
 ### Body element
 
-By default, `<Datagrid>` renders its body using `<DatagridBody>`, an internal react-admin component. You can pass a custom component as the `row` prop to override that default. And by the way, `<DatagridBody>` has a `row` property set to `<DatagridRow>` by default for the same purpose. `<DatagridRow>` receives the row `record`, the `resource`, and a copy of the datagrid children. That means you can create a custom datagrid logic without copying several components from the react-admin source.
+By default, `<Datagrid>` renders its body using `<DatagridBody>`, an internal vn-kooch-react-admin component. You can pass a custom component as the `row` prop to override that default. And by the way, `<DatagridBody>` has a `row` property set to `<DatagridRow>` by default for the same purpose. `<DatagridRow>` receives the row `record`, the `resource`, and a copy of the datagrid children. That means you can create a custom datagrid logic without copying several components from the vn-kooch-react-admin source.
 
 For instance, to show the selection checkbox only for records that have a `selectable` field set to true, you can override `<DatagridRow>` and `<DatagridBody>` as follows:
 
 ```jsx
 // in src/PostList.js
-import { Datagrid, DatagridBody, List, TextField } from 'react-admin';
+import { Datagrid, DatagridBody, List, TextField } from 'vn-kooch-react-admin';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -929,7 +929,7 @@ const PostList = props => (
 
 ### CSS API
 
-The `Datagrid` component accepts the usual `className` prop but you can override many class names injected to the inner components by React-admin thanks to the `classes` property (as most Material UI components, see their [documentation about it](https://material-ui.com/customization/overrides/#overriding-with-classes)). This property accepts the following keys:
+The `Datagrid` component accepts the usual `className` prop but you can override many class names injected to the inner components by vn-kooch-react-admin thanks to the `classes` property (as most Material UI components, see their [documentation about it](https://material-ui.com/customization/overrides/#overriding-with-classes)). This property accepts the following keys:
 
 * `table`: alternative to using `className`. Applied to the root element.
 * `tbody`: applied to the tbody
@@ -1000,7 +1000,7 @@ For mobile devices, a `<Datagrid>` is often unusable - there is simply not enoug
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, SimpleList } from 'react-admin';
+import { List, SimpleList } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -1020,7 +1020,7 @@ export const PostList = (props) => (
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, Responsive, SimpleList, Datagrid, TextField, ReferenceField, EditButton } from 'react-admin';
+import { List, Responsive, SimpleList, Datagrid, TextField, ReferenceField, EditButton } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -1047,7 +1047,7 @@ export const PostList = (props) => (
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { List, SimpleList } from 'react-admin';
+import { List, SimpleList } from 'vn-kooch-react-admin';
 
 export const PostList = (props) => (
     <List {...props}>
@@ -1099,7 +1099,7 @@ When you want to display only one property of a list of records, instead of usin
 
 ## The `<Tree>` component
 
-When you want to display a hierarchized list of records, instead of using a `<Datagrid>`, use the `<Tree>` component. This component is available in an addon package: [`ra-tree-ui-materialui`](https://github.com/marmelab/react-admin/blob/master/packages/ra-tree-ui-materialui/README.md).
+When you want to display a hierarchized list of records, instead of using a `<Datagrid>`, use the `<Tree>` component. This component is available in an addon package: [`vn-kooch-tree-ui-materialui`](https://github.com/marmelab/vn-kooch-react-admin/blob/master/packages/vn-kooch-tree-ui-materialui/README.md).
 
 *Important*: This package is part of our [Labs](/Labs.md) experimentations. This means it misses some features and might not handle all corner cases. Use it at your own risks. Besides, we would really appreciate some feedback!
 
@@ -1122,8 +1122,8 @@ Here's an example showing how to use it:
 ```jsx
 // in src/categories.js
 import React from 'react';
-import { List, TextField, EditButton, DeleteButton } from 'react-admin';
-import { Tree, NodeView, NodeActions } from 'ra-tree-ui-materialui';
+import { List, TextField, EditButton, DeleteButton } from 'vn-kooch-react-admin';
+import { Tree, NodeView, NodeActions } from 'vn-kooch-tree-ui-materialui';
 
 const CategoriesActions = props => (
     <NodeActions {...props}>
@@ -1159,7 +1159,7 @@ export const CategoriesList = (props) => (
 );
 ```
 
-To learn more about this component features, please refers to its [README](https://github.com/marmelab/react-admin/blob/master/packages/ra-tree-ui-materialui/README.md).
+To learn more about this component features, please refers to its [README](https://github.com/marmelab/vn-kooch-react-admin/blob/master/packages/vn-kooch-tree-ui-materialui/README.md).
 
 ## Using a Custom Iterator
 

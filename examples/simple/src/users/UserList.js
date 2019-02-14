@@ -16,7 +16,7 @@ import {
     SimpleList,
     TextField,
     TextInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 export const UserIcon = PeopleIcon;
 
 import Aside from './Aside';

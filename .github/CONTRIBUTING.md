@@ -1,19 +1,19 @@
 # Contributing
 
-So you want to contribute to react-admin? Awesome! Thank you in advance for your contribution. Here are a few guidelines that will help you along the way.
+So you want to contribute to vn-kooch-react-admin? Awesome! Thank you in advance for your contribution. Here are a few guidelines that will help you along the way.
 
 ## Asking Questions
 
-For how-to questions and other non-issues, please use [StackOverflow](http://stackoverflow.com/questions/tagged/react-admin) instead of Github issues. There is a StackOverflow tag called "react-admin" that you can use to tag your questions.
+For how-to questions and other non-issues, please use [StackOverflow](http://stackoverflow.com/questions/tagged/vn-kooch-react-admin) instead of Github issues. There is a StackOverflow tag called "vn-kooch-react-admin" that you can use to tag your questions.
 
 ## Opening an Issue
 
-If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported or fixed](https://github.com/marmelab/react-admin/issues?q=is%3Aissue+is%3Aclosed). You can search through existing issues and PRs to see if someone has reported one similar to yours.
+If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported or fixed](https://github.com/marmelab/vn-kooch-react-admin/issues?q=is%3Aissue+is%3Aclosed). You can search through existing issues and PRs to see if someone has reported one similar to yours.
 
 Next, create a new issue that briefly explains the problem, and provides a bit of background as to the circumstances that triggered it, and steps to reproduce it.
 
 For code issues please include:
-* React-admin version
+* vn-kooch-react-admin version
 * React version
 * Browser version
 * A code example or link to a repo, gist or running site. (hint: fork [this sandbox](https://codesandbox.io/s/pw74xww3p0) to create a reproducible version of your bug)
@@ -31,7 +31,7 @@ And please don't just '+1' an issue. It spams the maintainers and doesn't help m
 
 ## Submitting a Pull Request
 
-React-admin is a community project, so pull requests are always welcome, but before working on a large change, it is best to open an issue first to discuss it with the maintainers. In that case, prefix it with "[RFC]" (Request for Comments)
+vn-kooch-react-admin is a community project, so pull requests are always welcome, but before working on a large change, it is best to open an issue first to discuss it with the maintainers. In that case, prefix it with "[RFC]" (Request for Comments)
 
 When in doubt, keep your pull requests small. To give a PR the best chance of getting accepted, don't bundle more than one feature or bug fix per pull request. It's always best to create two smaller PRs than one big one.
 
@@ -49,7 +49,7 @@ At any given time, `next` represents the latest development version of the libra
 
 ### Coding style
 
-You must follow the coding style of the existing files. React-admin uses eslint and [prettier](https://github.com/prettier/prettier). You can reformat all the project files automatically by calling
+You must follow the coding style of the existing files. vn-kooch-react-admin uses eslint and [prettier](https://github.com/prettier/prettier). You can reformat all the project files automatically by calling
 
 ```sh
 make prettier
@@ -59,4 +59,4 @@ make prettier
 
 ## License
 
-By contributing your code to the marmelab/react-admin GitHub repository, you agree to license your contribution under the MIT license.
+By contributing your code to the marmelab/vn-kooch-react-admin GitHub repository, you agree to license your contribution under the MIT license.

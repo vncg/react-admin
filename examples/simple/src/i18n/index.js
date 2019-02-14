@@ -1,5 +1,5 @@
 import enMessages from './en';
-import frMessages from './fr';
+import faMessages from './fa';
 
 export const en = enMessages;
-export const fr = frMessages;
+export const fa = faMessages;

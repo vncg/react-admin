@@ -8,7 +8,7 @@ import {
     NumberField,
     Filter,
     DateInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 import FullNameField from '../visitors/FullNameField';
 import AddressField from '../visitors/AddressField';

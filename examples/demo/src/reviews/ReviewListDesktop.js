@@ -1,5 +1,5 @@
 import React from 'react';
-import { Datagrid, DateField, TextField } from 'react-admin';
+import { Datagrid, DateField, TextField } from 'vn-kooch-react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import ProductReferenceField from '../products/ProductReferenceField';

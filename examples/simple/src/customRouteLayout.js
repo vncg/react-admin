@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { crudGetList as crudGetListAction, Title } from 'react-admin'; // eslint-disable-line import/no-unresolved
+import { crudGetList as crudGetListAction, Title } from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 
 class CustomRouteLayout extends Component {
     componentWillMount() {

@@ -1,4 +1,4 @@
-import englishMessages from 'ra-language-english';
+import englishMessages from 'vn-kooch-language-english';
 
 export default {
     ...englishMessages,
@@ -22,10 +22,10 @@ export default {
                     'by %{customer_name}, one item |||| by %{customer_name}, %{nb_items} items',
             },
             welcome: {
-                title: 'Welcome to react-admin demo',
+                title: 'Welcome to vn-kooch-react-admin demo',
                 subtitle:
                     "This is the admin of an imaginary poster shop. Fell free to explore and modify the data - it's local to your computer, and will reset each time you reload.",
-                aor_button: 'react-admin site',
+                aor_button: 'vn-kooch-react-admin site',
                 demo_button: 'Source for this demo',
             },
         },

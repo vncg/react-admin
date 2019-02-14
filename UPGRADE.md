@@ -1,6 +1,6 @@
 # Upgrade to 2.0
 
-- [Admin-on-rest Renamed to React-Admin](#admin-on-rest-renamed-to-react-admin)
+- [Admin-on-rest Renamed to vn-kooch-react-admin](#admin-on-rest-renamed-to-vn-kooch-react-admin)
 - [`restClient` Prop Renamed To `dataProvider` in `<Admin>` Component](#restclient-prop-renamed-to-dataprovider-in-admin-component)
 - [Default REST Clients Moved to Standalone Packages](#default-rest-clients-moved-to-standalone-packages)
 - [`authClient` Prop Renamed To `authProvider` in `<Admin>` Component](#authclient-prop-renamed-to-authprovider-in-admin-component)
@@ -24,26 +24,26 @@
 - [Menu `onMenuTap` prop has been renamed `onMenuClick`](#menu-onmenutap-prop-has-been-renamed-onmenuclick)
 - [Logout is now displayed in the AppBar on desktop](#logout-is-now-displayed-in-the-appbar-on-desktop)
 - [Data providers should support two more types for bulk actions](#data-providers-should-support-two-more-types-for-bulk-actions)
-- [react-admin addon packages renamed with ra prefix and moved into root repository](#react-admin-addon-packages-renamed-with-ra-prefix-and-moved-into-root-repository)
+- [vn-kooch-react-admin addon packages renamed with ra prefix and moved into root repository](#vn-kooch-react-admin-addon-packages-renamed-with-ra-prefix-and-moved-into-root-repository)
 - [`aor-dependent-input` Was Removed](#aor-dependent-input-was-removed)
 - [The require,number and email validators should be renamed to require(),number() and validation()](#validators-should-be-initialized)
 
-## Admin-on-rest Renamed to React-Admin
+## Admin-on-rest Renamed to vn-kooch-react-admin
 
 We've chosen to remove term REST from the project name, to emphasize the fact that it can adapt to any type of backend - including GraphQL.
 
-So the main package name has changed from `admin-on-rest` to `react-admin`. You must update your dependencies:
+So the main package name has changed from `admin-on-rest` to `vn-kooch-react-admin`. You must update your dependencies:
 
 ```sh
 npm uninstall admin-on-rest
-npm install react-admin
+npm install vn-kooch-react-admin
 ```
 
 As well as all your files depending on the 'admin-on-rest' package:
 
 ```diff
 - import { BooleanField, NumberField, Show } from 'admin-on-rest'; 
-+ import { BooleanField, NumberField, Show } from 'react-admin'; 
++ import { BooleanField, NumberField, Show } from 'vn-kooch-react-admin'; 
 ```
 
 A global search and replace on the string "admin-on-rest" should do the trick in no time.
@@ -68,17 +68,17 @@ Once again, this change de-emphasizes the "REST" term in admin-on-rest.
 
 `simpleRestClient` and `jsonServerRestClient` are no longer part of the core package. They have been moved to standalone packages, where they are the default export:
 
-* `simpleRestClient` => `ra-data-simple-rest`
-* `jsonServerRestClient` => `ra-data-json-server`
+* `simpleRestClient` => `vn-kooch-data-simple-rest`
+* `jsonServerRestClient` => `vn-kooch-data-json-server`
 
 Update your `import` statements accordingly:
 
 ```diff
 - import { simpleRestClient } from 'admin-on-rest';
-+ import simpleRestClient from 'ra-data-simple-rest';
++ import simpleRestClient from 'vn-kooch-data-simple-rest';
 
 - import { jsonServerRestClient } from 'admin-on-rest';
-+ import jsonServerRestClient from 'ra-data-json-server';
++ import jsonServerRestClient from 'vn-kooch-data-json-server';
 ```
 
 ## `authClient` Prop Renamed To `authProvider` in `<Admin>` Component
@@ -98,17 +98,17 @@ The signature of the authorizations provider function is the same as the authori
 
 ## Default (English) Messages Moved To Standalone Package
 
-The English messages have moved to another package, `ra-language-english`. The core package still displays the interface messages in English by default (by using `ra-language-english` as a dependency), but if you overrode some of the messages, you'll need to update the package name:
+The English messages have moved to another package, `vn-kooch-language-english`. The core package still displays the interface messages in English by default (by using `vn-kooch-language-english` as a dependency), but if you overrode some of the messages, you'll need to update the package name:
 
 ```diff
 - import { enMessages } from 'admin-on-rest';
-+ import enMessages from 'ra-language-english';
++ import enMessages from 'vn-kooch-language-english';
 const messages = { 'en': enMessages };
 ```
 
 ## Message Hash Main Key Changed ("aor" => "ra")
 
-The main key of translation message objects was renamed from "aor" ro "ra". You must update your custom messages accordingly if you overrode core interface messages. If you're a language package author, you must also update and  republish your package to have it work with react-admin 2.0.
+The main key of translation message objects was renamed from "aor" ro "ra". You must update your custom messages accordingly if you overrode core interface messages. If you're a language package author, you must also update and  republish your package to have it work with vn-kooch-react-admin 2.0.
 
 ```diff
 module.exports = {
@@ -124,7 +124,7 @@ module.exports = {
 
 Admin-on-rest used to have a special Delete view, accessible with a special URL, to display a confirmation message after a user clicked on the Delete button. This view added complexity to the early stages of development with admin-on-rest. Besides, it provided a mediocre user experience.
 
-In react-admin, the deletion confirmation is now a Dialog that opens on top of the page where the user currently is.
+In vn-kooch-react-admin, the deletion confirmation is now a Dialog that opens on top of the page where the user currently is.
 
 As a consequence, you no longer need to pass a value to the `remove` prop in Resources:
 
@@ -133,17 +133,17 @@ As a consequence, you no longer need to pass a value to the `remove` prop in Res
 +  <Resource name="posts" list={PostList} edit={PostEdit} show={PostShow} />
 ```
 
-That also means that if you disabled deletion on a Resource by not passing a `remove` prop, you will be surprised by Delete buttons popping in the Edit views. The way to remove this button is to [Customize the Edit Toolbar](https://marmelab.com/react-admin/CreateEdit.html#actions).
+That also means that if you disabled deletion on a Resource by not passing a `remove` prop, you will be surprised by Delete buttons popping in the Edit views. The way to remove this button is to [Customize the Edit Toolbar](https://marmelab.com/vn-kooch-react-admin/CreateEdit.html#actions).
 
 ## Replaced `messages` by `i18nProvider` in `<Admin>`
 
-In admin-on-rest, localization messages were passed as an object literal in the `messages` props of the `<Admin>` component. To do the same in react-admin, you must now use a slightly more lengthy syntax, and pass a function in the `i18nProvider` prop instead.
+In admin-on-rest, localization messages were passed as an object literal in the `messages` props of the `<Admin>` component. To do the same in vn-kooch-react-admin, you must now use a slightly more lengthy syntax, and pass a function in the `i18nProvider` prop instead.
 
 ```diff
 - import { Admin, enMessages } from 'admin-on-rest';
 - import frMessages from 'aor-language-french';
-+ import { Admin } from 'react-admin';
-+ import enMessages from 'ra-language-english';
++ import { Admin } from 'vn-kooch-react-admin';
++ import enMessages from 'vn-kooch-language-english';
 + import frMessages from 'ra-language-french';
 
 const messages = {
@@ -165,7 +165,7 @@ If you don't use the `<Admin>` component, but prefer to implement your administr
 ```diff
 // in src/App.js
 - import { crudSaga, ... } from 'admin-on-rest';
-+ import { adminSaga, ... } from 'react-admin';
++ import { adminSaga, ... } from 'vn-kooch-react-admin';
 
 // ...
 - sagaMiddleware.run(crudSaga(dataProvider, i18nProvider));
@@ -174,11 +174,11 @@ If you don't use the `<Admin>` component, but prefer to implement your administr
 
 ## `<AutocompleteInput>` no longer accepts a `filter` prop
 
-Material-ui's implementation of the autocomplete input has radically changed. React-admin maintains backwards compatibility, except for the `filter` prop, which no longer makes sense in the new implementation.
+Material-ui's implementation of the autocomplete input has radically changed. vn-kooch-react-admin maintains backwards compatibility, except for the `filter` prop, which no longer makes sense in the new implementation.
 
 ## `<Datagrid>` No Longer Accepts `options`, `headerOptions`, `bodyOptions`, and `rowOptions` props
 
-Material-ui's implementation of the `<Table>` component has reduced dramatically. Therefore, all the advanced features of the datagrid are no longer available from react-admin.
+Material-ui's implementation of the `<Table>` component has reduced dramatically. Therefore, all the advanced features of the datagrid are no longer available from vn-kooch-react-admin.
 
 If you need a fixed header, row hover, multi-row selection, or any other material-ui 0.x `<Table>` feature, you'll need to implement your own `<Datagrid>` alternative, e.g. using the library recommended by material-ui, [DevExtreme React Grid](https://devexpress.github.io/devextreme-reactive/react/grid/).
 
@@ -242,7 +242,7 @@ This component relied on [material-ui-chip-input](https://github.com/TeamWertarb
 
 ## CSS Classes Changed
 
-React-admin does not rely heavily on CSS classes. Nevertheless, a few components added CSS classes to facilitate per-field theming: `<SimpleShowLayout>`, `<Tab>`, and `<FormInput>`. These CSS classes used to follow the "aor-" naming pattern. They have all been renamed to use the "ra-" pattern instead. Here is the list of concerned classes:
+vn-kooch-react-admin does not rely heavily on CSS classes. Nevertheless, a few components added CSS classes to facilitate per-field theming: `<SimpleShowLayout>`, `<Tab>`, and `<FormInput>`. These CSS classes used to follow the "aor-" naming pattern. They have all been renamed to use the "ra-" pattern instead. Here is the list of concerned classes:
 
 * `aor-field` => `ra-field`
 * `aor-field-[source]` => `ra-field-[source]`
@@ -258,7 +258,7 @@ Adding the `addField` prop to a component used to automatically add a redux-form
 ```diff
 import SelectField from '@material-ui/core/SelectField';
 import MenuItem from '@material-ui/core/MenuItem';
-+ import { addField } from 'react-admin';
++ import { addField } from 'vn-kooch-react-admin';
 const SexInput = ({ input, meta: { touched, error } }) => (
     <SelectField
         floatingLabelText="Sex"
@@ -280,7 +280,7 @@ Admin-on-rest input components all use the new `addField` HOC. This means that i
 
 ```diff
 - import { SelectInput } from 'admin-on-rest';
-+ import { SelectInput } from 'react-admin';
++ import { SelectInput } from 'vn-kooch-react-admin';
 const choices = [
     { id: 'M', name: 'Male' },
     { id: 'F', name: 'Female' },
@@ -301,7 +301,7 @@ import CardActions from '@material-ui/core/CardActions';
 - import FlatButton from '@material-ui/core/FlatButton';
 - import { CreateButton } from 'admin-on-rest';
 - import NavigationRefresh from '@material-ui/core/svg-icons/navigation/refresh';
-+ import { CreateButton, RefreshButton } from 'react-admin';
++ import { CreateButton, RefreshButton } from 'vn-kooch-react-admin';
 
 - const PostListActions = ({ resource, filters, displayedFilters, filterValues, basePath, showFilter, refresh }) => (
 + const PostListActions = ({ resource, filters, displayedFilters, filterValues, basePath, showFilter }) => (
@@ -316,9 +316,9 @@ import CardActions from '@material-ui/core/CardActions';
 
 ## Customizing Styles
 
-Following the same path as Material UI, react-admin now uses [JSS](https://github.com/cssinjs/jss) for styling components instead of the `style` prop. This approach has many benefits, including a smaller DOM, faster rendering, media queries support, and automated browser prefixing.
+Following the same path as Material UI, vn-kooch-react-admin now uses [JSS](https://github.com/cssinjs/jss) for styling components instead of the `style` prop. This approach has many benefits, including a smaller DOM, faster rendering, media queries support, and automated browser prefixing.
 
-All react-admin components now accept a `className` prop instead of the `elStyle` prop. But it expects a CSS *class name* instead of a CSS object. To set custom styles through a class name, you must use the [`withStyles` Higher Order Component](https://material-ui.com/customization/css-in-js/#api) supplied by Material-UI.
+All vn-kooch-react-admin components now accept a `className` prop instead of the `elStyle` prop. But it expects a CSS *class name* instead of a CSS object. To set custom styles through a class name, you must use the [`withStyles` Higher Order Component](https://material-ui.com/customization/css-in-js/#api) supplied by Material-UI.
 
 ```diff
 - import { EmailField, List, Datagrid } from 'admin-on-rest';
@@ -335,7 +335,7 @@ All react-admin components now accept a `className` prop instead of the `elStyle
 //<td>
 //    <a style="text-decoration:none" href="mailto:foo@example.com">foo@example.com</a>
 //</td>
-+ import { EmailField, List, Datagrid } from 'react-admin';
++ import { EmailField, List, Datagrid } from 'vn-kooch-react-admin';
 + import { withStyles } from '@material-ui/core/styles';
 + const styles = {
 +     field: {
@@ -353,11 +353,11 @@ All react-admin components now accept a `className` prop instead of the `elStyle
 + export default withStyles(styles)(UserList);
 ```
 
-In addition to `elStyle`, Field and Input components used to support a `style` prop to override the styles of the *container element* (the `<td>` in a datagrid). This prop is no longer supported in react-admin. Instead, the `Datagrid` component will check if its children have a `headerClassName` and `cellClassName` props. If they do, it will apply those classes to the table header and cells respectively.
+In addition to `elStyle`, Field and Input components used to support a `style` prop to override the styles of the *container element* (the `<td>` in a datagrid). This prop is no longer supported in vn-kooch-react-admin. Instead, the `Datagrid` component will check if its children have a `headerClassName` and `cellClassName` props. If they do, it will apply those classes to the table header and cells respectively.
 
 ```diff
 - import { EmailField, List, Datagrid } from 'admin-on-rest';
-+ import { EmailField, List, Datagrid } from 'react-admin';
++ import { EmailField, List, Datagrid } from 'vn-kooch-react-admin';
 + import { withStyles } from '@material-ui/core/styles';
 
 + const styles = {
@@ -389,12 +389,12 @@ In addition to `elStyle`, Field and Input components used to support a `style` p
 // </td>
 ```
 
-Furthermore, some React-admin components such as the `List`, `Filter`, and `Datagrid` also accept a `classes` prop. This prop is injected by the [`withStyles` Higher Order Component](https://material-ui.com/customization/css-in-js/#api) and allows you to customize the style of some deep children. See the Theming documentation for details.
+Furthermore, some vn-kooch-react-admin components such as the `List`, `Filter`, and `Datagrid` also accept a `classes` prop. This prop is injected by the [`withStyles` Higher Order Component](https://material-ui.com/customization/css-in-js/#api) and allows you to customize the style of some deep children. See the Theming documentation for details.
 
 **Tip**: When you set the `classes` prop in the `List` or `Datagrid` components, you might see warnings about the `cell` and `field` classes being unknown by those components. Those warnings are not displayed in `production` mode, and are just a way to ensure you know what you're doing. And you can make them disappear by destructuring the `classes` prop:
 
 ```jsx
-import { EmailField, List, Datagrid } from 'react-admin';
+import { EmailField, List, Datagrid } from 'vn-kooch-react-admin';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -446,7 +446,7 @@ The `Restricted` component has been renamed to `Authenticated`. Update your `imp
 // in src/MyPage.js
 import { withRouter } from 'react-router-dom';
 - import { Restricted } from 'admin-on-rest';
-+ import { Authenticated } from 'react-admin';
++ import { Authenticated } from 'vn-kooch-react-admin';
 
 const MyPage = ({ location }) => (
 -  <Restricted authParams={{ foo: 'bar' }} location={location}>
@@ -472,7 +472,7 @@ If you were using `WithPermission` before, here's how to migrate to `WithPermiss
 ```diff
 import React from 'react';
 - import { MenuItemLink, WithPermission } from 'admin-on-rest';
-+ import { MenuItemLink, WithPermissions } from 'react-admin';
++ import { MenuItemLink, WithPermissions } from 'vn-kooch-react-admin';
 
 export default ({ onMenuClick, logout }) => (
     <div>
@@ -500,7 +500,7 @@ import React from 'react';
 import BenefitsSummary from './BenefitsSummary';
 import BenefitsDetailsWithSensitiveData from './BenefitsDetailsWithSensitiveData';
 - import { ViewTitle, SwitchPermissions, Permission } from 'admin-on-rest';
-+ import { ViewTitle, WithPermissions } from 'react-admin';
++ import { ViewTitle, WithPermissions } from 'vn-kooch-react-admin';
 
 export default () => (
     <div>
@@ -526,7 +526,7 @@ export default () => (
 );
 ```
 
-We also reviewed how permissions are passed to the `List`, `Edit`, `Create`, `Show` and `Delete` components. React-admin now injects the permissions to theses components in the `permissions` props, without having to use the render callback pattern. It should now be easier to customize behaviors and components according to permissions.
+We also reviewed how permissions are passed to the `List`, `Edit`, `Create`, `Show` and `Delete` components. vn-kooch-react-admin now injects the permissions to theses components in the `permissions` props, without having to use the render callback pattern. It should now be easier to customize behaviors and components according to permissions.
 
 Here's how to migrate a `Create` component:
 
@@ -634,7 +634,7 @@ Here's how to migrate a `List` component. Note that the `<Filter>` component doe
     </List>;
 ```
 
-Moreover, you won't need the now deprecated `<WithPermission>` or `<SwitchPermissions>` components inside a `Dashboard` to access permissions anymore: react-admin injects `permissions` to the dashboard, too:
+Moreover, you won't need the now deprecated `<WithPermission>` or `<SwitchPermissions>` components inside a `Dashboard` to access permissions anymore: vn-kooch-react-admin injects `permissions` to the dashboard, too:
 
 ```diff
 // in src/Dashboard.js
@@ -642,7 +642,7 @@ import React from 'react';
 import BenefitsSummary from './BenefitsSummary';
 import BenefitsDetailsWithSensitiveData from './BenefitsDetailsWithSensitiveData';
 - import { ViewTitle, SwitchPermissions, Permission } from 'admin-on-rest';
-+ import { ViewTitle } from 'react-admin';
++ import { ViewTitle } from 'vn-kooch-react-admin';
 
 - export default () => (
 + export default ({ permissions }) => (
@@ -670,7 +670,7 @@ Finally, you won't need the now deprecated `<WithPermission>` or `<SwitchPermiss
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { ViewTitle, WithPermissions } from 'react-admin';
+import { ViewTitle, WithPermissions } from 'vn-kooch-react-admin';
 import { withRouter } from 'react-router-dom';
 
 const MyPage = ({ permissions }) => (
@@ -729,7 +729,7 @@ import {
     Sidebar,
 -   setSidebarVisibility,
 - } from 'admin-on-rest';
-+ } from 'react-admin';
++ } from 'vn-kooch-react-admin';
 
 - const styles = {
 -     wrapper: {
@@ -874,7 +874,7 @@ const mapStateToProps = state => ({
 + export default connect(mapStateToProps, {})(withStyles(styles)(MyLayout));
 ```
 
-**Tip**: React-admin's theme is a bot more complex than that, as it is reponsive. Check out the default layout source for details.
+**Tip**: vn-kooch-react-admin's theme is a bot more complex than that, as it is reponsive. Check out the default layout source for details.
 
 ## Menu `onMenuTap` prop has been renamed `onMenuClick`
 
@@ -884,7 +884,7 @@ Material-ui renamed all `xxxTap` props to `xxxClick`, so did we.
 import React from 'react';
 import { connect } from 'react-redux';
 - import { MenuItemLink, getResources } from 'admin-on-rest';
-+ import { MenuItemLink, getResources } from 'react-admin';
++ import { MenuItemLink, getResources } from 'vn-kooch-react-admin';
 
 - const Menu = ({ resources, onMenuTap, logout }) => (
 + const Menu = ({ resources, onMenuClick, logout }) => (
@@ -917,7 +917,7 @@ This impacts how you build a custom menu, as you'll now have to check whether yo
 import React from 'react';
 import { connect } from 'react-redux';
 - import { MenuItemLink, getResources } from 'admin-on-rest';
-+ import { MenuItemLink, getResources, Responsive } from 'react-admin';
++ import { MenuItemLink, getResources, Responsive } from 'vn-kooch-react-admin';
 import { withRouter } from 'react-router-dom';
 
 const Menu = ({ resources, onMenuClick, logout }) => (
@@ -960,25 +960,25 @@ Both will be called with an `ids` property in their params, containing an array 
 
 Please refer to the `dataProvider` documentation for more information.
 
-## react-admin Addon Packages Renamed With ra Prefix And Moved Into Root Repository
+## vn-kooch-react-admin Addon Packages Renamed With ra Prefix And Moved Into Root Repository
 
-The `aor-graphql` and `aor-realtime` packages have been migrated into the main `react-admin` repository and renamed with the new prefix. Besides, `aor-graphql-client` and `aor-graphql-client-graphcool` follow the new dataProvider packages naming.
+The `aor-graphql` and `aor-realtime` packages have been migrated into the main `vn-kooch-react-admin` repository and renamed with the new prefix. Besides, `aor-graphql-client` and `aor-graphql-client-graphcool` follow the new dataProvider packages naming.
 
-* `aor-realtime` => `ra-realtime`
-* `aor-graphql-client` => `ra-data-graphql`
-* `aor-graphql-client-graphcool` => `ra-data-graphcool`
+* `aor-realtime` => `vn-kooch-realtime`
+* `aor-graphql-client` => `vn-kooch-data-graphql`
+* `aor-graphql-client-graphcool` => `vn-kooch-data-graphcool`
 
 Update your `import` statements accordingly:
 
 ```diff
 - import realtimeSaga from 'aor-realtime';
-+ import realtimeSaga from 'ra-realtime';
++ import realtimeSaga from 'vn-kooch-realtime';
 
 - import buildGraphQLProvider from 'aor-graphql-client';
-+ import buildGraphQLProvider from 'ra-data-graphql';
++ import buildGraphQLProvider from 'vn-kooch-data-graphql';
 
 - import buildGraphcoolProvider from 'aor-graphql-client-graphcool';
-+ import buildGraphcoolProvider from 'ra-data-graphcool';
++ import buildGraphcoolProvider from 'vn-kooch-data-graphcool';
 ```
 
 ## `aor-dependent-input` Was Removed
@@ -991,7 +991,7 @@ To display a component based on the value of the current (edited) record, wrap t
 
 ```diff
 - import { DependentInput } from 'aor-dependent-input';
-+ import { FormDataConsumer } from 'react-admin';
++ import { FormDataConsumer } from 'vn-kooch-react-admin';
 
 export const UserCreate = (props) => (
     <Create {...props}>
@@ -1015,7 +1015,7 @@ export const UserCreate = (props) => (
 As for the `<DependentField>` in a `<Show>` view, you need to use an alternative approach, taking advantage of the structure of `<Show>`, which in fact decomposes into a controller and a view component:
 
 ```jsx
-// inside react-admin
+// inside vn-kooch-react-admin
 const Show = props => (
     <ShowController {...props}>
         {controllerProps => <ShowView {...props} {...controllerProps} />}
@@ -1026,7 +1026,7 @@ const Show = props => (
 The `<ShowController>` fetches the `record` from the data provider, and passes it to its child function when received (among the `controllerProps`). That means the following code:
 
 ```jsx
-import { Show, SimpleShowLayout, TextField } from 'react-admin';
+import { Show, SimpleShowLayout, TextField } from 'vn-kooch-react-admin';
 
 const UserShow = props => (
     <Show {...props}>
@@ -1041,7 +1041,7 @@ const UserShow = props => (
 Is equivalent to:
 
 ```jsx
-import { ShowController, ShowView, SimpleShowLayout, TextField } from 'react-admin';
+import { ShowController, ShowView, SimpleShowLayout, TextField } from 'vn-kooch-react-admin';
 
 const UserShow = props => (
     <ShowController {...props}>
@@ -1060,7 +1060,7 @@ const UserShow = props => (
 If you want one field to be displayed based on the `record`, for instance to display the email field only if the `hasEmail` field is `true`, you just need to test the value from `controllerProps.record`, as follows:
 
 ```jsx
-import { ShowController, ShowView, SimpleShowLayout, TextField } from 'react-admin';
+import { ShowController, ShowView, SimpleShowLayout, TextField } from 'vn-kooch-react-admin';
 
 const UserShow = props => (
     <ShowController {...props}>

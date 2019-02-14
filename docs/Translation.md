@@ -5,11 +5,11 @@ title: "Translation"
 
 # Translation
 
-The react-admin interface uses English as the default language. But it also supports any other language, thanks to the [polyglot.js](http://airbnb.io/polyglot.js/) library.
+The vn-kooch-react-admin interface uses English as the default language. But it also supports any other language, thanks to the [polyglot.js](http://airbnb.io/polyglot.js/) library.
 
 ## Changing Locale
 
-If you want to use another locale, you'll have to install a third-party package. For instance, to change the interface to French, you must install the `ra-language-french` npm package then instruct react-admin to use it.
+If you want to use another locale, you'll have to install a third-party package. For instance, to change the interface to French, you must install the `ra-language-french` npm package then instruct vn-kooch-react-admin to use it.
 
 The `<Admin>` component has an `i18nProvider` prop, which accepts a function with the following signature:
 
@@ -19,13 +19,13 @@ const i18nProvider = locale => messages;
 
 The `messages` should be a dictionary of interface and resource names (see the [Translation Messages section](#translation-messages) below for details about the dictionary format).
 
-React-admin calls the `i18nProvider` when it starts, passing the `locale` specified on the `Admin` component as parameter. The provider must return the messages synchronously. React-admin also calls the `i18nProvider` whenever the locale changes, passing the new locale as parameter. So the simplest example for a multilingual interface reads as follow:
+vn-kooch-react-admin calls the `i18nProvider` when it starts, passing the `locale` specified on the `Admin` component as parameter. The provider must return the messages synchronously. vn-kooch-react-admin also calls the `i18nProvider` whenever the locale changes, passing the new locale as parameter. So the simplest example for a multilingual interface reads as follow:
 
 ```jsx
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource } from 'vn-kooch-react-admin';
 import frenchMessages from 'ra-language-french';
-import englishMessages from 'ra-language-english';
+import englishMessages from 'vn-kooch-language-english';
 
 const messages = {
     fr: frenchMessages,
@@ -77,10 +77,10 @@ You can find translation packages for the following languages:
 - Czech (`cs`): [binao/ra-language-czech](https://github.com/binao/ra-language-czech)
 - Danish (`da`): [nikri/ra-language-danish](https://github.com/nikri/ra-language-danish)
 - Dutch (`nl`): [nickwaelkens/ra-language-dutch](https://github.com/nickwaelkens/ra-language-dutch)
-- English (`en`): [marmelab/ra-language-english](https://github.com/marmelab/react-admin/tree/master/packages/ra-language-english)
+- English (`en`): [marmelab/vn-kooch-language-english](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/vn-kooch-language-english)
 - Farsi (`fa`): [hamidfzm/ra-language-farsi](https://github.com/hamidfzm/ra-language-farsi)
 - Finnish (`fi`): [aikain/ra-language-finnish](https://github.com/aikain/ra-language-finnish)
-- French (`fr`): [marmelab/ra-language-french](https://github.com/marmelab/react-admin/tree/master/packages/ra-language-french)
+- French (`fr`): [marmelab/ra-language-french](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/ra-language-french)
 - German (`de`): [greenbananaCH/ra-language-german](https://github.com/greenbananaCH/ra-language-german)
 - Hungarian (`hu`): [phelion/ra-language-hungarian](https://github.com/phelion/ra-language-hungarian)
 - Indonesian (`id`): [ronadi/ra-language-indonesian](https://github.com/ronadi/ra-language-indonesian)
@@ -95,7 +95,7 @@ You can find translation packages for the following languages:
 - Ukrainian (`ua`): [koresar/ra-language-ukrainian](https://github.com/koresar/ra-language-ukrainian)
 - Vietnamese (`vi`): [hieunguyendut/ra-language-vietnamese](https://github.com/hieunguyendut/ra-language-vietnamese)
 
-In addition, the previous version of react-admin, called admin-on-rest, was translated in the following languages:
+In addition, the previous version of vn-kooch-react-admin, called admin-on-rest, was translated in the following languages:
 
 - Arabic ( `ع` ): [aymendhaya/aor-language-arabic](https://github.com/aymendhaya/aor-language-arabic)
 - Chinese (Traditional) (`cht`): [leesei/aor-language-chinese-traditional](https://github.com/leesei/aor-language-chinese-traditional)
@@ -107,9 +107,9 @@ In addition, the previous version of react-admin, called admin-on-rest, was tran
 - Swedish (`sv`): [StefanWallin/aor-language-swedish](https://github.com/StefanWallin/aor-language-swedish)
 - Thai (`th`): [liverbool/aor-language-thai](https://github.com/liverbool/aor-language-thai)
 
-These packages are not directly interoperable with react-admin, but the upgrade is straightforward; rename the root key from "aor" to "ra". We invite the authors of the packages listed above to republish their translations for react-admin, using a different package name.
+These packages are not directly interoperable with vn-kooch-react-admin, but the upgrade is straightforward; rename the root key from "aor" to "ra". We invite the authors of the packages listed above to republish their translations for vn-kooch-react-admin, using a different package name.
 
-If you want to contribute a new translation, feel free to submit a pull request to update [this page](https://github.com/marmelab/react-admin/blob/master/docs/Translation.md) with a link to your package.
+If you want to contribute a new translation, feel free to submit a pull request to update [this page](https://github.com/marmelab/vn-kooch-react-admin/blob/master/docs/Translation.md) with a link to your package.
 
 ## Changing Locale At Runtime
 
@@ -117,8 +117,8 @@ If you want to offer the ability to change locale at runtime, you must provide t
 
 ```jsx
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
-import englishMessages from 'ra-language-english';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import englishMessages from 'vn-kooch-language-english';
 import frenchMessages from 'ra-language-french';
 
 const messages = {
@@ -142,7 +142,7 @@ Then, dispatch the `CHANGE_LOCALE` action, by using the `changeLocale` action cr
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { changeLocale as changeLocaleAction } from 'react-admin';
+import { changeLocale as changeLocaleAction } from 'vn-kooch-react-admin';
 
 class LocaleSwitcher extends Component {
     switchToFrench = () => this.props.changeLocale('fr');
@@ -165,12 +165,12 @@ export default connect(undefined, { changeLocale: changeLocaleAction })(LocaleSw
 
 ## Using The Browser Locale
 
-React-admin provides a helper function named `resolveBrowserLocale()`, which helps you to introduce a dynamic locale attribution based on the locale configured in the user's browser. To use it, simply pass the function as `locale` prop.
+vn-kooch-react-admin provides a helper function named `resolveBrowserLocale()`, which helps you to introduce a dynamic locale attribution based on the locale configured in the user's browser. To use it, simply pass the function as `locale` prop.
 
 ```jsx
 import React from 'react';
-import { Admin, Resource, resolveBrowserLocale } from 'react-admin';
-import englishMessages from 'ra-language-english';
+import { Admin, Resource, resolveBrowserLocale } from 'vn-kooch-react-admin';
+import englishMessages from 'vn-kooch-language-english';
 import frenchMessages from 'ra-language-french';
 
 const messages = {
@@ -211,13 +211,13 @@ The `message` returned by the `i18nProvider` value should be a dictionary where 
 
 All core translations are in the `ra` namespace, in order to prevent collisions with your own custom translations. The root key used at runtime is determined by the value of the `locale` prop.
 
-The default messages are available [here](https://github.com/marmelab/react-admin/blob/master/packages/ra-language-english/index.js).
+The default messages are available [here](https://github.com/marmelab/vn-kooch-react-admin/blob/master/packages/vn-kooch-language-english/index.js).
 
 ## Translating Resource and Field Names
 
-By default, React-admin uses resource names ("post", "comment", etc) and field names ("title", "first_name", etc) everywhere in the interface. It simply "humanizes" the technical identifiers to make them look better (e.g. "first_name" becomes "First name").
+By default, vn-kooch-react-admin uses resource names ("post", "comment", etc) and field names ("title", "first_name", etc) everywhere in the interface. It simply "humanizes" the technical identifiers to make them look better (e.g. "first_name" becomes "First name").
 
-However, before humanizing names, react-admin checks the `messages` dictionary for a possible translation, with the following keys:
+However, before humanizing names, vn-kooch-react-admin checks the `messages` dictionary for a possible translation, with the following keys:
 
 - `${locale}.resources.${resourceName}.name` for resource names (used for the menu and page titles)
 - `${locale}.resources.${resourceName}.fields.${fieldName}` for field names (used for datagrid header and form input labels)
@@ -258,7 +258,7 @@ When translating an admin, interface messages (e.g. "List", "Page", etc.) usuall
 
 ```jsx
 // interface translations
-import englishMessages from 'ra-language-english';
+import englishMessages from 'vn-kooch-language-english';
 import frenchMessages from 'ra-language-french';
 
 // domain translations
@@ -279,12 +279,12 @@ const App = () => (
 
 ## Translating Your Own Components
 
-React-admin package provides a `translate` Higher-Order Component, which simply passes the `translate` function as a prop to the wrapped component:
+vn-kooch-react-admin package provides a `translate` Higher-Order Component, which simply passes the `translate` function as a prop to the wrapped component:
 
 ```jsx
 // in src/MyHelloButton.js
 import React from 'react';
-import { translate } from 'react-admin';
+import { translate } from 'vn-kooch-react-admin';
 
 const MyHelloButton = ({ translate }) => (
     <button>{translate('myroot.hello.world')}</button>
@@ -311,7 +311,7 @@ export default translate(MyHelloButton);
 
 ## Using Specific Polyglot Features
 
-Polyglot.js is a fantastic library: in addition to being small, fully maintained, and totally framework agnostic, it provides some nice features such as interpolation and pluralization, that you can use in react-admin.
+Polyglot.js is a fantastic library: in addition to being small, fully maintained, and totally framework agnostic, it provides some nice features such as interpolation and pluralization, that you can use in vn-kooch-react-admin.
 
 ```jsx
 const messages = {

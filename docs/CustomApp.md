@@ -3,19 +3,19 @@ layout: default
 title: "Including the Admin in Another App"
 ---
 
-# Including React-Admin In Another Redux Application
+# Including vn-kooch-react-admin In Another Redux Application
 
-The `<Admin>` tag is a great shortcut got be up and running with react-admin in minutes. However, in many cases, you will want to embed the admin in another application, or customize the admin redux store deeply.
+The `<Admin>` tag is a great shortcut got be up and running with vn-kooch-react-admin in minutes. However, in many cases, you will want to embed the admin in another application, or customize the admin redux store deeply.
 
 **Tip**: Before going for the Custom App route, explore all the options of [the `<Admin>` component](./Admin.md). They allow you to add custom routes, custom reducers, custom sagas, and customize the layout.
 
-Fortunately, the `<Admin>` component detects when it's used inside an existing Redux `<Provider>`, and skips its own store initialization. That means that react-admin will work out of the box inside another redux application - provided, of course, the store is compatible.
+Fortunately, the `<Admin>` component detects when it's used inside an existing Redux `<Provider>`, and skips its own store initialization. That means that vn-kooch-react-admin will work out of the box inside another redux application - provided, of course, the store is compatible.
 
 Beware that you need to know about [redux](http://redux.js.org/), [react-router](https://github.com/reactjs/react-router), and [redux-saga](https://github.com/yelouafi/redux-saga) to go further.
 
-React-admin requires that the redux state contains at least 4 reducers: `admin`, `i18n`, `form`, and `router`. You can add more, or replace some of them with your own, but you can't remove or rename them. As it relies on redux-form, react-router, and redux-saga, react-admin also expects the store to use their middlewares.
+vn-kooch-react-admin requires that the redux state contains at least 4 reducers: `admin`, `i18n`, `form`, and `router`. You can add more, or replace some of them with your own, but you can't remove or rename them. As it relies on redux-form, react-router, and redux-saga, vn-kooch-react-admin also expects the store to use their middlewares.
 
-Here is the default store creation for react-admin:
+Here is the default store creation for vn-kooch-react-admin:
 
 ```js
 // in src/createAdminStore.js
@@ -32,7 +32,7 @@ import {
     i18nReducer,
     formMiddleware,
     USER_LOGOUT,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 export default ({
     authProvider,
@@ -91,9 +91,9 @@ Then, use the `<Admin>` component as you would in a standalone application. Here
 import React from 'react';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createHashHistory';
-import { Admin, Resource } from 'react-admin';
-import restProvider from 'ra-data-simple-rest';
-import defaultMessages from 'ra-language-english';
+import { Admin, Resource } from 'vn-kooch-react-admin';
+import restProvider from 'vn-kooch-data-simple-rest';
+import defaultMessages from 'vn-kooch-language-english';
 
 import createAdminStore from './createAdminStore';
 import messages from './i18n';
@@ -145,7 +145,7 @@ export default App;
 
 The `<Admin>` component takes care of defining the store (unless you provide one, as seen above), of setting the Translation and Authentication contexts, and of bootstrapping the Router. In case you need to override any of these, you can use your own component instead of `<Admin>`.
 
-Here is the main code for bootstrapping a barebones react-admin application without `<Admin>`:
+Here is the main code for bootstrapping a barebones vn-kooch-react-admin application without `<Admin>`:
 
 ```diff
 // in src/App.js
@@ -155,10 +155,10 @@ import createHistory from 'history/createHashHistory';
 +import { ConnectedRouter } from 'react-router-redux';
 +import { Switch, Route } from 'react-router-dom';
 +import withContext from 'recompose/withContext';
--import { Admin, Resource } from 'react-admin';
-+import { TranslationProvider, Resource } from 'react-admin';
-import restProvider from 'ra-data-simple-rest';
-import defaultMessages from 'ra-language-english';
+-import { Admin, Resource } from 'vn-kooch-react-admin';
++import { TranslationProvider, Resource } from 'vn-kooch-react-admin';
+import restProvider from 'vn-kooch-data-simple-rest';
+import defaultMessages from 'vn-kooch-language-english';
 +import { MuiThemeProvider } from '@material-ui/core/styles';
 +import AppBar from '@material-ui/core/AppBar';
 +import Toolbar from '@material-ui/core/Toolbar';

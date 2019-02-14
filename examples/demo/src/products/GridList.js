@@ -6,8 +6,8 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import { withStyles } from '@material-ui/core/styles';
 import withWidth from '@material-ui/core/withWidth';
 import { Link } from 'react-router-dom';
-import { NumberField } from 'react-admin';
-import { linkToRecord } from 'ra-core';
+import { NumberField } from 'vn-kooch-react-admin';
+import { linkToRecord } from 'vn-kooch-core';
 
 const styles = theme => ({
     root: {

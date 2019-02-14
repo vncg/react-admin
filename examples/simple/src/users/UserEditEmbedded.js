@@ -1,6 +1,6 @@
 /* eslint react/jsx-key: off */
 import React from 'react';
-import { Edit, SimpleForm, TextInput, required } from 'react-admin';
+import { Edit, SimpleForm, TextInput, required } from 'vn-kooch-react-admin';
 
 const UserEditEmbedded = ({ permissions, ...props }) => (
     /* Passing " " as title disables the custom title */

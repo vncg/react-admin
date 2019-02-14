@@ -1,6 +1,6 @@
-import englishMessages from 'ra-language-english';
-import treeEnglishMessages from 'ra-tree-language-english';
-import { mergeTranslations } from 'react-admin';
+import englishMessages from 'vn-kooch-language-english';
+import treeEnglishMessages from 'vn-kooch-tree-language-english';
+import { mergeTranslations } from 'vn-kooch-react-admin';
 
 export const messages = {
     simple: {

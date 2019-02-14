@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 import Button from '@material-ui/core/Button';
 import ThumbUp from '@material-ui/icons/ThumbUp';
-import { translate } from 'react-admin';
+import { translate } from 'vn-kooch-react-admin';
 import compose from 'recompose/compose';
 import { reviewApprove as reviewApproveAction } from './reviewActions';
 

@@ -10,7 +10,7 @@ import {
     DashboardMenuItem,
     MenuItemLink,
     Responsive,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 import visitors from '../visitors';
 import orders from '../orders';

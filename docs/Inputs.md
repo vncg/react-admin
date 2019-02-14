@@ -10,7 +10,7 @@ An `Input` component displays an input, or a dropdown list, a list of radio butt
 ```jsx
 // in src/posts.js
 import React from 'react';
-import { Edit, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'react-admin';
+import { Edit, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'vn-kooch-react-admin';
 
 export const PostEdit = (props) => (
     <Edit title={<PostTitle />} {...props}>
@@ -67,7 +67,7 @@ Then you can display a text input to edit the author first name as follows:
 To edit arrays of data embedded inside a record, `<ArrayInput>` creates a list of sub-forms.
 
 ```jsx
-import { ArrayInput, SimpleFormIterator, DateInput, TextInput } from 'react-admin';
+import { ArrayInput, SimpleFormIterator, DateInput, TextInput } from 'vn-kooch-react-admin';
 
 <ArrayInput source="backlinks">
     <SimpleFormIterator>
@@ -102,7 +102,7 @@ import { ArrayInput, SimpleFormIterator, DateInput, TextInput } from 'react-admi
 You can pass `disableAdd` and `disableRemove` as props of `SimpleFormIterator`, to disable `ADD` and `REMOVE` button respectively. Default value of both is `false`.
 
 ```jsx
-import { ArrayInput, SimpleFormIterator, DateInput, TextInput } from 'react-admin';
+import { ArrayInput, SimpleFormIterator, DateInput, TextInput } from 'vn-kooch-react-admin';
 
 <ArrayInput source="backlinks">
     <SimpleFormIterator disableRemove >
@@ -117,7 +117,7 @@ import { ArrayInput, SimpleFormIterator, DateInput, TextInput } from 'react-admi
 To let users choose a value in a list using a dropdown with autocompletion, use `<AutocompleteInput>`. It renders using [react-autosuggest](http://react-autosuggest.js.org/) and a `fuzzySearch` filter. Set the `choices` attribute to determine the options list (with `id`, `name` tuples).
 
 ```jsx
-import { AutocompleteInput } from 'react-admin';
+import { AutocompleteInput } from 'vn-kooch-react-admin';
 
 <AutocompleteInput source="category" choices={[
     { id: 'programming', name: 'Programming' },
@@ -190,7 +190,7 @@ Ex. `<AutocompleteInput shouldRenderSuggestions={(val) => { return val.trim().le
 **Tip**: If you want to populate the `choices` attribute with a list of related records, you should decorate `<AutocompleteInput>` with [`<ReferenceInput>`](#referenceinput), and leave the `choices` empty:
 
 ```jsx
-import { AutocompleteInput, ReferenceInput } from 'react-admin'
+import { AutocompleteInput, ReferenceInput } from 'vn-kooch-react-admin'
 
 <ReferenceInput label="Post" source="post_id" reference="posts">
     <AutocompleteInput optionText="title" />
@@ -210,7 +210,7 @@ Lastly, would you need to override the props of the suggestions container (a `Po
 
 **Tip**: `<AutocompleteInput>` is a stateless component, so it only allows to *filter* the list of choices, not to *extend* it. If you need to populate the list of choices based on the result from a `fetch` call (and if [`<ReferenceInput>`](#referenceinput) doesn't cover your need), you'll have to [write your own Input component](#writing-your-own-input-component) based on material-ui `<AutoComplete>` component.
 
-**Tip**: React-admin's `<AutocompleteInput>` has only a capital A, while material-ui's `<AutoComplete>` has a capital A and a capital C. Don't mix up the components!
+**Tip**: vn-kooch-react-admin's `<AutocompleteInput>` has only a capital A, while material-ui's `<AutoComplete>` has a capital A and a capital C. Don't mix up the components!
 
 ### Properties
 
@@ -232,7 +232,7 @@ Lastly, would you need to override the props of the suggestions container (a `Po
 To let users choose multiple values in a list using a dropdown with autocompletion, use `<AutocompleteArrayInput>`. It renders using [material-ui-chip-input](https://github.com/TeamWertarbyte/material-ui-chip-input), [react-autosuggest](http://react-autosuggest.js.org/) and a `fuzzySearch` filter. Set the `choices` attribute to determine the options list (with `id`, `name` tuples).
 
 ```jsx
-import { AutocompleteArrayInput } from 'react-admin';
+import { AutocompleteArrayInput } from 'vn-kooch-react-admin';
 
 <AutocompleteArrayInput source="category" choices={[
     { id: 'programming', name: 'Programming' },
@@ -305,7 +305,7 @@ Lastly, `<AutocompleteArrayInput>` renders a [material-ui-chip-input](https://gi
 **Tip**: If you want to populate the `choices` attribute with a list of related records, you should decorate `<AutocompleteArrayInput>` with [`<ReferenceArrayInput>`](#referenceinput), and leave the `choices` empty:
 
 ```jsx
-import { AutocompleteArrayInput, ReferenceArrayInput } from 'react-admin'
+import { AutocompleteArrayInput, ReferenceArrayInput } from 'vn-kooch-react-admin'
 
 <ReferenceArrayInput label="Tags" reference="tags" source="tags">
     <AutocompleteArrayInput />
@@ -314,7 +314,7 @@ import { AutocompleteArrayInput, ReferenceArrayInput } from 'react-admin'
 
 **Tip**: `<ReferenceArrayInput>` is a stateless component, so it only allows to *filter* the list of choices, not to *extend* it. If you need to populate the list of choices based on the result from a `fetch` call (and if [`<ReferenceArrayInput>`](#referencearrayinput) doesn't cover your need), you'll have to [write your own Input component](#writing-your-own-input-component) based on [material-ui-chip-input](https://github.com/TeamWertarbyte/material-ui-chip-input).
 
-**Tip**: React-admin's `<AutocompleteInput>` has only a capital A, while material-ui's `<AutoComplete>` has a capital A and a capital C. Don't mix up the components!
+**Tip**: vn-kooch-react-admin's `<AutocompleteInput>` has only a capital A, while material-ui's `<AutoComplete>` has a capital A and a capital C. Don't mix up the components!
 
 ### Properties
 
@@ -336,7 +336,7 @@ import { AutocompleteArrayInput, ReferenceArrayInput } from 'react-admin'
 `<BooleanInput />` is a toggle button allowing you to attribute a `true` or `false` value to a record field.
 
 ```jsx
-import { BooleanInput } from 'react-admin';
+import { BooleanInput } from 'vn-kooch-react-admin';
 
 <BooleanInput label="Commentable" source="commentable" />
 ```
@@ -350,7 +350,7 @@ You can use the `options` prop to pass any option supported by the Material UI `
 
 {% raw %}
 ```jsx
-import { BooleanInput } from 'react-admin';
+import { BooleanInput } from 'vn-kooch-react-admin';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 <BooleanInput
@@ -370,7 +370,7 @@ Refer to [Material UI Switch documentation](http://www.material-ui.com/#/compone
 `<NullableBooleanInput />` renders as a dropdown list, allowing to choose between true, false, and null values.
 
 ```jsx
-import { NullableBooleanInput } from 'react-admin';
+import { NullableBooleanInput } from 'vn-kooch-react-admin';
 
 <NullableBooleanInput label="Commentable" source="commentable" />
 ```
@@ -382,7 +382,7 @@ import { NullableBooleanInput } from 'react-admin';
 If you want to let the user choose multiple values among a list of possible values by showing them all, `<CheckboxGroupInput>` is the right component. Set the `choices` attribute to determine the options (with `id`, `name` tuples):
 
 ```jsx
-import { CheckboxGroupInput } from 'react-admin';
+import { CheckboxGroupInput } from 'vn-kooch-react-admin';
 
 <CheckboxGroupInput source="category" choices={[
     { id: 'programming', name: 'Programming' },
@@ -458,44 +458,44 @@ Refer to [Material UI Checkbox documentation](http://www.material-ui.com/#/compo
 Ideal for editing dates, `<DateInput>` renders a standard browser [Date Picker](https://material-ui.com/demos/pickers/#date-pickers), so the appearance depends on the browser (and falls back to a text input on safari).
 
 ```jsx
-import { DateInput } from 'react-admin';
+import { DateInput } from 'vn-kooch-react-admin';
 
 <DateInput source="published_at" />
 ```
 
 ![DateInput](./img/date-input.gif)
 
-**Tip**: For a material-ui styled `<DateInput>` component, check out [vascofg/react-admin-date-inputs](https://github.com/vascofg/react-admin-date-inputs).
+**Tip**: For a material-ui styled `<DateInput>` component, check out [vascofg/vn-kooch-react-admin-date-inputs](https://github.com/vascofg/vn-kooch-react-admin-date-inputs).
 
 ## `<DateTimeInput>`
 
 An input for editing dates with time. `<DateTimeInput>` renders a standard browser [Date and Time Picker](https://material-ui.com/demos/pickers/#date-amp-time-pickers), so the appearance depends on the browser (and falls back to a text input on safari).
 
 ```jsx
-import { DateTimeInput } from 'react-admin';
+import { DateTimeInput } from 'vn-kooch-react-admin';
 
 <DateTimeInput source="published_at" />
 ```
 
-**Tip**: For a material-ui styled `<DateTimeInput>` component, check out [vascofg/react-admin-date-inputs](https://github.com/vascofg/react-admin-date-inputs).
+**Tip**: For a material-ui styled `<DateTimeInput>` component, check out [vascofg/vn-kooch-react-admin-date-inputs](https://github.com/vascofg/vn-kooch-react-admin-date-inputs).
 
 ## `<DisabledInput>`
 
 When you want to display a record property in an `<Edit>` form without letting users update it (such as for auto-incremented primary keys), use the `<DisabledInput>`:
 
 ```jsx
-import { DisabledInput } from 'react-admin';
+import { DisabledInput } from 'vn-kooch-react-admin';
 
 <DisabledInput source="id" />
 ```
 
 ![DisabledInput](./img/disabled-input.png)
 
-**Tip**: To add non-editable fields to the `<Edit>` view, you can also use one of react-admin `Field` components:
+**Tip**: To add non-editable fields to the `<Edit>` view, you can also use one of vn-kooch-react-admin `Field` components:
 
 ```jsx
 // in src/posts.js
-import { Edit, LongTextInput, SimpleForm, TextField } from 'react-admin';
+import { Edit, LongTextInput, SimpleForm, TextField } from 'vn-kooch-react-admin';
 
 export const PostEdit = (props) => (
     <Edit {...props}>
@@ -511,7 +511,7 @@ export const PostEdit = (props) => (
 
 ```jsx
 // in src/posts.js
-import { Edit, Labeled, LongTextInput, SimpleForm } from 'react-admin';
+import { Edit, Labeled, LongTextInput, SimpleForm } from 'vn-kooch-react-admin';
 
 const titleStyle = { textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '20em' };
 const Title = ({ record, label }) => (
@@ -595,7 +595,7 @@ Note that the file upload returns a [File](https://developer.mozilla.org/en/docs
 `<LongTextInput>` is the best choice for multiline text values. It renders as an auto expandable textarea.
 
 ```jsx
-import { LongTextInput } from 'react-admin';
+import { LongTextInput } from 'vn-kooch-react-admin';
 
 <LongTextInput source="teaser" />
 ```
@@ -605,7 +605,7 @@ import { LongTextInput } from 'react-admin';
 You can make the `LongTextInput` component resettable using the `resettable` prop. This will add a reset button which will be displayed only when the field has a value and is focused.
 
 ```jsx
-import { LongTextInput } from 'react-admin';
+import { LongTextInput } from 'vn-kooch-react-admin';
 
 <LongTextInput source="title" resettable />
 ```
@@ -618,7 +618,7 @@ import { LongTextInput } from 'react-admin';
 `<NumberInput>` translates to a HTML `<input type="number">`. It is necessary for numeric values because of a [known React bug](https://github.com/facebook/react/issues/1425), which prevents using the more generic [`<TextInput>`](#textinput) in that case.
 
 ```jsx
-import { NumberInput } from 'react-admin';
+import { NumberInput } from 'vn-kooch-react-admin';
 
 <NumberInput source="nb_views" />
 ```
@@ -634,7 +634,7 @@ You can customize the `step` props (which defaults to "any"):
 If you want to let the user choose a value among a list of possible values by showing them all (instead of hiding them behind a dropdown list, as in [`<SelectInput>`](#selectinput)), `<RadioButtonGroupInput>` is the right component. Set the `choices` attribute to determine the options (with `id`, `name` tuples):
 
 ```jsx
-import { RadioButtonGroupInput } from 'react-admin';
+import { RadioButtonGroupInput } from 'vn-kooch-react-admin';
 
 <RadioButtonGroupInput source="category" choices={[
     { id: 'programming', name: 'Programming' },
@@ -707,7 +707,7 @@ Refer to [Material UI RadioGroup documentation](http://www.material-ui.com/#/com
 **Tip**: If you want to populate the `choices` attribute with a list of related records, you should decorate `<RadioButtonGroupInput>` with [`<ReferenceInput>`](#referenceinput), and leave the `choices` empty:
 
 ```jsx
-import { RadioButtonGroupInput, ReferenceInput } from 'react-admin'
+import { RadioButtonGroupInput, ReferenceInput } from 'vn-kooch-react-admin'
 
 <ReferenceInput label="Author" source="author_id" reference="authors">
     <RadioButtonGroupInput optionText="last_name" />
@@ -744,7 +744,7 @@ This means you can use `<ReferenceArrayInput>` with [`<SelectArrayInput>`](#sele
 The component expects a `source` and a `reference` attributes. For instance, to make the `tag_ids` for a `post` editable:
 
 ```js
-import { ReferenceArrayInput, SelectArrayInput } from 'react-admin'
+import { ReferenceArrayInput, SelectArrayInput } from 'vn-kooch-react-admin'
 
 <ReferenceArrayInput source="tag_ids" reference="tags">
     <SelectArrayInput optionText="name" />
@@ -753,7 +753,7 @@ import { ReferenceArrayInput, SelectArrayInput } from 'react-admin'
 
 ![SelectArrayInput](./img/select-array-input.gif)
 
-**Note**: You **must** add a `<Resource>` for the reference resource - react-admin needs it to fetch the reference data. You can omit the list prop in this reference if you want to hide it in the sidebar menu.
+**Note**: You **must** add a `<Resource>` for the reference resource - vn-kooch-react-admin needs it to fetch the reference data. You can omit the list prop in this reference if you want to hide it in the sidebar menu.
 
 ```js
 <Admin dataProvider={myDataProvider}>
@@ -766,7 +766,7 @@ Set the `allowEmpty` prop when you want to add an empty choice with a value of n
 Disabling `allowEmpty` does not mean that the input will be required. If you want to make the input required, you must add a validator as indicated in [Validation Documentation](./CreateEdit.md#validation). Enabling the `allowEmpty` props just adds an empty choice (with `null` value) on top of the options, and makes the value nullable.
 
 ```js
-import { ReferenceArrayInput, SelectArrayInput } from 'react-admin'
+import { ReferenceArrayInput, SelectArrayInput } from 'vn-kooch-react-admin'
 
 <ReferenceArrayInput source="tag_ids" reference="tags" allowEmpty>
     <SelectArrayInput optionText="name" />
@@ -817,7 +817,7 @@ This means you can use `<ReferenceInput>` with any of [`<SelectInput>`](#selecti
 The component expects a `source` and a `reference` attributes. For instance, to make the `post_id` for a `comment` editable:
 
 ```jsx
-import { ReferenceInput, SelectInput } from 'react-admin'
+import { ReferenceInput, SelectInput } from 'vn-kooch-react-admin'
 
 <ReferenceInput label="Post" source="post_id" reference="posts">
     <SelectInput optionText="title" />
@@ -826,7 +826,7 @@ import { ReferenceInput, SelectInput } from 'react-admin'
 
 ![ReferenceInput](./img/reference-input.gif)
 
-**Note**: You **must** add a `<Resource>` for the reference resource - react-admin needs it to fetch the reference data. You *can* omit the `list` prop in this reference if you want to hide it in the sidebar menu.
+**Note**: You **must** add a `<Resource>` for the reference resource - vn-kooch-react-admin needs it to fetch the reference data. You *can* omit the `list` prop in this reference if you want to hide it in the sidebar menu.
 
 ```jsx
 <Admin dataProvider={myDataProvider}>
@@ -835,13 +835,13 @@ import { ReferenceInput, SelectInput } from 'react-admin'
 </Admin>
 ```
 
-**Tip**: Why does `<ReferenceInput>` use the `GET_MANY` verb with a single value `[id]` instead of `GET_ONE` to fetch the record for the current value? Because when there are many `<ReferenceInput>` for the same resource in a form (for instance when inside an `<ArrayInput>`), react-admin *aggregates* the calls to `GET_MANY` into a single one with `[id1, id2, ...)]`. This speeds up the UI and avoids hitting the API too much.
+**Tip**: Why does `<ReferenceInput>` use the `GET_MANY` verb with a single value `[id]` instead of `GET_ONE` to fetch the record for the current value? Because when there are many `<ReferenceInput>` for the same resource in a form (for instance when inside an `<ArrayInput>`), vn-kooch-react-admin *aggregates* the calls to `GET_MANY` into a single one with `[id1, id2, ...)]`. This speeds up the UI and avoids hitting the API too much.
 
 Set the `allowEmpty` prop when you want to add an empty choice with a value of null in the choices list.
 Disabling `allowEmpty` does not mean that the input will be required. If you want to make the input required, you must add a validator as indicated in [Validation Documentation](./CreateEdit.md#validation). Enabling the `allowEmpty` props just adds an empty choice (with `null` value) on top of the options, and makes the value nullable.
 
 ```jsx
-import { ReferenceInput, SelectInput } from 'react-admin'
+import { ReferenceInput, SelectInput } from 'vn-kooch-react-admin'
 
 <ReferenceInput label="Post" source="post_id" reference="posts" allowEmpty>
     <SelectInput optionText="title" />
@@ -923,16 +923,16 @@ The child component receives the following props from `<ReferenceInput>`:
 `<RichTextInput>` is the ideal component if you want to allow your users to edit some HTML contents. It
 is powered by [Quill](https://quilljs.com/).
 
-**Note**: Due to its size, `<RichTextInput>` is not bundled by default with react-admin. You must install it first, using npm:
+**Note**: Due to its size, `<RichTextInput>` is not bundled by default with vn-kooch-react-admin. You must install it first, using npm:
 
 ```sh
-npm install ra-input-rich-text
+npm install vn-kooch-input-rich-text
 ```
 
 Then use it as a normal input component:
 
 ```jsx
-import RichTextInput from 'ra-input-rich-text';
+import RichTextInput from 'vn-kooch-input-rich-text';
 
 <RichTextInput source="body" />
 ```
@@ -950,7 +950,7 @@ You can customize the rich text editor toolbar using the `toolbar` attribute, as
 To let users choose a value in a list using a dropdown, use `<SelectInput>`. It renders using [Material ui's `<SelectField>`](http://www.material-ui.com/#/components/select-field). Set the `choices` attribute to determine the options (with `id`, `name` tuples):
 
 ```jsx
-import { SelectInput } from 'react-admin';
+import { SelectInput } from 'vn-kooch-react-admin';
 
 <SelectInput source="category" choices={[
     { id: 'programming', name: 'Programming' },
@@ -1035,7 +1035,7 @@ Refer to [Material UI SelectField documentation](http://www.material-ui.com/#/co
 **Tip**: If you want to populate the `choices` attribute with a list of related records, you should decorate `<SelectInput>` with [`<ReferenceInput>`](#referenceinput), and leave the `choices` empty:
 
 ```jsx
-import { SelectInput, ReferenceInput } from 'react-admin'
+import { SelectInput, ReferenceInput } from 'vn-kooch-react-admin'
 
 <ReferenceInput label="Author" source="author_id" reference="authors">
     <SelectInput optionText="last_name" />
@@ -1075,7 +1075,7 @@ const choices = [
 To let users choose several values in a list using a dropdown, use `<SelectArrayInput>`. It renders using [Material ui's `<Select>`](http://www.material-ui.com/#/components/select). Set the `choices` attribute to determine the options (with `id`, `name` tuples):
 
 ```js
-import { SelectArrayInput } from 'react-admin';
+import { SelectArrayInput } from 'vn-kooch-react-admin';
 
 <SelectArrayInput label="Tags" source="categories" choices={[
     { id: 'music', name: 'Music' },
@@ -1143,7 +1143,7 @@ import {
     ReferenceArrayInput,
     SelectArrayInput,
     TextInput,
-} from 'react-admin';
+} from 'vn-kooch-react-admin';
 
 export const PostCreate = props => (
     <Create {...props}>
@@ -1169,7 +1169,7 @@ export const PostCreate = props => (
 `<TextInput>` is the most common input. It is used for texts, emails, URL or passwords. In translates to an HTML `<input>` tag.
 
 ```jsx
-import { TextInput } from 'react-admin';
+import { TextInput } from 'vn-kooch-react-admin';
 
 <TextInput source="title" />
 ```
@@ -1185,7 +1185,7 @@ You can choose a specific input type using the `type` attribute, for instance `t
 You can make the `TextInput` component resettable using the `resettable` prop. This will add a reset button which will be displayed only when the field has a value and is focused.
 
 ```jsx
-import { TextInput } from 'react-admin';
+import { TextInput } from 'vn-kooch-react-admin';
 
 <TextInput source="title" resettable />
 ```
@@ -1197,7 +1197,7 @@ import { TextInput } from 'react-admin';
 
 ## Transforming Input Value to/from Record
 
-The data format returned by the input component may not be what your API desires. Since React-admin uses Redux Form, we can use its `parse()` and `format()` functions to transform the input value when saving to and loading from the record. It's better to understand the [input value's lifecycle](http://redux-form.com/6.5.0/docs/ValueLifecycle.md/) before you start.
+The data format returned by the input component may not be what your API desires. Since vn-kooch-react-admin uses Redux Form, we can use its `parse()` and `format()` functions to transform the input value when saving to and loading from the record. It's better to understand the [input value's lifecycle](http://redux-form.com/6.5.0/docs/ValueLifecycle.md/) before you start.
 
 Mnemonic for the two functions:
 - `parse()`: input -> record
@@ -1236,11 +1236,11 @@ const dateParser = v => {
 
 ## Third-Party Components
 
-You can find components for react-admin in third-party repositories.
+You can find components for vn-kooch-react-admin in third-party repositories.
 
-* [vascofg/react-admin-color-input](https://github.com/vascofg/react-admin-color-input): a color input using [React Color](http://casesandberg.github.io/react-color/), a collection of color pickers.
+* [vascofg/vn-kooch-react-admin-color-input](https://github.com/vascofg/vn-kooch-react-admin-color-input): a color input using [React Color](http://casesandberg.github.io/react-color/), a collection of color pickers.
 * [LoicMahieu/aor-tinymce-input](https://github.com/LoicMahieu/aor-tinymce-input): a TinyMCE component, useful for editing HTML
-* [vascofg/react-admin-date-inputs](https://github.com/vascofg/react-admin-date-inputs): a collection of Date Inputs, based on [material-ui-pickers](https://material-ui-pickers.firebaseapp.com/)
+* [vascofg/vn-kooch-react-admin-date-inputs](https://github.com/vascofg/vn-kooch-react-admin-date-inputs): a collection of Date Inputs, based on [material-ui-pickers](https://material-ui-pickers.firebaseapp.com/)
 
 ## Writing Your Own Input Component
 
@@ -1291,12 +1291,12 @@ const LatLongInput = () => (
 );
 ```
 
-This component lacks a label. React-admin provides the `<Labeled>` component for that:
+This component lacks a label. vn-kooch-react-admin provides the `<Labeled>` component for that:
 
 ```jsx
 // in LatLongInput.js
 import { Field } from 'redux-form';
-import { Labeled } from 'react-admin';
+import { Labeled } from 'vn-kooch-react-admin';
 
 const LatLngInput = () => (
     <Labeled label="position">
@@ -1346,13 +1346,13 @@ const LatLngInput = () => (
 
 Material-ui's `<TextField>` component already includes a label, so you don't need to use `<Labeled>` in this case. `<Field>` injects two props to its child component: `input` and `meta`. To learn more about these props, please refer to [the `<Field>` component documentation](http://redux-form.com/6.5.0/docs/api/Field.md/#props) in the redux-form website.
 
-**Tip**: If you only need one `<Field>` component in a custom input, you can let react-admin do the `<Field>` decoration for you by using the `addField` Higher-order component:
+**Tip**: If you only need one `<Field>` component in a custom input, you can let vn-kooch-react-admin do the `<Field>` decoration for you by using the `addField` Higher-order component:
 
 ```jsx
 // in SexInput.js
 import SelectField from '@material-ui/core/SelectField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { addField } from 'react-admin';
+import { addField } from 'vn-kooch-react-admin';
 
 const SexInput = ({ input, meta: { touched, error } }) => (
     <SelectField
@@ -1398,11 +1398,11 @@ export default addField(MyDateInput, { parse, format });
 
 For more details on how to use redux-form's `<Field>` component, please refer to [the redux-form doc](http://redux-form.com/6.5.0/docs/api/Field.md/).
 
-Instead of HTML `input` elements or material-ui components, you can use react-admin input components, like `<NumberInput>` for instance. React-admin components are already decorated by `<Field>`, and already include a label, so you don't need either `<Field>` or `<Labeled>` when using them:
+Instead of HTML `input` elements or material-ui components, you can use vn-kooch-react-admin input components, like `<NumberInput>` for instance. vn-kooch-react-admin components are already decorated by `<Field>`, and already include a label, so you don't need either `<Field>` or `<Labeled>` when using them:
 
 ```jsx
 // in LatLongInput.js
-import { NumberInput } from 'react-admin';
+import { NumberInput } from 'vn-kooch-react-admin';
 const LatLngInput = () => (
     <span>
         <NumberInput source="lat" label="latitude" />
@@ -1427,12 +1427,12 @@ const ItemEdit = (props) => (
 
 Edition forms often contain linked inputs, e.g. country and city (the choices of the latter depending on the value of the former).
 
-React-admin relies on redux-form, so you can grab the current form values using redux-form [formValueSelector()](https://redux-form.com/7.3.0/docs/api/formvalueselector.md/). Alternatively, you can use the react-admin `<FormDataConsumer>` component, which grabs the form values, and passes them to a child function.
+vn-kooch-react-admin relies on redux-form, so you can grab the current form values using redux-form [formValueSelector()](https://redux-form.com/7.3.0/docs/api/formvalueselector.md/). Alternatively, you can use the vn-kooch-react-admin `<FormDataConsumer>` component, which grabs the form values, and passes them to a child function.
 
 This facilitates the implementation of linked inputs:
 
 ```jsx
-import { FormDataConsumer } from 'react-admin';
+import { FormDataConsumer } from 'vn-kooch-react-admin';
 
 const OrderEdit = (props) => (
     <Edit {...props}>
@@ -1464,7 +1464,7 @@ Here is an example usage for `dispatch`: A country input that resets a city inpu
 
 import React, { Fragment } from 'react'
 import { change } from 'redux-form'
-import { FormDataConsumer, REDUX_FORM_NAME } from 'react-admin';
+import { FormDataConsumer, REDUX_FORM_NAME } from 'vn-kooch-react-admin';
 
 const OrderEdit = (props) => (
     <Edit {...props}>
@@ -1496,7 +1496,7 @@ const OrderEdit = (props) => (
 And here is an example usage for `getSource` inside `<ArrayInput>`:
 
 ```jsx
-import { FormDataConsumer } from 'react-admin';
+import { FormDataConsumer } from 'vn-kooch-react-admin';
 
 const PostEdit = (props) => (
     <Edit {...props}>
@@ -1535,7 +1535,7 @@ You may want to display or hide inputs base on the value of another input - for 
 For such cases, you can use the approach described above, using the `<FormDataConsumer>` component.
 
 ```jsx
-import { FormDataConsumer } from 'react-admin';
+import { FormDataConsumer } from 'vn-kooch-react-admin';
 
  const PostEdit = (props) => (
      <Edit {...props}>

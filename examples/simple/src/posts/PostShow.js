@@ -1,4 +1,4 @@
-import { ShowController } from 'ra-core';
+import { ShowController } from 'vn-kooch-core';
 import React from 'react';
 import {
     ArrayField,
@@ -19,7 +19,7 @@ import {
     TabbedShowLayout,
     TextField,
     UrlField,
-} from 'react-admin'; // eslint-disable-line import/no-unresolved
+} from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import PostTitle from './PostTitle';

@@ -8,7 +8,7 @@ import {
     SimpleForm,
     required,
     minLength,
-} from 'react-admin'; // eslint-disable-line import/no-unresolved
+} from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 import PostReferenceInput from './PostReferenceInput';
 
 const defaultValue = { created_at: new Date() };

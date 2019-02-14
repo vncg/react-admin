@@ -1,9 +1,9 @@
 /* eslint react/jsx-key: off */
 import React from 'react';
-import { Admin, Resource } from 'react-admin'; // eslint-disable-line import/no-unresolved
+import { Admin, Resource } from 'vn-kooch-react-admin'; // eslint-disable-line import/no-unresolved
 import { render } from 'react-dom';
 import { Route } from 'react-router';
-import { reducer as tree } from 'ra-tree-ui-materialui';
+import { reducer as tree } from 'vn-kooch-tree-ui-materialui';
 
 import authProvider from './authProvider';
 import comments from './comments';
