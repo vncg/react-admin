@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-data-graphql",
-    "version": "2.7.2",
+    "version": "2.7.4",
     "description": "A GraphQL data provider for vn-kooch-react-admin",
     "main": "lib/index.js",
     "module": "esm/index.js",
