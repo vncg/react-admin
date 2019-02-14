@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-data-fakerest",
-    "version": "2.7.4",
+    "version": "2.7.5",
     "description": "JSON Server data provider for vn-kooch-react-admin",
     "main": "lib/index.js",
     "module": "esm/index.js",
