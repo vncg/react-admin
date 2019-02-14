@@ -30,7 +30,7 @@ export default {
             },
         },
         menu: {
-            sales: 'Sales',
+            sales: 'فروش',
             catalog: 'Catalog',
             customers: 'Customers',
         },

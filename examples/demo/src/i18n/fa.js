@@ -1,7 +1,7 @@
-import frenchMessages from 'vn-kooch-language-persian';
+import farsiMessages from 'vn-kooch-language-persian';
 
 export default {
-    ...frenchMessages,
+    ...farsiMessages,
     pos: {
         search: 'Rechercher',
         configuration: 'Configuration',
@@ -30,7 +30,7 @@ export default {
             },
         },
         menu: {
-            sales: 'Ventes',
+            sales: 'فروش',
             catalog: 'Catalogue',
             customers: 'Clients',
         },

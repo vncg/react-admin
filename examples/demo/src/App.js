@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Admin, Resource } from 'vn-kooch-react-admin';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 import './App.css';
 
@@ -9,7 +10,7 @@ import themeReducer from './themeReducer';
 import { Login, Layout, Menu } from './layout';
 import { Dashboard } from './dashboard';
 import customRoutes from './routes';
-import englishMessages from './i18n/en';
+import persianMessages from './i18n/fa';
 
 import visitors from './visitors';
 import orders from './orders';
@@ -22,13 +23,17 @@ import dataProviderFactory from './dataProvider';
 import fakeServerFactory from './fakeServer';
 
 const i18nProvider = locale => {
-    if (locale === 'fr') {
-        return import('./i18n/fr').then(messages => messages.default);
+    if (locale === 'en') {
+        return import('./i18n/en').then(messages => messages.default);
     }
 
     // Always fallback on english
-    return englishMessages;
+    return persianMessages;
 };
+
+const theme = createMuiTheme({
+    direction: 'rtl',
+  });
 
 class App extends Component {
     state = { dataProvider: null };
@@ -72,8 +77,9 @@ class App extends Component {
                 loginPage={Login}
                 appLayout={Layout}
                 menu={Menu}
-                locale="en"
+                locale="fa"
                 i18nProvider={i18nProvider}
+                theme={theme}
             >
                 <Resource name="customers" {...visitors} />
                 <Resource
