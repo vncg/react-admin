@@ -1,7 +1,7 @@
 import React, { Children, ReactElement, createContext, Component } from 'react';
 import Polyglot from 'node-polyglot';
 import { connect, MapStateToProps } from 'react-redux';
-import defaultMessages from 'ra-language-english';
+import defaultMessages from 'vn-kooch-language-english';
 import defaultsDeep from 'lodash/defaultsDeep';
 import { ReduxState } from '../types';
 import {
