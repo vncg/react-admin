@@ -34,7 +34,7 @@
         "vn-kooch-data-fakerest": "^2.0.0",
         "vn-kooch-input-rich-text": "^2.0.0",
         "vn-kooch-language-english": "^2.0.0",
-        "ra-language-french": "^2.0.0",
+        "vn-kooch-language-persian": "^2.0.0",
         "vn-kooch-tree-core": "^2.0.0",
         "vn-kooch-tree-language-english": "^2.0.0",
         "ra-tree-language-french": "^2.0.0",

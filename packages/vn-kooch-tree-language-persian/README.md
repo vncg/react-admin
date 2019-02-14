@@ -5,13 +5,13 @@ French messages for `ra-tree`, an addon providing tree components for [vn-kooch-
 ## Installation
 
 ```sh
-npm install --save ra-language-french ra-tree-language-french
+npm install --save vn-kooch-language-persian ra-tree-language-french
 ```
 
 ## Usage
 
 ```js
-import englishMessages from 'ra-language-french';
+import englishMessages from 'vn-kooch-language-persian';
 import treeFrenchMessages from 'ra-tree-language-french';
 import { mergeTranslations } from 'vn-kooch-react-admin';
 

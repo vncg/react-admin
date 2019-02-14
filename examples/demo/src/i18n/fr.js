@@ -1,4 +1,4 @@
-import frenchMessages from 'ra-language-french';
+import frenchMessages from 'vn-kooch-language-persian';
 
 export default {
     ...frenchMessages,

@@ -15,7 +15,7 @@ interface AllNavigatorLanguage extends NavigatorLanguage {
  *     import React from 'react';
  *     import { Admin, Resource, resolveBrowserLocale } from 'vn-kooch-react-admin';
  *     import englishMessages from 'vn-kooch-language-english';
- *     import frenchMessages from 'ra-language-french';
+ *     import frenchMessages from 'vn-kooch-language-persian';
  *     const messages = {
  *        fr: frenchMessages,
  *        en: englishMessages,

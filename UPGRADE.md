@@ -144,7 +144,7 @@ In admin-on-rest, localization messages were passed as an object literal in the 
 - import frMessages from 'aor-language-french';
 + import { Admin } from 'vn-kooch-react-admin';
 + import enMessages from 'vn-kooch-language-english';
-+ import frMessages from 'ra-language-french';
++ import frMessages from 'vn-kooch-language-persian';
 
 const messages = {
     en: enMessages,

@@ -7,13 +7,13 @@ French messages for [vn-kooch-react-admin](https://github.com/marmelab/vn-kooch-
 ## Installation
 
 ```sh
-npm install --save ra-language-french
+npm install --save vn-kooch-language-persian
 ```
 
 ## Usage
 
 ```js
-import frenchMessages from 'ra-language-french';
+import frenchMessages from 'vn-kooch-language-persian';
 
 const messages = {
     'fr': frenchMessages,

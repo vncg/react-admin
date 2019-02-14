@@ -9,7 +9,7 @@ The vn-kooch-react-admin interface uses English as the default language. But it 
 
 ## Changing Locale
 
-If you want to use another locale, you'll have to install a third-party package. For instance, to change the interface to French, you must install the `ra-language-french` npm package then instruct vn-kooch-react-admin to use it.
+If you want to use another locale, you'll have to install a third-party package. For instance, to change the interface to French, you must install the `vn-kooch-language-persian` npm package then instruct vn-kooch-react-admin to use it.
 
 The `<Admin>` component has an `i18nProvider` prop, which accepts a function with the following signature:
 
@@ -24,7 +24,7 @@ vn-kooch-react-admin calls the `i18nProvider` when it starts, passing the `local
 ```jsx
 import React from 'react';
 import { Admin, Resource } from 'vn-kooch-react-admin';
-import frenchMessages from 'ra-language-french';
+import frenchMessages from 'vn-kooch-language-persian';
 import englishMessages from 'vn-kooch-language-english';
 
 const messages = {
@@ -80,7 +80,7 @@ You can find translation packages for the following languages:
 - English (`en`): [marmelab/vn-kooch-language-english](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/vn-kooch-language-english)
 - Farsi (`fa`): [hamidfzm/ra-language-farsi](https://github.com/hamidfzm/ra-language-farsi)
 - Finnish (`fi`): [aikain/ra-language-finnish](https://github.com/aikain/ra-language-finnish)
-- French (`fr`): [marmelab/ra-language-french](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/ra-language-french)
+- French (`fr`): [marmelab/vn-kooch-language-persian](https://github.com/marmelab/vn-kooch-react-admin/tree/master/packages/vn-kooch-language-persian)
 - German (`de`): [greenbananaCH/ra-language-german](https://github.com/greenbananaCH/ra-language-german)
 - Hungarian (`hu`): [phelion/ra-language-hungarian](https://github.com/phelion/ra-language-hungarian)
 - Indonesian (`id`): [ronadi/ra-language-indonesian](https://github.com/ronadi/ra-language-indonesian)
@@ -119,7 +119,7 @@ If you want to offer the ability to change locale at runtime, you must provide t
 import React from 'react';
 import { Admin, Resource } from 'vn-kooch-react-admin';
 import englishMessages from 'vn-kooch-language-english';
-import frenchMessages from 'ra-language-french';
+import frenchMessages from 'vn-kooch-language-persian';
 
 const messages = {
     fr: frenchMessages,
@@ -171,7 +171,7 @@ vn-kooch-react-admin provides a helper function named `resolveBrowserLocale()`, 
 import React from 'react';
 import { Admin, Resource, resolveBrowserLocale } from 'vn-kooch-react-admin';
 import englishMessages from 'vn-kooch-language-english';
-import frenchMessages from 'ra-language-french';
+import frenchMessages from 'vn-kooch-language-persian';
 
 const messages = {
     fr: frenchMessages,
@@ -259,7 +259,7 @@ When translating an admin, interface messages (e.g. "List", "Page", etc.) usuall
 ```jsx
 // interface translations
 import englishMessages from 'vn-kooch-language-english';
-import frenchMessages from 'ra-language-french';
+import frenchMessages from 'vn-kooch-language-persian';
 
 // domain translations
 import * as domainMessages from './i18n';

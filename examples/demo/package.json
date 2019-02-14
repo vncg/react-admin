@@ -14,7 +14,7 @@
         "vn-kooch-data-simple-rest": "^2.0.0",
         "vn-kooch-input-rich-text": "^2.0.0",
         "vn-kooch-language-english": "^2.0.0",
-        "ra-language-french": "^2.0.0",
+        "vn-kooch-language-persian": "^2.0.0",
         "react": "~16.3.1",
         "vn-kooch-react-admin": "^2.0.0",
         "react-app-polyfill": "^0.1.3",

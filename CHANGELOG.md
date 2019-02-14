@@ -108,7 +108,7 @@
 * Fix custom fetch actions can't benefit from optimistic rendering ([#2684](https://github.com/marmelab/vn-kooch-react-admin/pull/2684)) ([djhi](https://github.com/djhi))
 * Fix outdated Codesandbox link ([#2682](https://github.com/marmelab/vn-kooch-react-admin/pull/2682)) ([Kmaschta](https://github.com/Kmaschta))
 * Fix missing `<Resource>` documentation without list prop / Menu ([#2679](https://github.com/marmelab/vn-kooch-react-admin/pull/2679)) ([Kmaschta](https://github.com/Kmaschta))
-* Fix outdated documentation on `ra-lanhuage-english` and `ra-language-french` ([#2674](https://github.com/marmelab/vn-kooch-react-admin/pull/2674)) ([sovattha](https://github.com/sovattha))
+* Fix outdated documentation on `ra-lanhuage-english` and `vn-kooch-language-persian` ([#2674](https://github.com/marmelab/vn-kooch-react-admin/pull/2674)) ([sovattha](https://github.com/sovattha))
 * Fix accessibility on `<FileInput>` delete button ([#2666](https://github.com/marmelab/vn-kooch-react-admin/pull/2666)) ([djhi](https://github.com/djhi))
 * Fix custom material-ui input documentation ([#2664](https://github.com/marmelab/vn-kooch-react-admin/pull/2664)) ([fzaninotto](https://github.com/fzaninotto))
 * Fix extra `<FormTab>`/`<Tab>` props are passed to two different components ([#2654](https://github.com/marmelab/vn-kooch-react-admin/pull/2654)) ([waynebloss](https://github.com/waynebloss))
@@ -351,7 +351,7 @@ Deprecations:
 * Add an Advanced Tutorials section to the documentation ([djhi](https://github.com/djhi))
 * Fix `handleSubmit` should not be overriden in `<Toolbar>` children ([djhi](https://github.com/djhi))
 * Fix `<ReferenceField>` does not respect its child's `className` ([fzaninotto](https://github.com/fzaninotto))
-* Fix typo on `ra-language-french` French translations ([Kmaschta](https://github.com/Kmaschta))
+* Fix typo on `vn-kooch-language-persian` French translations ([Kmaschta](https://github.com/Kmaschta))
 
 ## v2.2.2
 
