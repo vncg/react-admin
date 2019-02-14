@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-ui-materialui",
-    "version": "2.7.1",
+    "version": "2.7.2",
     "description": "UI Components for vn-kooch-react-admin with MaterialUI",
     "files": [
         "*.md",
@@ -50,7 +50,6 @@
         "material-ui-chip-input": "1.0.0-beta.6 - 1.0.0-beta.8",
         "papaparse": "^4.1.4",
         "prop-types": "~15.6.1",
-        "vn-kooch-core": "^2.7.1",
         "react-autosuggest": "^9.4.2",
         "react-dropzone": "~4.0.1",
         "react-headroom": "^2.2.4",
@@ -59,7 +58,8 @@
         "react-transition-group": "^2.2.1",
         "recompose": "~0.26.0",
         "redux": "~3.7.2",
-        "redux-form": "~7.4.0"
+        "redux-form": "~7.4.0",
+        "vn-kooch-core": "^2.7.2"
     },
     "publishConfig": {
         "registry": "http://localhost:4873"

@@ -1,6 +1,6 @@
 {
     "name": "ra-language-french",
-    "version": "2.7.1",
+    "version": "2.7.2",
     "description": "French messages for vn-kooch-react-admin, the frontend framework for building admin applications on top of REST/GraphQL services",
     "main": "index.js",
     "repository": {

@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-core",
-    "version": "2.7.1",
+    "version": "2.7.2",
     "description": "Core components of vn-kooch-react-admin, a frontend Framework for building admin applications on top of REST services, using ES6, React",
     "files": [
         "*.md",
@@ -52,7 +52,6 @@
         "node-polyglot": "^2.2.2",
         "prop-types": "~15.6.1",
         "query-string": "~5.1.1",
-        "vn-kooch-language-english": "^2.7.1",
         "react-redux": "~5.0.7",
         "react-router": "~4.2.0",
         "react-router-dom": "~4.2.2",
@@ -61,7 +60,8 @@
         "redux": "~3.7.2",
         "redux-form": "~7.4.0",
         "redux-saga": "~0.16.0",
-        "reselect": "~3.0.0"
+        "reselect": "~3.0.0",
+        "vn-kooch-language-english": "^2.7.2"
     },
     "publishConfig": {
         "registry": "http://localhost:4873"
