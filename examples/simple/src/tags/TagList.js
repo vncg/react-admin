@@ -15,7 +15,7 @@ import {
     NodeForm,
     Tree,
     NodeActions,
-} from 'vn-kooch-tree-ui-materialui';
+} from 'vn-kooch-tree-ui-antdui';
 
 const TagDragPreview = props => (
     <DragPreview {...props}>{({ node }) => node.record.name}</DragPreview>

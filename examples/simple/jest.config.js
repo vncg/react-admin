@@ -51,12 +51,12 @@ module.exports = {
             'vn-kooch-tree-core',
             'src'
         ),
-        'vn-kooch-tree-ui-materialui': path.join(
+        'vn-kooch-tree-ui-antdui': path.join(
             __dirname,
             '..',
             '..',
             'packages',
-            'vn-kooch-tree-ui-materialui',
+            'vn-kooch-tree-ui-antdui',
             'src'
         ),
         'vn-kooch-tree-language-english': path.join(

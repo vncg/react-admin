@@ -78,6 +78,10 @@ build-vn-kooch-tree-ui-materialui:
 	@echo "Transpiling vn-kooch-tree-ui-materialui files...";
 	@cd ./packages/vn-kooch-tree-ui-materialui && yarn -s build
 
+build-vn-kooch-tree-ui-antdui:
+	@echo "Transpiling vn-kooch-tree-ui-antdui files...";
+	@cd ./packages/vn-kooch-tree-ui-antdui && yarn -s build
+
 build-data-generator:
 	@echo "Transpiling data-generator files...";
 	@cd ./examples/data-generator && yarn -s build
