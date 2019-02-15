@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-realtime",
-    "version": "2.7.5",
+    "version": "2.7.6",
     "description": "A saga enabling realtime updates for vn-kooch-react-admin",
     "main": "lib/index.js",
     "module": "esm/index.js",
