@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-language-english",
-    "version": "2.7.6",
+    "version": "2.7.7",
     "description": "English messages for vn-kooch-react-admin, the frontend framework for building admin applications on top of REST/GraphQL services",
     "main": "index.js",
     "repository": {

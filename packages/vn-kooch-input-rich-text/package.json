@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-input-rich-text",
-    "version": "2.7.6",
+    "version": "2.7.7",
     "description": "<RichTextInput> component for vn-kooch-react-admin, useful for editing HTML code in admin GUIs.",
     "main": "lib/index.js",
     "module": "esm/index.js",

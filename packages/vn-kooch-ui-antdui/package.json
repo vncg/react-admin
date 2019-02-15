@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-ui-antdui",
-    "version": "2.7.6",
+    "version": "2.7.7",
     "description": "UI Components for vn-kooch-react-admin with MaterialUI",
     "files": [
         "*.md",
@@ -59,7 +59,7 @@
         "recompose": "~0.26.0",
         "redux": "~3.7.2",
         "redux-form": "~7.4.0",
-        "vn-kooch-core": "^2.7.6"
+        "vn-kooch-core": "^2.7.7"
     },
     "gitHead": "36fcb70cedf7ac1c67e525899c94b42aed774922"
 }

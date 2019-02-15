@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-tree-core",
-    "version": "2.7.6",
+    "version": "2.7.7",
     "description": "A treeview component without ui to use with vn-kooch-react-admin",
     "main": "lib/index.js",
     "module": "esm/index.js",

@@ -1,6 +1,6 @@
 {
     "name": "vn-kooch-data-graphql-simple",
-    "version": "2.7.6",
+    "version": "2.7.7",
     "description": "A GraphQL simple data provider for vn-kooch-react-admin",
     "main": "lib/index.js",
     "module": "esm/index.js",
@@ -36,7 +36,7 @@
         "graphql-tag": "^2.6.1",
         "lodash": "~4.17.5",
         "pluralize": "~7.0.0",
-        "vn-kooch-data-graphql": "^2.7.6"
+        "vn-kooch-data-graphql": "^2.7.7"
     },
     "peerDependencies": {
         "graphql": "^0.13.2",
