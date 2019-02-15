@@ -18,8 +18,5 @@
     "bugs": {
         "url": "https://github.com/marmelab/vn-kooch-react-admin/issues"
     },
-    "homepage": "https://github.com/marmelab/vn-kooch-react-admin#readme",
-    "publishConfig": {
-        "registry": "http://localhost:4873"
-    }
+    "homepage": "https://github.com/marmelab/vn-kooch-react-admin#readme"
 }
