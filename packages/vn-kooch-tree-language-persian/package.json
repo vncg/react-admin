@@ -18,5 +18,6 @@
     "bugs": {
         "url": "https://github.com/marmelab/vn-kooch-react-admin/issues"
     },
-    "homepage": "https://github.com/marmelab/vn-kooch-react-admin#readme"
+    "homepage": "https://github.com/marmelab/vn-kooch-react-admin#readme",
+    "gitHead": "36fcb70cedf7ac1c67e525899c94b42aed774922"
 }

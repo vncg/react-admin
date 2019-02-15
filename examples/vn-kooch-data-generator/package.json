@@ -1,5 +1,5 @@
 {
-    "name": "data-generator",
+    "name": "vn-kooch-data-generator",
     "version": "2.7.6",
     "main": "./lib/index.js",
     "scripts": {
@@ -15,5 +15,6 @@
     "devDependencies": {
         "cross-env": "^5.2.0",
         "rimraf": "^2.6.2"
-    }
+    },
+    "gitHead": "36fcb70cedf7ac1c67e525899c94b42aed774922"
 }
